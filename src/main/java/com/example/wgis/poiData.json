@@ -1,0 +1,769 @@
+{
+  "buildings": [
+    {
+      "Building": "middlesexCollege",
+      "floors": [
+        {
+          "imageFileName": "Middlesex College - Floor 1.png",
+          "pointsOfInterest": [
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1326,
+              "yCord": 1098,
+              "roomNum": "6",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 957,
+              "yCord": 1002,
+              "roomNum": "17",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Elevator A",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1976,
+              "yCord": 971,
+              "roomNum": "3B",
+              "description": "An Elevator",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Elevator C",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2779,
+              "yCord": 1353,
+              "roomNum": "TA.9",
+              "description": "An Elevator",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "EX.4",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 968,
+              "yCord": 769,
+              "roomNum": "TA.11",
+              "description": "An Elevator",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "EX.5",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1205,
+              "yCord": 694,
+              "roomNum": "ST.6",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.6",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1486,
+              "yCord": 517,
+              "roomNum": "19",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.7",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1804,
+              "yCord": 463,
+              "roomNum": "19",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.8",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2124,
+              "yCord": 521,
+              "roomNum": "19",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #1",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 243,
+              "yCord": 1532,
+              "roomNum": "ST.1",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #2",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 787,
+              "yCord": 1408,
+              "roomNum": "ST.2",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #3",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2159,
+              "yCord": 1009,
+              "roomNum": "ST.3",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #5",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3138,
+              "yCord": 1554,
+              "roomNum": "ST.5",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #6",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1068,
+              "yCord": 770,
+              "roomNum": "ST.6",
+              "description": "Goes down twice",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Men Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1464,
+              "yCord": 1070,
+              "roomNum": "5",
+              "description": "The mans washroom, two sub rooms 5A and 5B",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Men Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2842,
+              "yCord": 1417,
+              "roomNum": "28E",
+              "description": "The mans washroom, two sub rooms 5A and 5B",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Unisex Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1487,
+              "yCord": 928,
+              "roomNum": "4C",
+              "description": "Male Washroom",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Women Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1546,
+              "yCord": 1023,
+              "roomNum": "4B",
+              "description": "Women Washroom",
+              "layerType": "Washroom"
+            }
+          ]
+        },
+        {
+          "imageFileName": "Middlesex College - Floor 2.png",
+          "pointsOfInterest": [
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 440,
+              "yCord": 1298,
+              "roomNum": "105B",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 601,
+              "yCord": 1457,
+              "roomNum": "105",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1812,
+              "yCord": 684,
+              "roomNum": "110",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "ElEV A",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1978,
+              "yCord": 971,
+              "roomNum": "TA.106",
+              "description": "",
+              "layerType": ""
+            },
+            {
+              "name": "ELEV C",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2779,
+              "yCord": 1353,
+              "roomNum": "TA.109",
+              "description": "",
+              "layerType": ""
+            },
+            {
+              "name": "EX.1",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1806,
+              "yCord": 1303,
+              "roomNum": "ST.1",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.2",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 848,
+              "yCord": 1506,
+              "roomNum": "ST.2",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.3",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 237,
+              "yCord": 1542,
+              "roomNum": "19",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.9",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3209,
+              "yCord": 1595,
+              "roomNum": "ST.5",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.10",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2722,
+              "yCord": 1441,
+              "roomNum": "TA.111",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.11",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2236,
+              "yCord": 1159,
+              "roomNum": "ST.5",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.12",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1985,
+              "yCord": 1241,
+              "roomNum": "TA.112",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #1",
+              "visibility": true,
+              "builtInPOI": true,
+              "favourite": false,
+              "xCord": 269,
+              "yCord": 1520,
+              "roomNum": "ST.1",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #2",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 742,
+              "yCord": 1322,
+              "roomNum": "ST.2",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #3",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2168,
+              "yCord": 1006,
+              "roomNum": "ST.3",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #5",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3183,
+              "yCord": 1576,
+              "roomNum": "ST.5",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Men Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1484,
+              "yCord": 980,
+              "roomNum": "100",
+              "description": "The Women Washroom",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Women Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2886,
+              "yCord": 1416,
+              "roomNum": "139",
+              "description": "The Women Washroom",
+              "layerType": "Washroom"
+            }
+          ]
+        },
+        {
+          "imageFileName": "Middlesex College - Floor 3.png",
+          "pointsOfInterest": [
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1807,
+              "yCord": 861,
+              "roomNum": "204",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "MC 230",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 327,
+              "yCord": 1277,
+              "roomNum": "230",
+              "description": "24 Capacity, The workstations include Intel Core i5 processor; 16 GB RAM; SSD. The software included is Windows 10, Microsoft office 2016, Adobe CS 6, Audacity and Kompozer",
+              "layerType": "Lab"
+            },
+            {
+              "name": "MC 235",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 493,
+              "yCord": 1199,
+              "roomNum": "235",
+              "description": "24 Capacity, The workstations include Intel Core i5 processor; 16 GB RAM; SSD. The software included is Windows 10, Microsoft office 2016, Adobe CS 6, Audacity and Kompozer",
+              "layerType": "Lab"
+            },
+            {
+              "name": "MC 240",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 952,
+              "yCord": 992,
+              "roomNum": "240",
+              "description": "27 Capacity, The workstations include Intel Core i5 processor; 8 GB RAM; HDD. The software included is Windows 10, Microsoft office 2016, Adobe CS 6, Audacity and Kompozer",
+              "layerType": "Lab"
+            },
+            {
+              "name": "MC 245",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1226,
+              "yCord": 904,
+              "roomNum": "245",
+              "description": "30 Capacity, 28 general-purpose workstations with Intel Core i5; 16 GB RAM; SSD and 2 GPU workstations with Intel Core i7; 16 GB RAM; SSD, NVIDIA GeForce GTX 1060",
+              "layerType": "Lab"
+            },
+            {
+              "name": "MC 220",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 673,
+              "yCord": 1412,
+              "roomNum": "220",
+              "description": "Capacity: 8, has conference table with 8 seats and a whiteboard",
+              "layerType": "CollaborationSpace"
+            },
+            {
+              "name": "MC 239",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 697,
+              "yCord": 1225,
+              "roomNum": "239",
+              "description": "Capacity: 4, has conference table with 4 seats and a whiteboard",
+              "layerType": "CollaborationSpace"
+            },
+            {
+              "name": "Elevator A",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1976,
+              "yCord": 965,
+              "roomNum": "Ta.208",
+              "description": "An Elevator",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Elevator C",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2777,
+              "yCord": 1350,
+              "roomNum": "Ta.210",
+              "description": "An Elevator",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Stairway #1",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 293,
+              "yCord": 1506,
+              "roomNum": "ST.1",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #2",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 766,
+              "yCord": 1378,
+              "roomNum": "ST.2",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #3",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2089,
+              "yCord": 1128,
+              "roomNum": "ST.3",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #5",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3135,
+              "yCord": 1554,
+              "roomNum": "ST.5",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Women Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1493,
+              "yCord": 1079,
+              "roomNum": "205",
+              "description": "The Women Washroom",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Male Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2849,
+              "yCord": 1429,
+              "roomNum": "278",
+              "description": "A Washroom",
+              "layerType": "Washroom"
+            }
+          ]
+        },
+        {
+          "imageFileName": "Middlesex College - Floor 4.png",
+          "pointsOfInterest": [
+            {
+              "name": "MC 300",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1796,
+              "yCord": 1155,
+              "roomNum": "300",
+              "description": "Capacity 16, Seminar Room, Reconfigurable Tables, Motorized projection screen, Mobile whiteboard, A projector may be borrowed from the CS main office if required",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "MC 316",
+              "visibility": true,
+              "builtInPOI": true,
+              "favourite": false,
+              "xCord": 1122,
+              "yCord": 1209,
+              "roomNum": "316",
+              "description": "Capacity 30, Has PC(Windows), Projector, VGA/HDMI connectivity, AUdio speakers, motorized projection screen and whiteboards",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "MC 320",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 945,
+              "yCord": 1323,
+              "roomNum": "320",
+              "description": "Capacity 40, Has PC(windows, Projector, VGA / HDMI connectivity, Audio Speakers, Motorized projection screen, and whiteboards",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "MC 342",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1344,
+              "yCord": 792,
+              "roomNum": 342,
+              "description": "20 Capacity, 16 Windows 10 PCs (Intel Core i5, 16 GB RAM; SSD), 2 Mac Minis (macOS Monterey 12.6, Intel Core i7; 16 GB RAM; SSD) 1 loT Station (HDMI connectivity to monitor, USB keyboard/mouse, USB and power outlets to power devices, Network switch), 7 eGPU units with NVIDEO GTX3090 Graphics cards",
+              "layerType": "Lab"
+            },
+            {
+              "name": "Collaborative Space MC 325",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 623,
+              "yCord": 1490,
+              "roomNum": "325",
+              "description": "Capacity 30, Has 3 x collaboratiion pods with 6 seats each, 3 x 50 NEC TVs, Multi-HDMI connectivity, Power connectivity, RFID room access",
+              "layerType": "CollaborationSpace"
+            },
+            {
+              "name": "Elevator A",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1979,
+              "yCord": 966,
+              "roomNum": "Ta.306",
+              "description": "An Elevator",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Elevator C",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2784,
+              "yCord": 1348,
+              "roomNum": "Ta.309",
+              "description": "An Elevator",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Stairway #1",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 260,
+              "yCord": 1528,
+              "roomNum": "ST.1",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #2",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 795,
+              "yCord": 1418,
+              "roomNum": "ST.2",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #3",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2161,
+              "yCord": 1008,
+              "roomNum": "ST.3",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #5",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3148,
+              "yCord": 1565,
+              "roomNum": "ST.5",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Women Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2234,
+              "yCord": 1053,
+              "roomNum": "388",
+              "description": "The Womens Washroom",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Male Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1494,
+              "yCord": 1026,
+              "roomNum": "311",
+              "description": "A Washroom, require further ",
+              "layerType": "Washroom"
+            }
+          ]
+        },
+        {
+          "imageFileName": "Middlesex College - Floor 4.png",
+          "pointsOfInterest": [
+            {
+              "name": "Elevator C",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2779,
+              "yCord": 1348,
+              "roomNum": "Ta.401",
+              "description": "An Elevator",
+              "layerType": "ELevator"
+            },
+            {
+              "name": "Stairway #3",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2105,
+              "yCord": 1107,
+              "roomNum": "ST.3",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #5",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3122,
+              "yCord": 1552,
+              "roomNum": "ST.5",
+              "description": "",
+              "layerType": "Navigation"
+            }
+          ]
+        }
+      ]
+    }]}

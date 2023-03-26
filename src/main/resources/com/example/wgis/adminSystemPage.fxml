@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="805.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Text layoutX="20.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAPS">
+            <font>
+                <Font name="Heiti TC Light" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="20.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LAYERS">
+            <font>
+                <Font name="Heiti TC Light" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="20.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POINTS OF INTEREST">
+            <font>
+                <Font name="Heiti TC Light" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="20.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FAVOURITES">
+            <font>
+                <Font name="Heiti TC Light" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="20.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FLOOR">
+            <font>
+                <Font name="Heiti TC Light" size="10.0" />
+            </font>
+        </Text>
+        <ComboBox layoutX="20.0" layoutY="170.0" minHeight="14.0" prefHeight="5.0" prefWidth="145.0" />
+        <ComboBox layoutX="21.0" layoutY="134.0" minHeight="14.0" prefHeight="5.0" prefWidth="145.0" />
+        <ComboBox layoutX="20.0" layoutY="100.0" minHeight="14.0" prefHeight="5.0" prefWidth="145.0" />
+        <ComboBox layoutX="20.0" layoutY="66.0" minHeight="14.0" prefHeight="5.0" prefWidth="145.0" />
+        <ComboBox layoutX="20.0" layoutY="32.0" minHeight="14.0" prefHeight="5.0" prefWidth="145.0" />
+        <Text layoutX="54.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="London Weather">
+            <font>
+                <Font name="Heiti TC Medium" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="28.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Temperature:">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Text fx:id="curTempVal" layoutX="28.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Text layoutX="28.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Low:">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Text layoutX="27.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feels Like:">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Text fx:id="feelsTempVal" layoutX="27.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Text layoutX="130.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="High:">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Text fx:id="precipStatus" layoutX="59.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precipitation Status">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Text fx:id="precipDesc" layoutX="51.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precipitation Description">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Text fx:id="lowTempVal" layoutX="50.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Text fx:id="highTempVal" layoutX="155.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Text>
+        <Line endX="55.42063903808594" layoutX="117.0" layoutY="197.0" startX="-100.0" />
+        <Line endX="55.42063903808594" layoutX="118.0" layoutY="341.0" startX="-100.0" />
+        <Button fx:id="favButton" layoutX="16.0" layoutY="346.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="79.0" text="ADD BUILDING">
+            <font>
+                <Font name="Heiti TC Light" size="7.0" />
+            </font>
+        </Button>
+      <Button fx:id="favButton1" layoutX="97.0" layoutY="346.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="79.0" text="ADD POI">
+         <font>
+            <Font name="Heiti TC Light" size="7.0" />
+         </font>
+      </Button>
+      <Button fx:id="favButton2" layoutX="16.0" layoutY="361.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="79.0" text="ADD TO FAVOURITES">
+         <font>
+            <Font name="Heiti TC Light" size="7.0" />
+         </font>
+      </Button>
+      <Button fx:id="favButton11" layoutX="97.0" layoutY="361.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="79.0" text="EDIT POI">
+         <font>
+            <Font name="Heiti TC Light" size="7.0" />
+         </font>
+      </Button>
+      <Button fx:id="favButton3" layoutX="16.0" layoutY="376.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="79.0" text="REMOVE BUILDING">
+         <font>
+            <Font name="Heiti TC Light" size="7.0" />
+         </font>
+      </Button>
+      <Button fx:id="favButton12" layoutX="97.0" layoutY="376.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="79.0" text="REMOVE POI">
+         <font>
+            <Font name="Heiti TC Light" size="7.0" />
+         </font>
+      </Button>
+      <Button fx:id="favButton4" layoutX="16.0" layoutY="391.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="79.0" text="ADD FLOOR">
+         <font>
+            <Font name="Heiti TC Light" size="7.0" />
+         </font>
+      </Button>
+      <Button fx:id="favButton13" layoutX="97.0" layoutY="391.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="79.0" text="REMOVE FLOOR">
+         <font>
+            <Font name="Heiti TC Light" size="7.0" />
+         </font>
+      </Button>
+      <Button fx:id="favButton131" layoutX="65.0" layoutY="406.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="62.0" text="HELP">
+         <font>
+            <Font name="Heiti TC Light" size="7.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="774.0" fitWidth="1200.0" layoutX="180.0" layoutY="21.0">
+         <image>
+            <Image url="@../../../../java/mapImages/Middlesex%20College%20-%20Floor%201.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
