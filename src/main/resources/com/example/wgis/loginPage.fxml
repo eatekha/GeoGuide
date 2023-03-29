@@ -3,24 +3,26 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="322.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wgis.loginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="625.0" style="-fx-background-color: bca0dc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wgis.loginController">
     <children>
         <Text layoutX="22.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USERNAME">
             <font>
                 <Font name="Heiti TC Light" size="14.0" />
             </font>
         </Text>
-        <Text layoutX="120.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOG IN">
+        <Text layoutX="76.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOG IN" textAlignment="CENTER">
             <font>
-                <Font name="Heiti TC Light" size="23.0" />
+                <Font name="Baskerville Old Face" size="52.0" />
             </font>
         </Text>
-        <Button fx:id="loginButton" layoutX="232.0" layoutY="278.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="LOG IN" onAction="#handleLoginButtonAction">
+        <Button fx:id="loginButton" contentDisplay="TOP" layoutX="232.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" style="-fx-background-color: #3c1361;" text="LOG IN" textFill="WHITE">
             <font>
                 <Font name="Heiti TC Medium" size="13.0" />
             </font>
@@ -32,5 +34,13 @@
         </Text>
         <PasswordField fx:id="passwordField" layoutX="113.0" layoutY="200.0" prefHeight="25.0" prefWidth="184.0" />
         <TextField fx:id="usernameField" layoutX="113.0" layoutY="161.0" prefHeight="14.0" prefWidth="184.0" />
+      <ImageView fx:id="myImage" fitHeight="427.0" fitWidth="628.0" layoutX="356.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/LoginImage/Campus.jpg" />
+         </image>
+      </ImageView>
     </children>
+   <effect>
+      <Glow />
+   </effect>
 </AnchorPane>

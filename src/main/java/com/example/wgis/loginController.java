@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -17,9 +19,16 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
 
 public class loginController {
+    @FXML
+    private ImageView myImage;
+
 
     @FXML
     private TextField usernameField;
@@ -29,7 +38,8 @@ public class loginController {
 
     private Stage loginStage;
 
-    public void setLoginStage(Stage loginStage) {
+    public void setLoginStage(Stage loginStage) throws FileNotFoundException {
+      myImage.setImage(new Image(new FileInputStream("src/main/java/LoginImage/Campus.jpg")));
         this.loginStage = loginStage;
     }
 
