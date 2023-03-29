@@ -766,5 +766,706 @@
           ]
         }
       ]
+    },
+    {
+      "Building": "alumniHall",
+      "floors": [
+        {
+          "imageFileName": "Alumni Hall - Floor 1.png",
+          "pointsOfInterest": [
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 776,
+              "yCord": 702,
+              "roomNum": "24",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 780,
+              "yCord": 865,
+              "roomNum": "23",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 777,
+              "yCord": 1018,
+              "roomNum": "22",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 777,
+              "yCord": 1172,
+              "roomNum": "21",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 777,
+              "yCord": 1330,
+              "roomNum": "20",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 777,
+              "yCord": 1485,
+              "roomNum": "19",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1052,
+              "yCord": 860,
+              "roomNum": "18",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1680,
+              "yCord": 694,
+              "roomNum": "17",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1758,
+              "yCord": 1150,
+              "roomNum": "16",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1452,
+              "yCord": 1441,
+              "roomNum": "15A",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1846,
+              "yCord": 1398,
+              "roomNum": "14",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1584,
+              "yCord": 1554,
+              "roomNum": "11",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Elevator A",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1305,
+              "yCord": 523,
+              "roomNum": "TA. 22",
+              "description": "An Elevator",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Stairway #1",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1743,
+              "yCord": 1848,
+              "roomNum": "ST.1",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #2",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1725,
+              "yCord": 348,
+              "roomNum": "ST.2",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #3",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 886,
+              "yCord": 594,
+              "roomNum": "ST.3",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #4",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 908,
+              "yCord": 1615,
+              "roomNum": "ST.4",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Men Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1808,
+              "yCord": 1555,
+              "roomNum": "12",
+              "description": "Men's Washroom",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Women Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1832,
+              "yCord": 1465,
+              "roomNum": "13",
+              "description": "Women Washroom",
+              "layerType": "Washroom"
+            }
+          ]
+        },
+        {
+          "imageFileName": "Alumni Hall - Floor 2.png",
+          "pointsOfInterest": [
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1838,
+              "yCord": 1452,
+              "roomNum": "100",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1760,
+              "yCord": 1676,
+              "roomNum": "101",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1766,
+              "yCord": 621,
+              "roomNum": "110",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1833,
+              "yCord": 854,
+              "roomNum": "111",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1905,
+              "yCord": 842,
+              "roomNum": "112",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1636,
+              "yCord": 914,
+              "roomNum": "106",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1649,
+              "yCord": 1095,
+              "roomNum": "105",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1637,
+              "yCord": 1285,
+              "roomNum": "104",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Mech Room",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1209,
+              "yCord": 1596,
+              "roomNum": "113",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1017,
+              "yCord": 1612,
+              "roomNum": "114",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1035,
+              "yCord": 1402,
+              "roomNum": "115",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1002,
+              "yCord": 586,
+              "roomNum": "117",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1838,
+              "yCord": 1452,
+              "roomNum": "119",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Elevator A",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1302,
+              "yCord": 528,
+              "roomNum": "",
+              "description": "Elevator A",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "EX.1 (Exit)",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1967,
+              "yCord": 1099,
+              "roomNum": "TA. 101",
+              "description": "Main Entrance and Exit",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.2 (Exit)",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1735,
+              "yCord": 1904,
+              "roomNum": "ST.1",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.9 (Exit)",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1637,
+              "yCord": 356,
+              "roomNum": "ST.2",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #1",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1743,
+              "yCord": 1848,
+              "roomNum": "ST.1",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #2",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1725,
+              "yCord": 348,
+              "roomNum": "ST.2",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #3",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 886,
+              "yCord": 594,
+              "roomNum": "ST.3",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #4",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 908,
+              "yCord": 1615,
+              "roomNum": "ST.4",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Men Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1554,
+              "yCord": 699,
+              "roomNum": "108",
+              "description": "The Men's Washroom",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Women Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1565,
+              "yCord": 1465,
+              "roomNum": "102",
+              "description": "The Women's Washroom",
+              "layerType": "Washroom"
+            },{
+              "name": "Disabled Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1620,
+              "yCord": 1502,
+              "roomNum": "103",
+              "description": "The Disable Washroom",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Disabled Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1607,
+              "yCord": 664,
+              "roomNum": "109",
+              "description": "The Disable Washroom",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Main Entrance Room",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1862,
+              "yCord": 1105,
+              "roomNum": "TA. 101",
+              "description": "",
+              "layerType": "CollaborationSpace"
+            }
+          ]
+        },
+        {
+          "imageFileName": "Alumni Hall - Floor 3.png",
+          "pointsOfInterest": [
+            {
+              "name": "Room",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1498,
+              "yCord": 1638,
+              "roomNum": "202",
+              "description": " ",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Room",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 996,
+              "yCord": 1536,
+              "roomNum": "203",
+              "description": " ",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Room",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 996,
+              "yCord": 624,
+              "roomNum": "204",
+              "description": " ",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Room",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1477,
+              "yCord": 535,
+              "roomNum": "205",
+              "description": " ",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Bleachers",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1800,
+              "yCord": 1082,
+              "roomNum": "200",
+              "description": "The stands where an audience can sit",
+              "layerType": "CollaborationSpace"
+            },
+            {
+              "name": "Alumni Hall Floor",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1235,
+              "yCord": 1082,
+              "roomNum": "201",
+              "description": "Can either be used as a seating area or a sports court.",
+              "layerType": "CollaborationSpace"
+            },
+            {
+              "name": "Stage",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 841,
+              "yCord": 1082,
+              "roomNum": "206",
+              "description": "Alumni Hall Stage",
+              "layerType": "CollaborationSpace"
+            },
+            {
+              "name": "Back Stage",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 662,
+              "yCord": 1082,
+              "roomNum": "207",
+              "description": "Alumni Hall Back Stage",
+              "layerType": "CollaborationSpace"
+            },
+            {
+              "name": "Elevator A",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1979,
+              "yCord": 966,
+              "roomNum": "Ta.204",
+              "description": "An Elevator",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Stairway #1",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1743,
+              "yCord": 1848,
+              "roomNum": "ST.1",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #2",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1786,
+              "yCord": 348,
+              "roomNum": "ST.2",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #3",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 886,
+              "yCord": 594,
+              "roomNum": "ST.3",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #4",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 908,
+              "yCord": 1615,
+              "roomNum": "ST.4",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Stairway #5",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1743,
+              "yCord": 406,
+              "roomNum": "ST.5",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.6 (Exit)",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1032,
+              "yCord": 517,
+              "roomNum": "TA. 207",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.7 (Exit)",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1201,
+              "yCord": 492,
+              "roomNum": "TA. 203",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "EX.8 (Exit)",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1254,
+              "yCord": 458,
+              "roomNum": "TA. 204",
+              "description": "",
+              "layerType": "Navigation"
+            }
+          ]
+        }
+      ]
     }
   ]}

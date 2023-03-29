@@ -68,7 +68,7 @@ public class mainSystemController {
     private Button addBuilding;
     private String mapPath = "src/main/java/mapImages";
     private int currentFloorNum;
-    public Account user;
+//    public Account user;
 
     public JSONArray buildingFile;
     public JSONObject currentBuild;
@@ -118,7 +118,7 @@ public class mainSystemController {
         poiDrop.setOnAction(poiDropHandler);
         favDrop.setOnAction(favDropHandler);
 
-        String imageName = searchHelperClass.findImage(mapsDrop.getValue().toString(), 0);
+        String imageName = searchHelp.findImage(mapsDrop.getValue().toString(), 0);
         this.currentBuild = searchHelp.getBuildObject(mapsDrop.getValue().toString());
         JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
         this.currFloor = (JSONObject) tmpArray.get(0);
@@ -638,7 +638,7 @@ public class mainSystemController {
 //                System.out.println(username);
 //                System.out.println(adminPermissions);
 
-                this.editTool = new EditingTool(buildingFile, username, adminPermissions);
+                this.editTool = new editingToolsController(buildingFile, username, adminPermissions);
                 this.userFile = (JSONArray) jsonParser.parse(accountReader);
                 for (int n = 0; n < userFile.size(); n++){
                     JSONObject tmpObj = (JSONObject) userFile.get(n);
