@@ -23,12 +23,12 @@ public class addBuildingController implements Initializable {
      * The button the user presses to submit the name of the building
      */
     @FXML
-    public Button button_login;
+    public Button submitButton;
     /**
      * The button the user presses to cancel
      */
     @FXML
-    public Button button_login1;
+    public Button loginButton;
     public static String bname;
     /**
      * Handles the action of the user pressing the submit button
@@ -37,7 +37,7 @@ public class addBuildingController implements Initializable {
      */
     private void submit(ActionEvent event) {
         bname = building.getText();
-        Stage stage = (Stage)button_login.getScene().getWindow();
+        Stage stage = (Stage)submitButton.getScene().getWindow();
         stage.close();
     }
 
@@ -47,12 +47,12 @@ public class addBuildingController implements Initializable {
      * @param event
      */
     private void cancel(ActionEvent event){
-        Stage stage = (Stage)button_login1.getScene().getWindow();
+        Stage stage = (Stage)loginButton.getScene().getWindow();
         stage.close();
     }
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        button_login.setOnAction(this::submit);
-        button_login1.setOnAction(this::cancel);
+        submitButton.setOnAction(this::submit);
+        loginButton.setOnAction(this::cancel);
     }
 }

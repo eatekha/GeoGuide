@@ -9,9 +9,9 @@ import java.io.IOException;
 public class editPOIPage extends Application{
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(editPOIPage.class.getResource("EditPOI.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 550, 400);
-        stage.setTitle("WesternNav");
+        FXMLLoader fxmlLoader = new FXMLLoader(editPOIPage.class.getResource("editPOIPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 322, 391);
+        stage.setTitle("Edit POI");
         stage.setScene(scene);
         stage.show();
     }

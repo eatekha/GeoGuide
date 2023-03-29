@@ -9,9 +9,9 @@ import java.io.IOException;
 public class addFloorPage extends Application{
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(addFloorPage.class.getResource("ADDFLOOR.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 550, 400);
-        stage.setTitle("WesternNav");
+        FXMLLoader fxmlLoader = new FXMLLoader(addFloorPage.class.getResource("addFloorPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 322, 391);
+        stage.setTitle("Add Floor");
         stage.setScene(scene);
         stage.show();
     }

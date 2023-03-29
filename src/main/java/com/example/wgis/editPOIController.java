@@ -23,9 +23,9 @@ public class editPOIController implements Initializable {
     @FXML
     public TextField y;
     @FXML
-    public Button button_login;
+    public Button submitButton;
     @FXML
-    public Button button_login1;
+    public Button loginButton;
     public static String pname;
     public static String pdesc;
     public static String proom;
@@ -36,19 +36,19 @@ public class editPOIController implements Initializable {
         pdesc = desc.getText();
         proom = roomNum.getText();
         player = layerType.getText();
-        Stage stage = (Stage)button_login.getScene().getWindow();
+        Stage stage = (Stage)submitButton.getScene().getWindow();
         stage.close();
     }
 
     private void cancel(ActionEvent event){
-        Stage stage = (Stage)button_login1.getScene().getWindow();
+        Stage stage = (Stage)loginButton.getScene().getWindow();
         stage.close();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        button_login.setOnAction(this::submit);
-        button_login1.setOnAction(this::cancel);
+        submitButton.setOnAction(this::submit);
+        loginButton.setOnAction(this::cancel);
     }
 
 
