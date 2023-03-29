@@ -179,7 +179,7 @@ public class mainSystemController {
         JSONArray layerList = searchHelp.findAllLayerType(currFloor, layerType);
         try {
             for(int n = 0; n < layerList.size(); n++) {
-                ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/CS2212/group21/icons/" + layerType + ".png")));
+                ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/labelIcons" + layerType + ".png")));
                 imgView.setPreserveRatio(true);
                 imgView.setFitWidth(30);
                 imgView.setX(((searchHelp.getCord("X", (JSONObject) layerList.get(n))/3400.0) * mapViewSizeX) + mapViewOffsetX - 15.0);
@@ -210,7 +210,7 @@ public class mainSystemController {
             currPOI = (JSONObject) currPOIList.get(indexVal);
             String layerType = currPOI.get("layerType").toString();
             try {
-                ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/CS2212/group21/icons/" + layerType + ".png")));
+                ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/labelIcons" + layerType + ".png")));
                 imgView.setPreserveRatio(true);
                 imgView.setFitWidth(30);
                 imgView.setX(((searchHelp.getCord("X", (JSONObject) currPOI) / 3400.0) * mapViewSizeX) + mapViewOffsetX - 15.0);
