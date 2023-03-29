@@ -41,7 +41,7 @@ public class editingToolsController {
 
     protected JSONArray accounts;
     final String adminName = "Admin";
-    public EditingTool(JSONArray buildings, String username, Boolean admin){
+    public editingToolsController(JSONArray buildings, String username, Boolean admin){
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("src/main/java/CS2212/group21/accounts.json")){
             this.accounts = (JSONArray) jsonParser.parse(reader);

@@ -24,10 +24,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static CS2212.group21.AddBuildingController.bname;
-import static CS2212.group21.AddPOIController.newpdesc;
-import static CS2212.group21.AddPOIController.newpname;
-import static CS2212.group21.EditPOIController.*;
+import static com.example.wgis.addBuildingController.bname;
+import static com.example.wgis.addPOIController.newpdesc;
+import static com.example.wgis.addPOIController.newpname;
+import static com.example.wgis.editPOIController.*;
 
 public class mainSystemController {
     private static List<ImageView> imageIcons = new ArrayList<>();
@@ -77,8 +77,8 @@ public class mainSystemController {
     public JSONObject currPOI;
     public JSONArray userFile;
     public JSONObject userObject;
-    public SearchHelper searchHelp;
-    public EditingTool editTool;
+    public searchHelperClass searchHelp;
+    public editingToolsController editTool;
     public static String username;
     public static Boolean adminPermissions;
 
@@ -118,7 +118,7 @@ public class mainSystemController {
         poiDrop.setOnAction(poiDropHandler);
         favDrop.setOnAction(favDropHandler);
 
-        String imageName = searchHelp.findImage(mapsDrop.getValue().toString(), 0);
+        String imageName = searchHelperClass.findImage(mapsDrop.getValue().toString(), 0);
         this.currentBuild = searchHelp.getBuildObject(mapsDrop.getValue().toString());
         JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
         this.currFloor = (JSONObject) tmpArray.get(0);
@@ -300,43 +300,43 @@ public class mainSystemController {
         }
     }
 
+//    @FXML
+//    protected void onLogout() throws IOException
+//    {
+//        try {
+//            // close the stage
+//            Stage stage = (Stage) adminPane.getScene().getWindow();
+//            stage.close();
+//
+//            FXMLLoader fxmlLoader = new FXMLLoader(LoginGUI.class.getResource("login.fxml"));
+//            Scene scene = new Scene(fxmlLoader.load(), 1200, 600);
+//
+//            Stage newLogin = new Stage();
+//            newLogin.setTitle("WesternNav");
+//            newLogin.setScene(scene);
+//            newLogin.show();
+//        }
+//        catch (Exception e) {
+//            PrintOutError(e);
+//        }
+//    }
+
     @FXML
-    protected void onLogout() throws IOException
-    {
-        try {
-            // close the stage
-            Stage stage = (Stage) adminPane.getScene().getWindow();
-            stage.close();
-
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginGUI.class.getResource("login.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1200, 600);
-
-            Stage newLogin = new Stage();
-            newLogin.setTitle("WesternNav");
-            newLogin.setScene(scene);
-            newLogin.show();
-        }
-        catch (Exception e) {
-            PrintOutError(e);
-        }
-    }
-
-    @FXML
-    protected void onOpenHelp()
-    {
-        try {
-            popup = new Stage();
-//            Parent root = FXMLLoader.load(getClass().getResource("HelpMainPopup.fxml"));
-            Parent root = new FXMLLoader(MainMaps.class.getResource("HelpMainPopup.fxml")).load();
-            Scene scene = new Scene(root, 625, 500);
-            popup.setTitle("Help");
-            popup.setScene(scene);
-            popup.show();
-        }
-        catch (Exception e){
-            PrintOutError(e);
-        }
-    }
+//    protected void onOpenHelp()
+//    {
+//        try {
+//            popup = new Stage();
+////            Parent root = FXMLLoader.load(getClass().getResource("HelpMainPopup.fxml"));
+//            Parent root = new FXMLLoader(MainMap.class.getResource("helpGuidePage.fxml")).load();
+//            Scene scene = new Scene(root, 625, 500);
+//            popup.setTitle("Help");
+//            popup.setScene(scene);
+//            popup.show();
+//        }
+//        catch (Exception e){
+//            PrintOutError(e);
+//        }
+//    }
     protected void combineJSON(){
         JSONArray userPOIs = (JSONArray) userObject.get("userPOIs");
         JSONArray favList = (JSONArray) userObject.get("favourites");
@@ -389,10 +389,10 @@ public class mainSystemController {
     @FXML
     protected void addBuilding(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddBuilding.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBuildingPage.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 550, 400);
             Stage stage = new Stage();
-            stage.setTitle("WesternNav");
+            stage.setTitle("Add Building");
             stage.setScene(scene);
             stage.showAndWait();
         } catch (IOException e) {
@@ -410,10 +410,10 @@ public class mainSystemController {
     @FXML
     protected void editBuilding(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditBuilding.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editBuildingPage.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 550, 400);
             Stage stage = new Stage();
-            stage.setTitle("WesternNav");
+            stage.setTitle("Edit Building");
             stage.setScene(scene);
             stage.showAndWait();
         } catch (IOException e) {
@@ -491,10 +491,10 @@ public class mainSystemController {
 
     private void editPOIPopout(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditPOI.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editPOIPage.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 550, 400);
             Stage stage = new Stage();
-            stage.setTitle("WesternNav");
+            stage.setTitle("Edit POI");
             stage.setScene(scene);
             stage.showAndWait();
         } catch (IOException e) {
@@ -625,15 +625,15 @@ public class mainSystemController {
         //adminPermissions =  false;
         this.currentFloorNum = 0;
         JSONParser jsonParser = new JSONParser();
-        try (FileReader reader = new FileReader("src/main/java/CS2212/group21/backUpBuiltInPOI.json")) {
+        try (FileReader reader = new FileReader("src/main/java/com/example/wgis/poiData.json")) {
             try (FileReader accountReader = new FileReader("src/main/java/CS2212/group21/accounts.json")) {
                 JSONObject currentBuilding = (JSONObject) jsonParser.parse(reader);
-                searchHelp = new SearchHelper((JSONArray) currentBuilding.get("buildings"), adminPermissions);
+                searchHelp = new searchHelperClass((JSONArray) currentBuilding.get("buildings"), adminPermissions);
                 this.buildingFile = (JSONArray) currentBuilding.get("buildings");
                 this.currentBuild = (JSONObject) buildingFile.get(0);
                 JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
                 this.currFloor = (JSONObject) tmpArray.get(currentFloorNum);
-                SearchHelper search = new SearchHelper(buildingFile, adminPermissions);
+                searchHelperClass search = new searchHelperClass(buildingFile, adminPermissions);
 //                System.out.println(buildingFile);
 //                System.out.println(username);
 //                System.out.println(adminPermissions);
@@ -737,10 +737,10 @@ public class mainSystemController {
         // newpdesc = new POI desc from user
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ADDPOI.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addPOIPage.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 550, 400);
             Stage stage = new Stage();
-            stage.setTitle("WesternNav");
+            stage.setTitle("Add POI");
             stage.setScene(scene);
             stage.showAndWait();
         } catch (IOException e) {
