@@ -66,7 +66,7 @@ public class mainSystemController {
     private Label precipDesc;
     @FXML
     private Button addBuilding;
-    private String mapPath = "src/main/java/mapImages";
+    private String mapPath = "src/main/java/mapImages/";
     private int currentFloorNum;
 //    public Account user;
 
@@ -445,7 +445,7 @@ public class mainSystemController {
 
     @FXML
     protected void addPOI(){
-        alertUser();
+//        alertUser();
         canAddPOIIcon = true;
         JSONObject tmpObj;
         if(adminPermissions){
@@ -470,24 +470,24 @@ public class mainSystemController {
         if(emptyPOI()){
             return;
         }else {
-            alertUser();
+//            alertUser();
             canPlaceDownIcon = true;
         }
 
     }
 
-    private void alertUser(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Alert.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 300);
-            Stage stage = new Stage();
-            stage.setTitle("WesternNav");
-            stage.setScene(scene);
-            stage.showAndWait();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    private void alertUser(){
+//        try {
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Alert.fxml"));
+//            Scene scene = new Scene(fxmlLoader.load(), 600, 300);
+//            Stage stage = new Stage();
+//            stage.setTitle("WesternNav");
+//            stage.setScene(scene);
+//            stage.showAndWait();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     private void editPOIPopout(){
         try {
@@ -560,7 +560,7 @@ public class mainSystemController {
     @FXML
     protected void addFloor(){
         // Add the new floor to the builtInPOI.json but for now all data goes to backUpBuiltInPOI.json
-        editTool.addFloor(currentBuild, "DefaultFile.png");
+        editTool.addFloor(currentBuild, "defaultLabel.png");
         // Add the new floor to the combo box
         floorsDrop.getItems().add(floorsDrop.getItems().size() + 1);
         // TODO: Complex. Specify floor number.
@@ -614,13 +614,13 @@ public class mainSystemController {
         layerDropHandler = layersDrop.getOnAction();
         floorsDrop.setValue("1");
         // Track location to know where to graphically change location of POI when editing
-        mapView.setOnMouseClicked(e -> {
-            try {
-                GetMouseDown(e);
-            } catch (FileNotFoundException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
+//        mapView.setOnMouseClicked(e -> {
+//            try {
+//                GetMouseDown(e);
+//            } catch (FileNotFoundException ex) {
+//                throw new RuntimeException(ex);
+//            }
+//        });
 
         //adminPermissions =  false;
         this.currentFloorNum = 0;
@@ -691,7 +691,7 @@ public class mainSystemController {
         precipStatus.setText(Weather.GetPrecipitationStatus() + " °C");
         precipDesc.setText(Weather.GetPrecipitationDescription() + " °C");
 
-        String pp = "Middlesex_College-1.png";
+        String pp = "Middlesex College - Floor 1.png";
         mapView.setImage(new Image(new FileInputStream(mapPath + pp)));
 
     }
@@ -706,7 +706,7 @@ public class mainSystemController {
         }
 
         try {
-            ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/CS2212/group21/icons/Placeholder.png")));
+            ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/labelIcons/placeholderLabel.png")));
             imgView.setPreserveRatio(true);
             imgView.setX(e.getX() + mapViewOffsetX - 15);
             imgView.setY(e.getY() + mapViewOffsetY - 15);

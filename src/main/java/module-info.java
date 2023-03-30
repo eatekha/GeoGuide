@@ -6,7 +6,7 @@ module com.example.wgis {
 //<<<<<<< Updated upstream
     requires json.simple;
 //=======
-//    requires org.json;
+    requires org.json;
 //>>>>>>> Stashed changes
 
 
