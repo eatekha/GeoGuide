@@ -1,8 +1,12 @@
 package com.example.wgis;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,15 +25,17 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import static com.example.wgis.addBuildingController.bname;
 import static com.example.wgis.addPOIController.newpdesc;
 import static com.example.wgis.addPOIController.newpname;
 import static com.example.wgis.editPOIController.*;
 
-public class mainSystemController {
+public class mainSystemController implements Initializable {
     private static List<ImageView> imageIcons = new ArrayList<>();
 
     @FXML
@@ -758,5 +764,14 @@ public class mainSystemController {
 
     private void PrintOutError(Exception e){
         System.out.println("Error occurred: " + e);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ArrayList<String>maps=new ArrayList<>();
+        maps.add("Alumni Hall");
+        ObservableList<String> strlist= FXCollections.observableArrayList(maps);
+        mapsDrop.getItems().addAll(strlist);
+
     }
 }
