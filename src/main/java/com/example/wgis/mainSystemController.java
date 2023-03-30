@@ -1,8 +1,12 @@
 package com.example.wgis;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,8 +25,10 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import static com.example.wgis.addBuildingController.bname;
 import static com.example.wgis.addPOIController.newpdesc;
@@ -106,7 +112,7 @@ public class mainSystemController {
     @FXML
     protected void onMapsAction()
     {
-        removeAllIcons();   // Clear the board
+        // Clear the board
 
         layersDrop.setOnAction(null);
         poiDrop.setOnAction(null);
@@ -608,6 +614,10 @@ public class mainSystemController {
 
     @FXML
     public void initialize() throws FileNotFoundException {
+        ArrayList<String>maps = new ArrayList<>();
+        maps.add("Alumni");
+        ObservableList strlist = FXCollections.observableArrayList(maps);
+        mapsDrop.getItems().addAll(strlist);
         floorsDropHandler = floorsDrop.getOnAction();
         poiDropHandler = poiDrop.getOnAction();
         favDropHandler = favDrop.getOnAction();
@@ -759,4 +769,5 @@ public class mainSystemController {
     private void PrintOutError(Exception e){
         System.out.println("Error occurred: " + e);
     }
+
 }
