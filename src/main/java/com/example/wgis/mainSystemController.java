@@ -43,7 +43,7 @@ public class mainSystemController {
     @FXML
     private ImageView mapView;
     @FXML
-    private ComboBox mapsDrop;
+    private ComboBox<String> mapsDrop;
     @FXML
     private ComboBox layersDrop;
     @FXML
@@ -108,75 +108,36 @@ public class mainSystemController {
     ImageView placedDownIcon;
 
     // When selecting new map from dropdown
-
     @FXML
-    protected void onMapsAction()
-    {
-        // Clear the board
-
-        layersDrop.setOnAction(null);
-        poiDrop.setOnAction(null);
-        favDrop.setOnAction(null);
-        layersDrop.setValue("");
-        poiDrop.setValue("");
-        favDrop.setValue("");
-        layersDrop.setOnAction(floorsDropHandler);
-        poiDrop.setOnAction(poiDropHandler);
-        favDrop.setOnAction(favDropHandler);
-
-        String imageName = searchHelp.findImage(mapsDrop.getValue().toString(), 0);
-        this.currentBuild = searchHelp.getBuildObject(mapsDrop.getValue().toString());
-        JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
-        this.currFloor = (JSONObject) tmpArray.get(0);
+    private void GotoMap(ActionEvent event){
         try {
-            mapView.setImage(new Image(new FileInputStream(mapPath + imageName)));
-            if (floorsDrop.getItems().size() < tmpArray.size()){
-                // Add missing floors from dropdown when switching maps
-                for (int n = floorsDrop.getItems().size() + 1; n <= tmpArray.size(); n++){
-                    floorsDrop.getItems().add(n);
-                }
-            } else if (floorsDrop.getItems().size() > tmpArray.size()){
-                // Remove excess floors from dropdown when switching maps
-                for (int n = floorsDrop.getItems().size(); n > tmpArray.size(); n--){
-                    floorsDrop.getItems().remove(n - 1);
-                }
-            }
-
-            int val = poiDrop.getItems().size();
-            for (int n = 0; n < val;n++){
-                poiDrop.getItems().remove(0);
-            }
-            JSONObject tmpObj = (JSONObject) tmpArray.get(0);
-            currPOIList = (JSONArray) tmpObj.get("pointsOfInterest");
-            for (int n = 0; n < currPOIList.size(); n++){
-                tmpObj = (JSONObject) currPOIList.get(n);
-                if((Boolean) tmpObj.get("builtInPOI")) {
-                    poiDrop.getItems().add(tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
-                } else {
-                    poiDrop.getItems().add("(User)" + tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
-
-                }
-            }
-
-            floorsDrop.setOnAction(null);
-            floorsDrop.setValue("1"); // Reset selected floor to 1 when switching maps
-            floorsDrop.setOnAction(floorsDropHandler);
-            onLayersAction();
-        } catch (FileNotFoundException e){
-            PrintOutError(e);
+            mapsDrop.getItems();
+            String pp = mapsDrop.getValue()+" - Floor 1.png";
+            mapView.setImage(new Image(new FileInputStream(mapPath + pp)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
     @FXML
-    protected void onLayersAction()
+    protected void onMapsAction()
     {
-        removeAllIcons();
+        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    String pp = mapsDrop.getValue()+" - Floor 1.png";
 
-        poiDrop.setOnAction(null);
-        favDrop.setOnAction(null);
-        poiDrop.setValue("");
-        favDrop.setValue("");
-        poiDrop.setOnAction(poiDropHandler);
-        favDrop.setOnAction(favDropHandler);
+                    mapView.setImage(new Image(new FileInputStream(mapPath + pp)));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        mapsDrop.setOnAction(event);
+    }
+    @FXML
+    protected void onLayersAction(){
 
         String layerType = "Default";
         if (layersDrop.getValue() != null){
@@ -615,9 +576,8 @@ public class mainSystemController {
     @FXML
     public void initialize() throws FileNotFoundException {
         ArrayList<String>maps = new ArrayList<>();
-        maps.add("Alumni");
-        ObservableList strlist = FXCollections.observableArrayList(maps);
-        mapsDrop.getItems().addAll(strlist);
+        mapsDrop.getItems().addAll("Alumni Hall","Middlesex College","University College");
+        mapsDrop.setValue("Choose a building");
         floorsDropHandler = floorsDrop.getOnAction();
         poiDropHandler = poiDrop.getOnAction();
         favDropHandler = favDrop.getOnAction();
@@ -698,10 +658,10 @@ public class mainSystemController {
         feelsTempVal.setText(Weather.GetTempFeelsLike() + " °C");
         lowTempVal.setText(Weather.GetTempMin() + " °C");
         highTempVal.setText(Weather.GetTempMax() + " °C");
-        precipStatus.setText(Weather.GetPrecipitationStatus() + " °C");
-        precipDesc.setText(Weather.GetPrecipitationDescription() + " °C");
+        precipStatus.setText(Weather.GetPrecipitationStatus());
+        precipDesc.setText(Weather.GetPrecipitationDescription());
 
-        String pp = "Middlesex College - Floor 1.png";
+        String pp = "UWO_Campus_Map.png";
         mapView.setImage(new Image(new FileInputStream(mapPath + pp)));
 
     }
