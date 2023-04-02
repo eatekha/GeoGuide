@@ -1,15 +1,11 @@
-module com.example.wgis {
+module com.example.wesgeosys {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.xml;
-    requires java.net.http;
-//<<<<<<< Updated upstream
     requires json.simple;
-//=======
     requires org.json;
-//>>>>>>> Stashed changes
+    requires java.net.http;
 
 
-    opens com.example.wgis to javafx.fxml;
-    exports com.example.wgis;
+    opens com.example.wesgeosys to javafx.fxml;
+    exports com.example.wesgeosys;
 }
