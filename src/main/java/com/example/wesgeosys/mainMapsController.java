@@ -87,8 +87,8 @@ public class mainMapsController {
 
     double mapViewOffsetX = 36;
     double mapViewOffsetY = 212;
-    double mapViewSizeX = 1172;
-    double mapViewSizeY = 760;
+    double mapViewSizeX = 1398; // prefHeight="805.0" prefWidth="1398.0"
+    double mapViewSizeY = 805;
     double coordY;
     double coordX;
 

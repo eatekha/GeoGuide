@@ -69,7 +69,7 @@
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="favButton131" layoutX="63.0" layoutY="407.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="13.0" prefWidth="62.0" text="HELP">
+      <Button layoutX="63.0" layoutY="407.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#onOpenHelp" prefHeight="13.0" prefWidth="62.0" text="HELP">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
