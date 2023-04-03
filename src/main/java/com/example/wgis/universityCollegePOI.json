@@ -2533,9 +2533,775 @@
               "description": "",
               "layerType": "Classroom"
             }
+          ]
+        },
+        {
+          "imageFileName": "University College - Floor 4.png",
+          "pointsOfInterest": [
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 846,
+              "yCord": 965,
+              "roomNum": "4123",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 846,
+              "yCord": 1149,
+              "roomNum": "4122",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 846,
+              "yCord": 1333,
+              "roomNum": "4121",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 846,
+              "yCord": 1491,
+              "roomNum": "4120",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 846,
+              "yCord": 1607,
+              "roomNum": "4119",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 846,
+              "yCord": 1809,
+              "roomNum": "4118",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Stairway E",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 846,
+              "yCord": 1985,
+              "roomNum": "ST.E",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1296,
+              "yCord": 987,
+              "roomNum": "4125",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1296,
+              "yCord": 1169,
+              "roomNum": "4126",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1296,
+              "yCord": 1331,
+              "roomNum": "4127",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1296,
+              "yCord": 1485,
+              "roomNum": "4128",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1190,
+              "yCord": 1651,
+              "roomNum": "4129",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Elevator A",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1272,
+              "yCord": 1795,
+              "roomNum": "EL.A",
+              "description": "",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 800,
+              "yCord": 2111,
+              "roomNum": "4117",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 800,
+              "yCord": 2255,
+              "roomNum": "4116",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 800,
+              "yCord": 2559,
+              "roomNum": "4115",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Barrier-Free Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1442,
+              "yCord": 1826,
+              "roomNum": "4131",
+              "description": "",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 1600,
+              "yCord": 1720,
+              "roomNum": "4132",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2044,
+              "yCord": 1782,
+              "roomNum": "4135",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Stairway A",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2424,
+              "yCord": 1575,
+              "roomNum": "ST.A",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2720,
+              "yCord": 1739,
+              "roomNum": "4137",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Mechanical Room",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3247,
+              "yCord": 1713,
+              "roomNum": "4201",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2081,
+              "yCord": 2370,
+              "roomNum": "4110",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 800,
+              "yCord": 2111,
+              "roomNum": "4117",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2357,
+              "yCord": 2262,
+              "roomNum": "4100",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2421,
+              "yCord": 2688,
+              "roomNum": "4100A",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Stairway F",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2415,
+              "yCord": 2692,
+              "roomNum": "ST.F",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 2357,
+              "yCord": 2262,
+              "roomNum": "4100",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3537,
+              "yCord": 511,
+              "roomNum": "4305",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3741,
+              "yCord": 445,
+              "roomNum": "4306",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3911,
+              "yCord": 445,
+              "roomNum": "4307",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4037,
+              "yCord": 445,
+              "roomNum": "4308",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4239,
+              "yCord": 445,
+              "roomNum": "4309",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Stairway D",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4469,
+              "yCord": 405,
+              "roomNum": "ST.D",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4501,
+              "yCord": 539,
+              "roomNum": "4311",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4485,
+              "yCord": 735,
+              "roomNum": "4312",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4287,
+              "yCord": 735,
+              "roomNum": "4313",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4179,
+              "yCord": 735,
+              "roomNum": "4314",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Men's Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4033,
+              "yCord": 721,
+              "roomNum": "4315",
+              "description": "",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Women's Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3893,
+              "yCord": 717,
+              "roomNum": "4316",
+              "description": "",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Elevator C",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3501,
+              "yCord": 763,
+              "roomNum": "EL.C",
+              "description": "",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Mechanical Room",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 3907,
+              "yCord": 1327,
+              "roomNum": "4320",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Mechanical Room",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4242,
+              "yCord": 2131,
+              "roomNum": "4435",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Elevator B",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4444,
+              "yCord": 2211,
+              "roomNum": "EL.B",
+              "description": "",
+              "layerType": "Elevator"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4239,
+              "yCord": 445,
+              "roomNum": "4309",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Women's Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4158,
+              "yCord": 1731,
+              "roomNum": "4442",
+              "description": "",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Men's Washroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4408,
+              "yCord": 1707,
+              "roomNum": "4438",
+              "description": "",
+              "layerType": "Washroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4342,
+              "yCord": 1811,
+              "roomNum": "4440",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Stairway B",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4574,
+              "yCord": 1687,
+              "roomNum": "ST.B",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4910,
+              "yCord": 1965,
+              "roomNum": "4401",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5226,
+              "yCord": 1967,
+              "roomNum": "4410",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5382,
+              "yCord": 1967,
+              "roomNum": "4411",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5538,
+              "yCord": 1967,
+              "roomNum": "4412",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5850,
+              "yCord": 1967,
+              "roomNum": "4413",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 6006,
+              "yCord": 1967,
+              "roomNum": "4414",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 6162,
+              "yCord": 1967,
+              "roomNum": "4415",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Stairway C",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 6118,
+              "yCord": 2171,
+              "roomNum": "ST.C",
+              "description": "",
+              "layerType": "Navigation"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 6134,
+              "yCord": 2327,
+              "roomNum": "4420",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5808,
+              "yCord": 2337,
+              "roomNum": "4426",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5682,
+              "yCord": 2309,
+              "roomNum": "4427",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5546,
+              "yCord": 2309,
+              "roomNum": "4428",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5400,
+              "yCord": 2309,
+              "roomNum": "4429",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5272,
+              "yCord": 2309,
+              "roomNum": "4430",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 5118,
+              "yCord": 2309,
+              "roomNum": "4431",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4972,
+              "yCord": 2309,
+              "roomNum": "4432",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4856,
+              "yCord": 2309,
+              "roomNum": "4433",
+              "description": "",
+              "layerType": "Classroom"
+            },
+            {
+              "name": "Classroom",
+              "visibility": true,
+              "favourite": false,
+              "builtInPOI": true,
+              "xCord": 4694,
+              "yCord": 2309,
+              "roomNum": "4434",
+              "description": "",
+              "layerType": "Classroom"
+            }
+
+
+
 
           ]
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
