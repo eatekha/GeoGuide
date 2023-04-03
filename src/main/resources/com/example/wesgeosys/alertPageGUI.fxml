@@ -6,9 +6,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.wesgeosys.popupController"
             prefHeight="400.0" prefWidth="600.0">
-
+    <children>
+        <Label alignment="CENTER" layoutX="87.0" layoutY="40.0" prefHeight="64.0" prefWidth="427.0"
+               text="Click on the map to select the location of the POI" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0"/>
+            </font>
+        </Label>
+        <Button id="closePopup" fx:id="closePopup" layoutX="250.0" layoutY="120.0" mnemonicParsing="false"
+                onAction="#ClosePopup" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #697596;"
+                text="CLOSE" textFill="WHITE">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Button>
+    </children>
 </AnchorPane>

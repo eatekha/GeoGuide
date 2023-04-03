@@ -476,7 +476,7 @@ public class mainMapsController {
 
     private void alertUser(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Alert.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("alertPageGUI.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 300);
             Stage stage = new Stage();
             stage.setTitle("WesternNav");
