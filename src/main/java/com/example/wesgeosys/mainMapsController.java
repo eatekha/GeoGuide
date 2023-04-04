@@ -85,8 +85,8 @@ public class mainMapsController {
     EventHandler<ActionEvent> favDropHandler;
     EventHandler<ActionEvent> layerDropHandler;
 
-    double mapViewOffsetX = 36;
-    double mapViewOffsetY = 212;
+    double mapViewOffsetX = 140;
+    double mapViewOffsetY = 10;
     double mapViewSizeX = 1398; // prefHeight="805.0" prefWidth="1398.0"
     double mapViewSizeY = 805;
     double coordY;
