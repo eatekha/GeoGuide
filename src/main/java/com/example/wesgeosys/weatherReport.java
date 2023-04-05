@@ -10,124 +10,44 @@ import org.json.JSONObject;
 
 
 public class weatherReport {
-    // region Attributes
 
-    /**
-     * Default error value
-     */
+
     static private final String error = "NA";
-
-    /**
-     * Latitude for London, Ontario
-     */
     static private final String lat = "42.9849";
-
-    /**
-     * Longitude for London, Ontario
-     */
     static private final String lon = "-81.2453";
-
-    /**
-     * Current temperature (in C°)
-     */
     static private String tempCurrent = error;
-
-    /**
-     * Lowest temperature recorded today (in C°)
-     */
     static private String tempMin = error;
-
-    /**
-     * Highest temperature recorded today (in C°)
-     */
     static private String tempMax = error;
-
-    /**
-     * Current "feels like" temperature (in C°)
-     */
     static private String tempFeelsLike = error;
-
-    /**
-     * Current humidity (as a %)
-     */
     static private String humidity = error;
-
-    /**
-     * Precipitation status
-     */
     static private String precipitationStatus = error;
-
-    /**
-     * Precipitation description
-     */
     static private String precipitationDescription = error;
-
-    /**
-     * Current weather data formatted as a JSONObject
-     */
     static private JSONObject jsonData = null;
-
-    // endregion
-
-    // region Getters
-
-    /**
-     * @return Current temperature (in C°)
-     */
     public static String GetTempCurrent() {
         return tempCurrent;
     }
-
-    /**
-     * @return Lowest recorded temperature today (in C°)
-     */
     public static String GetTempMin() {
         return tempMin;
     }
-
-    /**
-     * @return Highest recorded temperature today (in C°)
-     */
     public static String GetTempMax() {
         return tempMax;
     }
-
-    /**
-     * @return Current "feels like" temperature today (in C°)
-     */
     public static String GetTempFeelsLike() {
         return tempFeelsLike;
     }
-
-    /**
-     * @return Humidity today (as a %)
-     */
     public static String GetHumidity() {
         return humidity;
     }
-
-    /**
-     * @return Precipitation status
-     */
     public static String GetPrecipitationStatus() {
         return precipitationStatus;
     }
-
-    /**
-     * @return Precipitation description
-     */
     public static String GetPrecipitationDescription() {
         return precipitationDescription;
     }
 
-    // endregion
 
-    // region Setters
 
-    /**
-     * Sets current weather data as a JSON string in London Ontario through HTTPRequest.
-     * Fetches from OpenWeather API.
-     */
+
     private static void SetCurrentWeatherData(){
         try {
             String apiKey = "6ae73b11767febcd9a4c5b850246e0f1";
@@ -145,12 +65,10 @@ public class weatherReport {
         }
     }
 
-    /**
-     *  Sets precipitation status and description
-     */
+
     private static void SetPrecipitation() {
         try {
-            JSONArray weatherArray = jsonData.getJSONArray("weather");  // Weather data is stored in array of size 1 for some reason
+            JSONArray weatherArray = jsonData.getJSONArray("weather");
             JSONObject inner = weatherArray.getJSONObject(0);
             var precipitationStatus = inner.getString("main");
             var precipitationDescription = inner.getString("description");
@@ -164,9 +82,7 @@ public class weatherReport {
         }
     }
 
-    /**
-     * Set current temperature (in C°)
-     */
+
     private static void SetTemperature(){
         try {
             var main = jsonData.getJSONObject("main");
@@ -179,9 +95,7 @@ public class weatherReport {
         }
     }
 
-    /**
-     * Sets minimum recorded temperature for the day (in C°)
-     */
+
     private static void SetTemperatureMin(){
         try {
             var main = jsonData.getJSONObject("main");
@@ -194,9 +108,7 @@ public class weatherReport {
         }
     }
 
-    /**
-     * Sets max recorded temperature for the day (in C°)
-     */
+
     private static void SetTemperatureMax(){
         try {
             var main = jsonData.getJSONObject("main");
@@ -209,9 +121,6 @@ public class weatherReport {
         }
     }
 
-    /**
-     * Sets "feels like" temperature (in C°)
-     */
     private static void SetFeelsLikeTemperature(){
         try {
             var innerJSONData = jsonData.getJSONObject("main");
@@ -224,9 +133,7 @@ public class weatherReport {
         }
     }
 
-    /**
-     * Sets humidity (as a %)
-     */
+
     private static void SetHumidity() {
         try {
             var innerJSONData = jsonData.getJSONObject("main");
@@ -239,20 +146,13 @@ public class weatherReport {
         }
     }
 
-    // endregion
 
-    /**
-     * Prints a well formatted error message.
-     * @param e Exception that is thrown
-     */
     private static void PrintError(Exception e) {
         System.out.println("Did not succeed");
         System.out.println("Error: " + e);
     }
 
-    /**
-     * Sets all weather data beginning with an HTTP request
-     */
+
     public static void SetAllWeatherData() {
         SetCurrentWeatherData();
         SetTemperature();
@@ -263,20 +163,6 @@ public class weatherReport {
         SetPrecipitation();
     }
 
-    // TODO: Delete later. For testing only.
-    private static void TestPrintAllWeather() {
-        SetAllWeatherData();
-        System.out.println("Current temperature: " + GetTempCurrent());
-        System.out.println("Max temperature: " + GetTempMax());
-        System.out.println("Min temperature: " + GetTempMin());
-        System.out.println("Feels like temperature: " + GetTempFeelsLike());
-        System.out.println("Humidity: " + GetHumidity());
-        System.out.println("Precipitation status: " + GetPrecipitationStatus());
-        System.out.println("Precipitation description: " + GetPrecipitationDescription());
-    }
-
-    // TODO: Delete later. For testing only.
     public static void main(String[] args) {
-        TestPrintAllWeather();
     }
 }

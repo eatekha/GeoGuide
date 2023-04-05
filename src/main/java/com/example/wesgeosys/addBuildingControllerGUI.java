@@ -8,12 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class addBuildingControllerGUI extends Application {
-    /**
-     * Initializes and shows the stage for adding a new building, using the AddBuilding.fxml file
-     *
-     * @param stage the stage to show the add building popout on
-     * @throws IOException if there is an error reading the FXML file
-     */
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(addBuildingControllerGUI.class.getResource("addBuildingGUI.fxml"));

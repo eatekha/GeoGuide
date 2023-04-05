@@ -8,11 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class logControllerGUI extends Application {
-    /**
-     * Creates the stage using the login.fxml file
-     * @param stage
-     * @throws IOException
-     */
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(logControllerGUI.class.getResource("logGUI.fxml"));

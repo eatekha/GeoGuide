@@ -19,7 +19,7 @@
                 <Font name="Heiti TC Light" size="30.0" />
             </font>
         </Text>
-        <Button fx:id="button_login" contentDisplay="TOP" layoutX="232.0" layoutY="278.0" mnemonicParsing="false" text="LOG IN">
+        <Button fx:id="loginButton" contentDisplay="TOP" layoutX="232.0" layoutY="278.0" mnemonicParsing="false" text="LOG IN">
             <font>
                 <Font name="Heiti TC Medium" size="13.0" />
             </font>
@@ -29,13 +29,13 @@
                 <Font name="Heiti TC Light" size="14.0" />
             </font>
         </Text>
-        <TextField fx:id="tf_username" layoutX="113.0" layoutY="161.0" prefHeight="14.0" prefWidth="184.0" />
-      <Button fx:id="button_sign_up" layoutX="19.0" layoutY="275.0" mnemonicParsing="false" text="SIGN UP">
+        <TextField fx:id="usernameField" layoutX="113.0" layoutY="161.0" prefHeight="14.0" prefWidth="184.0" />
+      <Button fx:id="signupButton" layoutX="19.0" layoutY="275.0" mnemonicParsing="false" text="SIGN UP">
          <font>
             <Font name="Heiti TC Medium" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="tf_password" layoutX="113.0" layoutY="199.0" prefHeight="14.0" prefWidth="184.0" />
+      <TextField fx:id="passwordField" layoutX="113.0" layoutY="199.0" prefHeight="14.0" prefWidth="184.0" />
       <Text fill="RED" layoutX="41.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*INVALID USERNAME OR PASSWORD">
          <font>
             <Font name="Heiti TC Light" size="14.0" />

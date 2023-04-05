@@ -22,16 +22,8 @@ import java.io.IOException;
 public class mainMapLaunch extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-//        FXMLLoader root = new FXMLLoader(MainMaps.class.getResource("MainMaps.fxml"));
         FXMLLoader root = new FXMLLoader(mainMapLaunch.class.getResource("admMapsGUI.fxml"));
-//        Scene scene = new Scene(root.load());
-
-
         Scene scene = new Scene(root.load());
-//
-//        String css = this.getClass().getResource("MainMaps.css").toExternalForm();
-//        scene.getStylesheets().add(css);
-
         stage.setTitle("User Map View");
         stage.setScene(scene);
         stage.setMaximized(true);

@@ -29,13 +29,13 @@
                 <Font name="Heiti TC Light" size="14.0" />
             </font>
         </Text>
-        <TextField fx:id="tf_username" layoutX="113.0" layoutY="161.0" prefHeight="14.0" prefWidth="184.0" />
+        <TextField fx:id="usernameField" layoutX="113.0" layoutY="161.0" prefHeight="14.0" prefWidth="184.0" />
       <Button fx:id="button_signup" layoutX="230.0" layoutY="254.0" mnemonicParsing="false" text="SIGN UP">
          <font>
             <Font name="Heiti TC Medium" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="tf_password" layoutX="113.0" layoutY="199.0" prefHeight="14.0" prefWidth="184.0" />
+      <TextField fx:id="passwordField" layoutX="113.0" layoutY="199.0" prefHeight="14.0" prefWidth="184.0" />
       <Text fill="RED" layoutX="92.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*USERNAME IS TAKEN">
          <font>
             <Font name="Heiti TC Light" size="14.0" />

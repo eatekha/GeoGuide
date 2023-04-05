@@ -4,7 +4,7 @@
       "Building": "Middlesex College",
       "floors": [
         {
-          "imageFileName": "MiddleSex_College-1.png",
+          "imageFileName": "Middlesex College - Floor 1.png",
           "pointsOfInterest": [
             {
               "name": "Classroom",
@@ -36,7 +36,7 @@
               "xCord": 1976,
               "yCord": 971,
               "roomNum": "3B",
-              "description": "An Elevator",
+              "description": "",
               "layerType": "Elevator"
             },
             {
@@ -47,7 +47,7 @@
               "xCord": 2779,
               "yCord": 1353,
               "roomNum": "TA.9",
-              "description": "An Elevator",
+              "description": "",
               "layerType": "Elevator"
             },
             {
@@ -58,7 +58,7 @@
               "xCord": 968,
               "yCord": 769,
               "roomNum": "TA.11",
-              "description": "An Elevator",
+              "description": "",
               "layerType": "Elevator"
             },
             {
@@ -157,7 +157,7 @@
               "xCord": 1068,
               "yCord": 770,
               "roomNum": "ST.6",
-              "description": "Goes down twice",
+              "description": "",
               "layerType": "Navigation"
             },
             {
@@ -168,7 +168,7 @@
               "xCord": 1464,
               "yCord": 1070,
               "roomNum": "5",
-              "description": "The mans washroom, two sub rooms 5A and 5B",
+              "description": "",
               "layerType": "Washroom"
             },
             {
@@ -179,7 +179,7 @@
               "xCord": 2842,
               "yCord": 1417,
               "roomNum": "28E",
-              "description": "The mans washroom, two sub rooms 5A and 5B",
+              "description": "",
               "layerType": "Washroom"
             },
             {
@@ -190,7 +190,7 @@
               "xCord": 1487,
               "yCord": 928,
               "roomNum": "4C",
-              "description": "Male Washroom",
+              "description": "",
               "layerType": "Washroom"
             },
             {
@@ -201,13 +201,13 @@
               "xCord": 1546,
               "yCord": 1023,
               "roomNum": "4B",
-              "description": "Women Washroom",
+              "description": "",
               "layerType": "Washroom"
             }
           ]
         },
         {
-          "imageFileName": "MiddleSex_College-2.png",
+          "imageFileName": "Middlesex College - Floor 2.png",
           "pointsOfInterest": [
             {
               "name": "Classroom",
@@ -393,7 +393,7 @@
               "xCord": 1484,
               "yCord": 980,
               "roomNum": "100",
-              "description": "The Women Washroom",
+              "description": "",
               "layerType": "Washroom"
             },
             {
@@ -404,13 +404,13 @@
               "xCord": 2886,
               "yCord": 1416,
               "roomNum": "139",
-              "description": "The Women Washroom",
+              "description": "",
               "layerType": "Washroom"
             }
           ]
         },
         {
-          "imageFileName": "MiddleSex_College-3.png",
+          "imageFileName": "Middlesex College - Floor 3.png",
           "pointsOfInterest": [
             {
               "name": "Classroom",
@@ -431,7 +431,7 @@
               "xCord": 327,
               "yCord": 1277,
               "roomNum": "230",
-              "description": "24 Capacity, The workstations include Intel Core i5 processor; 16 GB RAM; SSD. The software included is Windows 10, Microsoft office 2016, Adobe CS 6, Audacity and Kompozer",
+              "description": "",
               "layerType": "Lab"
             },
             {
@@ -442,7 +442,7 @@
               "xCord": 493,
               "yCord": 1199,
               "roomNum": "235",
-              "description": "24 Capacity, The workstations include Intel Core i5 processor; 16 GB RAM; SSD. The software included is Windows 10, Microsoft office 2016, Adobe CS 6, Audacity and Kompozer",
+              "description": "",
               "layerType": "Lab"
             },
             {
@@ -453,7 +453,7 @@
               "xCord": 952,
               "yCord": 992,
               "roomNum": "240",
-              "description": "27 Capacity, The workstations include Intel Core i5 processor; 8 GB RAM; HDD. The software included is Windows 10, Microsoft office 2016, Adobe CS 6, Audacity and Kompozer",
+              "description": "",
               "layerType": "Lab"
             },
             {
@@ -464,7 +464,7 @@
               "xCord": 1226,
               "yCord": 904,
               "roomNum": "245",
-              "description": "30 Capacity, 28 general-purpose workstations with Intel Core i5; 16 GB RAM; SSD and 2 GPU workstations with Intel Core i7; 16 GB RAM; SSD, NVIDIA GeForce GTX 1060",
+              "description": "",
               "layerType": "Lab"
             },
             {
@@ -475,7 +475,7 @@
               "xCord": 673,
               "yCord": 1412,
               "roomNum": "220",
-              "description": "Capacity: 8, has conference table with 8 seats and a whiteboard",
+              "description": "",
               "layerType": "CollaborationSpace"
             },
             {
@@ -486,7 +486,7 @@
               "xCord": 697,
               "yCord": 1225,
               "roomNum": "239",
-              "description": "Capacity: 4, has conference table with 4 seats and a whiteboard",
+              "description": "",
               "layerType": "CollaborationSpace"
             },
             {
@@ -497,7 +497,7 @@
               "xCord": 1976,
               "yCord": 965,
               "roomNum": "Ta.208",
-              "description": "An Elevator",
+              "description": "",
               "layerType": "Elevator"
             },
             {
@@ -508,7 +508,7 @@
               "xCord": 2777,
               "yCord": 1350,
               "roomNum": "Ta.210",
-              "description": "An Elevator",
+              "description": "",
               "layerType": "Elevator"
             },
             {
@@ -563,7 +563,7 @@
               "xCord": 1493,
               "yCord": 1079,
               "roomNum": "205",
-              "description": "The Women Washroom",
+              "description": "",
               "layerType": "Washroom"
             },
             {
@@ -574,13 +574,13 @@
               "xCord": 2849,
               "yCord": 1429,
               "roomNum": "278",
-              "description": "A Washroom",
+              "description": "",
               "layerType": "Washroom"
             }
           ]
         },
         {
-          "imageFileName": "MiddleSex_College-4.png",
+          "imageFileName": "Middlesex College - Floor 4.png",
           "pointsOfInterest": [
             {
               "name": "MC 300",
@@ -590,7 +590,7 @@
               "xCord": 1796,
               "yCord": 1155,
               "roomNum": "300",
-              "description": "Capacity 16, Seminar Room, Reconfigurable Tables, Motorized projection screen, Mobile whiteboard, A projector may be borrowed from the CS main office if required",
+              "description": "",
               "layerType": "Classroom"
             },
             {
@@ -601,7 +601,7 @@
               "xCord": 1122,
               "yCord": 1209,
               "roomNum": "316",
-              "description": "Capacity 30, Has PC(Windows), Projector, VGA/HDMI connectivity, AUdio speakers, motorized projection screen and whiteboards",
+              "description": "",
               "layerType": "Classroom"
             },
             {
@@ -612,7 +612,7 @@
               "xCord": 945,
               "yCord": 1323,
               "roomNum": "320",
-              "description": "Capacity 40, Has PC(windows, Projector, VGA / HDMI connectivity, Audio Speakers, Motorized projection screen, and whiteboards",
+              "description": "",
               "layerType": "Classroom"
             },
             {
@@ -623,7 +623,7 @@
               "xCord": 1344,
               "yCord": 792,
               "roomNum": 342,
-              "description": "20 Capacity, 16 Windows 10 PCs (Intel Core i5, 16 GB RAM; SSD), 2 Mac Minis (macOS Monterey 12.6, Intel Core i7; 16 GB RAM; SSD) 1 loT Station (HDMI connectivity to monitor, USB keyboard/mouse, USB and power outlets to power devices, Network switch), 7 eGPU units with NVIDEO GTX3090 Graphics cards",
+              "description": "",
               "layerType": "Lab"
             },
             {
@@ -634,7 +634,7 @@
               "xCord": 623,
               "yCord": 1490,
               "roomNum": "325",
-              "description": "Capacity 30, Has 3 x collaboratiion pods with 6 seats each, 3 x 50 NEC TVs, Multi-HDMI connectivity, Power connectivity, RFID room access",
+              "description": "",
               "layerType": "CollaborationSpace"
             },
             {
@@ -645,7 +645,7 @@
               "xCord": 1979,
               "yCord": 966,
               "roomNum": "Ta.306",
-              "description": "An Elevator",
+              "description": "",
               "layerType": "Elevator"
             },
             {
@@ -656,7 +656,7 @@
               "xCord": 2784,
               "yCord": 1348,
               "roomNum": "Ta.309",
-              "description": "An Elevator",
+              "description": "",
               "layerType": "Elevator"
             },
             {
@@ -711,7 +711,7 @@
               "xCord": 2234,
               "yCord": 1053,
               "roomNum": "388",
-              "description": "The Womens Washroom",
+              "description": "",
               "layerType": "Washroom"
             },
             {
@@ -722,13 +722,13 @@
               "xCord": 1494,
               "yCord": 1026,
               "roomNum": "311",
-              "description": "A Washroom, require further ",
+              "description": "",
               "layerType": "Washroom"
             }
           ]
         },
         {
-          "imageFileName": "MiddleSex_College-5.png",
+          "imageFileName": "Middlesex College - Floor 5.png",
           "pointsOfInterest": [
             {
               "name": "Elevator C",
@@ -737,9 +737,9 @@
               "builtInPOI": true,
               "xCord": 2779,
               "yCord": 1348,
-              "roomNum": "Ta.401",
-              "description": "An Elevator",
-              "layerType": "ELevator"
+              "roomNum": "TA.401",
+              "description": "",
+              "layerType": "Elevator"
             },
             {
               "name": "Stairway #3",

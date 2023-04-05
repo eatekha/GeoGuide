@@ -58,13 +58,8 @@ public class mainMapsController {
     private Label lowTempVal;
     @FXML
     private Label highTempVal;
-    @FXML
-    private Label precipStatus;
-    @FXML
-    private Label precipDesc;
-    @FXML
-    private Button addBuilding;
-    private String mapPath = "src/main/java/com/example/wesgeosys/maps/";
+
+    private String mapPath = "src/main/java/com/example/wesgeosys/mapImages/";
     private int currentFloorNum;
     public accountClass user;
 
@@ -92,19 +87,14 @@ public class mainMapsController {
     double coordY;
     double coordX;
 
-    // For editing POIs
     boolean canPlaceDownIcon = false;
-    // For adding POIs
     boolean canAddPOIIcon = false;
-    // Temp variable to remove placed down icon
     ImageView placedDownIcon;
-
-    // When selecting new map from dropdown
 
     @FXML
     protected void onMapsAction()
     {
-        removeAllIcons();   // Clear the board
+        removeAllIcons();
 
         layersDrop.setOnAction(null);
         poiDrop.setOnAction(null);
@@ -177,7 +167,9 @@ public class mainMapsController {
         JSONArray layerList = searchHelp.findAllLayerType(currFloor, layerType);
         try {
             for(int n = 0; n < layerList.size(); n++) {
-                ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/com/example/wesgeosys/icons/" + layerType + ".png")));
+                String imageName = "Icon Image - " + layerType + ".png";
+                String imagePath = "src/main/java/com/example/wesgeosys/iconImages/" + imageName;
+                ImageView imgView = new ImageView(new Image(new FileInputStream(imagePath)));
                 imgView.setPreserveRatio(true);
                 imgView.setFitWidth(30);
                 imgView.setX(((searchHelp.getCord("X", (JSONObject) layerList.get(n))/3400.0) * mapViewSizeX) + mapViewOffsetX - 15.0);
@@ -208,7 +200,9 @@ public class mainMapsController {
             currPOI = (JSONObject) currPOIList.get(indexVal);
             String layerType = currPOI.get("layerType").toString();
             try {
-                ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/com/example/wesgeosys/icons/" + layerType + ".png")));
+                String imageName = "Icon Image - " + layerType + ".png";
+                String imagePath = "src/main/java/com/example/wesgeosys/iconImages/" + imageName;
+                ImageView imgView = new ImageView(new Image(new FileInputStream(imagePath)));
                 imgView.setPreserveRatio(true);
                 imgView.setFitWidth(30);
                 imgView.setX(((searchHelp.getCord("X", (JSONObject) currPOI) / 3400.0) * mapViewSizeX) + mapViewOffsetX - 15.0);
@@ -242,7 +236,9 @@ public class mainMapsController {
             currPOI = (JSONObject) currPOIList.get(indexVal);
             String layerType = currPOI.get("layerType").toString();
             try {
-                ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/com/example/wesgeosys/icons/" + layerType + ".png")));
+                String imageName = "Icon Image - " + layerType + ".png";
+                String imagePath = "src/main/java/com/example/wesgeosys/iconImages/" + imageName;
+                ImageView imgView = new ImageView(new Image(new FileInputStream(imagePath)));
                 imgView.setPreserveRatio(true);
                 imgView.setFitWidth(30);
                 imgView.setX(((searchHelp.getCord("X", (JSONObject) currPOI) / 3400.0) * mapViewSizeX) + mapViewOffsetX - 15.0);
@@ -565,12 +561,9 @@ public class mainMapsController {
     }
     @FXML
     protected void removeFloor(){
-        // Remove the floor from builtInPOI.json, for now remove it from backUpBuiltInPOI.json
         JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
         editTool.removeFloor(tmpArray,currentFloorNum);
-        // Remove the floor from the combobox
         floorsDrop.getItems().remove(floorsDrop.getItems().size() - 1);
-        // Change the map
         tmpArray = (JSONArray) currentBuild.get("floors");
         currFloor = (JSONObject) tmpArray.get(0);
         try {
@@ -581,14 +574,10 @@ public class mainMapsController {
         // TODO: Simple. Remove current floor open.
     }
 
-    // Remove all icons on the map
     private void removeAllIcons(){
         for (ImageView icon: imageIcons) {
             adminPane.getChildren().remove(icon);
-//            imageIcons.remove(icon);
         }
-//        // Reset description
-//        descText.setText("");
     }
 
     private void clearComboBox(ComboBox cBox){
@@ -611,7 +600,6 @@ public class mainMapsController {
         favDropHandler = favDrop.getOnAction();
         layerDropHandler = layersDrop.getOnAction();
         floorsDrop.setValue("1");
-        // Track location to know where to graphically change location of POI when editing
         mapView.setOnMouseClicked(e -> {
             try {
                 GetMouseDown(e);
@@ -620,7 +608,6 @@ public class mainMapsController {
             }
         });
 
-        //adminPermissions =  false;
         this.currentFloorNum = 0;
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("src/main/java/com/example/wesgeosys/backUpBuiltInPOI.json")) {
@@ -632,10 +619,6 @@ public class mainMapsController {
                 JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
                 this.currFloor = (JSONObject) tmpArray.get(currentFloorNum);
                 searchHelperTool search = new searchHelperTool(buildingFile, adminPermissions);
-//                System.out.println(buildingFile);
-//                System.out.println(username);
-//                System.out.println(adminPermissions);
-
                 this.editTool = new editTool(buildingFile, username, adminPermissions);
                 this.userFile = (JSONArray) jsonParser.parse(accountReader);
                 for (int n = 0; n < userFile.size(); n++){
@@ -668,12 +651,8 @@ public class mainMapsController {
                     }
                 }
                 layersDrop.getItems().addAll("Classroom", "CollaborationSpace", "Elevator", "Lab", "Navigation", "Washroom");
-                // D
                 floorsDrop.getItems().addAll("1", "2", "3", "4", "5");
-
-                // Set first value to first map
                 mapsDrop.setValue(search.getBuildIndex(0));
-
             } catch (ParseException e) {
                 System.out.println("Parse Exception");
             }
@@ -686,11 +665,7 @@ public class mainMapsController {
         feelsTempVal.setText(weatherReport.GetTempFeelsLike() + " °C");
         lowTempVal.setText(weatherReport.GetTempMin() + " °C");
         highTempVal.setText(weatherReport.GetTempMax() + " °C");
-        precipStatus.setText(weatherReport.GetPrecipitationStatus() + " °C");
-        precipDesc.setText(weatherReport.GetPrecipitationDescription() + " °C");
 
-        String pp = "Middlesex_College-1.png";
-        mapView.setImage(new Image(new FileInputStream(mapPath + pp)));
 
     }
     @FXML
@@ -704,15 +679,12 @@ public class mainMapsController {
         }
 
         try {
-            ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/com/example/wesgeosys/icons/Placeholder.png")));
+            ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/com/example/wesgeosys/iconImages/Icon Image - Placeholder.png")));
             imgView.setPreserveRatio(true);
             imgView.setX(e.getX() + mapViewOffsetX - 15);
             imgView.setY(e.getY() + mapViewOffsetY - 15);
             imgView.setFitWidth(30);
             placedDownIcon = imgView;
-
-            // TODO: Delete after submitting edit/add poi
-
             adminPane.getChildren().add(imgView);
             imageIcons.add(imgView);
             if(canPlaceDownIcon){
@@ -721,7 +693,6 @@ public class mainMapsController {
             if(canAddPOIIcon){
                 addPOIPopout();
             }
-
         }
         catch (Exception error){
             PrintOutError(error);
@@ -729,16 +700,11 @@ public class mainMapsController {
     }
 
     private void addPOIPopout() {
-        // newX = new X Coord
-        // newY = new Y Coord
-        // newpname = new POI name from user
-        // newpdesc = new POI desc from user
-
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addPOIGUI.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 322.0, 391.0);
             Stage stage = new Stage();
-            stage.setTitle("WesternNav");
+            stage.setTitle("Add POI");
             stage.setScene(scene);
             stage.showAndWait();
         } catch (IOException e) {

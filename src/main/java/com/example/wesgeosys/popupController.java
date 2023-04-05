@@ -8,9 +8,7 @@ public class popupController {
 
     @FXML
     protected void ClosePopup(){
-        // get a handle to the stage
         Stage stage = (Stage) closePopup.getScene().getWindow();
-        // do what you have to do
         stage.close();
     }
 }

@@ -48,103 +48,93 @@
             </font>
         </Text>
         <Line endX="55.42063903808594" layoutX="117.0" layoutY="197.0" startX="-100.0" />
-        <Line endX="55.42063903808594" layoutX="118.0" layoutY="341.0" startX="-100.0" />
-        <Button fx:id="addBuilding" layoutX="16.0" layoutY="346.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addBuilding" prefHeight="13.0" prefWidth="79.0" text="ADD BUILDING">
+        <Line endX="55.42063903808594" layoutX="118.0" layoutY="280.0" startX="-100.0" />
+        <Button fx:id="addBuilding" layoutX="16.0" layoutY="285.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addBuilding" prefHeight="13.0" prefWidth="79.0" text="ADD BUILDING">
             <font>
                 <Font name="Heiti TC Light" size="7.0" />
             </font>
         </Button>
-      <Button fx:id="addPOI" layoutX="97.0" layoutY="346.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addPOI" prefHeight="13.0" prefWidth="79.0" text="ADD POI">
+      <Button fx:id="addPOI" layoutX="97.0" layoutY="285.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addPOI" prefHeight="13.0" prefWidth="79.0" text="ADD POI">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="editBuilding" layoutX="16.0" layoutY="361.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#editBuilding" prefHeight="13.0" prefWidth="79.0" text="EDIT BUILDING">
+      <Button fx:id="editBuilding" layoutX="16.0" layoutY="300.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#editBuilding" prefHeight="13.0" prefWidth="79.0" text="EDIT BUILDING">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="editPOI" layoutX="97.0" layoutY="361.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#editPOI" prefHeight="13.0" prefWidth="79.0" text="EDIT POI">
+      <Button fx:id="editPOI" layoutX="97.0" layoutY="300.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#editPOI" prefHeight="13.0" prefWidth="79.0" text="EDIT POI">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="removeBuilding1" layoutX="16.0" layoutY="376.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#removeBuilding" prefHeight="13.0" prefWidth="79.0" text="REMOVE BUILDING">
+      <Button fx:id="removeBuilding1" layoutX="16.0" layoutY="315.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#removeBuilding" prefHeight="13.0" prefWidth="79.0" text="REMOVE BUILDING">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="removePOI" layoutX="97.0" layoutY="376.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#removePOI" prefHeight="13.0" prefWidth="79.0" text="REMOVE POI">
+      <Button fx:id="removePOI" layoutX="97.0" layoutY="315.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#removePOI" prefHeight="13.0" prefWidth="79.0" text="REMOVE POI">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="addFloor" layoutX="16.0" layoutY="391.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addFloor" prefHeight="13.0" prefWidth="79.0" text="ADD FLOOR">
+      <Button fx:id="addFloor" layoutX="16.0" layoutY="330.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addFloor" prefHeight="13.0" prefWidth="79.0" text="ADD FLOOR">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="removeFloor" layoutX="97.0" layoutY="391.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#removeFloor" prefHeight="13.0" prefWidth="79.0" text="REMOVE FLOOR">
+      <Button fx:id="removeFloor" layoutX="97.0" layoutY="330.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#removeFloor" prefHeight="13.0" prefWidth="79.0" text="REMOVE FLOOR">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button layoutX="65.0" layoutY="406.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#onOpenHelp" prefHeight="13.0" prefWidth="62.0" text="HELP">
+      <Button layoutX="65.0" layoutY="345.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#onOpenHelp" prefHeight="13.0" prefWidth="62.0" text="HELP">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
       <ImageView fx:id="mapView" fitHeight="774.0" fitWidth="1200.0" layoutX="180.0" layoutY="21.0">
           <image>
-              <Image url="@../../../../java/com/example/wesgeosys/maps/Middlesex_College-1.png" />
+              <Image url="@../../../../java/com/example/wesgeosys/mapImages/Middlesex College - Floor 1.png" />
           </image>
       </ImageView>
-      <Label id="precipDesc" fx:id="precipDesc" alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="310.0" text="Precipitation Description" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="228.0" text="Current Temperature:" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Medium" size="7.0" />
          </font>
       </Label>
-      <Label id="precipStatus" fx:id="precipStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="63.0" layoutY="296.0" text="Precipitation Status" textAlignment="CENTER">
+      <Label id="curTempVal" fx:id="curTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="106.0" layoutY="228.0" text="NA" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Medium" size="7.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="238.0" text="Current Temperature:" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="248.0" text="Low:" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Medium" size="7.0" />
          </font>
       </Label>
-      <Label id="curTempVal" fx:id="curTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="248.0" text="NA" textAlignment="CENTER">
+      <Label id="lowTempVal" fx:id="lowTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="248.0" text="NA" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Medium" size="7.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="258.0" text="Low:" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="258.0" text="Feels like:" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Medium" size="7.0" />
          </font>
       </Label>
-      <Label id="lowTempVal" fx:id="lowTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="258.0" text="NA" textAlignment="CENTER">
-         <font>
-            <Font name="Heiti TC Medium" size="7.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="269.0" text="Feels like:" textAlignment="CENTER">
-         <font>
-            <Font name="Heiti TC Medium" size="7.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="123.0" layoutY="255.0" text="High:" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="238.0" text="High:" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Label>
-      <Label id="highTempVal" fx:id="highTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="255.0" text="NA" textAlignment="CENTER">
+      <Label id="highTempVal" fx:id="highTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="238.0" text="NA" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Label>
-      <Label id="feelsTempVal" fx:id="feelsTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="279.0" text="NA" textAlignment="CENTER">
+      <Label id="feelsTempVal" fx:id="feelsTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="258.0" text="NA" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
