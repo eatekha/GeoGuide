@@ -623,6 +623,7 @@ public class mainMapsController {
                 this.userFile = (JSONArray) jsonParser.parse(accountReader);
                 for (int n = 0; n < userFile.size(); n++){
                     JSONObject tmpObj = (JSONObject) userFile.get(n);
+                    if (tmpObj.get("username")==null){} else
                     if (tmpObj.get("username").toString().equals(username)){
                         this.userObject = tmpObj;
                     }
