@@ -47,7 +47,6 @@ public class weatherReport {
 
 
 
-
     private static void SetCurrentWeatherData(){
         try {
             String apiKey = "6ae73b11767febcd9a4c5b850246e0f1";

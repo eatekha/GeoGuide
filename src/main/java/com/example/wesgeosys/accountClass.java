@@ -234,19 +234,5 @@ public class accountClass {
      * @throws ParseException If there is an error parsing the JSON data
      */
     public static void main(String[] args) throws IOException, ParseException {
-        // Testing
-        accountClass num1 = new accountClass("src/main/java/com/example/wesgeosys/accountData.json");
-        num1.findUser("Peter");
-        num1.findUser("John");
-        num1.findUser("Paul");
-        num1.checkValidUsername("Joey");
-        num1.checkValidUsername("Peter");
-        num1.createAccount("Test", "Dummy");
-        num1.findUser("Moe");
-        num1.checkValidUsername("Moe");
-        System.out.println(num1.getPassword("Josh"));
-        System.out.println(num1.getFavourites("Paul"));
-        System.out.println(num1.checkAdmin("Paul"));
-        System.out.println(num1.checkValidUsername("Paul"));
     }
 }

@@ -10,40 +10,40 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * The controller class for the edit POI view.
+ */
 public class editPOIController implements Initializable {
 
+    // FXML fields for the input fields and buttons
     @FXML
-    public TextField name;
-
+    public TextField name;         // name of the point of interest
     @FXML
-    public TextField desc;
-
+    public TextField desc;         // description of the point of interest
     @FXML
-    public TextField layerType;
-
+    public TextField layerType;    // the type of layer the POI is on
     @FXML
-    public TextField roomNum;
-
+    public TextField roomNum;      // the room number the POI is associated with
     @FXML
-    public TextField x;
-
+    public TextField x;            // the x-coordinate of the POI on the map
     @FXML
-    public TextField y;
-
+    public TextField y;            // the y-coordinate of the POI on the map
     @FXML
-    public Button submitButton;
-
+    public Button submitButton;    // button to submit changes
     @FXML
-    public Button cancelButton;
+    public Button cancelButton;    // button to cancel changes
 
-    public static String pname;
+    // static fields to hold the updated POI data
+    public static String pname;    // updated name of the POI
+    public static String pdesc;    // updated description of the POI
+    public static String proom;    // updated room number of the POI
+    public static String player;   // updated layer type of the POI
 
-    public static String pdesc;
-
-    public static String proom;
-
-    public static String player;
-
+    /**
+     * Method to update the static fields with the new POI data and close the view.
+     *
+     * @param event The event triggered by clicking the submit button
+     */
     private void submit(ActionEvent event) {
         pname = name.getText();
         pdesc = desc.getText();
@@ -53,11 +53,22 @@ public class editPOIController implements Initializable {
         stage.close();
     }
 
+    /**
+     * Method to close the view without updating the POI data.
+     *
+     * @param event The event triggered by clicking the cancel button
+     */
     private void cancel(ActionEvent event) {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Initializes the controller class.
+     *
+     * @param url The location used to resolve relative paths for the root object, or null if the location is not known
+     * @param rb  The resources used to localize the root object, or null if the root object was not localized
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         submitButton.setOnAction(this::submit);
