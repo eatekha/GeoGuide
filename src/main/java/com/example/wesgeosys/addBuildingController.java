@@ -25,7 +25,7 @@ public class addBuildingController implements Initializable {
     @FXML
     public Button cancelButton;
 
-    public static String bname;
+    public static String buidingName;
 
     /**
      * Gets the name of the building from the text field and sets it to a static variable for later use.
@@ -34,7 +34,7 @@ public class addBuildingController implements Initializable {
      * @param event The event triggered by clicking the submit button
      */
     private void submit(ActionEvent event) {
-        bname = building.getText();
+        buidingName = building.getText();
         Stage stage = (Stage) submitButton.getScene().getWindow();
         stage.close();
     }

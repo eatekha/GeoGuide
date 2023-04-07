@@ -22,7 +22,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.wesgeosys.addBuildingController.bname;
+import static com.example.wesgeosys.addBuildingController.buidingName;
 import static com.example.wesgeosys.addPOIController.newpname;
 import static com.example.wesgeosys.editPOIController.*;
 
@@ -386,43 +386,31 @@ public class mainMapsController {
 
     protected void mergeJSON() {
         JSONArray userPOIs = (JSONArray) userInstance.get("userPOIs");
-        JSONArray favList = (JSONArray) userInstance.get("favourites");
-        JSONObject usertemporaryObject;
-        JSONObject builttemporaryObject;
-        JSONArray temporaryArray;
-        JSONArray poiList;
-        for (int initialVal = 0; initialVal < userPOIs.size(); initialVal++) {
-            usertemporaryObject = (JSONObject) userPOIs.get(initialVal);
-            for (int initialVal2 = 0; initialVal2 < buildingDataFile.size(); initialVal2++) {
-                builttemporaryObject = (JSONObject) buildingDataFile.get(initialVal2);
-                if (usertemporaryObject.get("building").equals(builttemporaryObject.get("Building").toString())) {
-                    temporaryArray = (JSONArray) builttemporaryObject.get("floors");
-                    for (int initialVal3 = 0; initialVal3 < temporaryArray.size(); initialVal3++) {
-                        builttemporaryObject = (JSONObject) temporaryArray.get(initialVal3);
-                        if (Integer.parseInt(usertemporaryObject.get("floorNum").toString()) == initialVal3) {
-                            poiList = (JSONArray) builttemporaryObject.get("pointsOfInterest");
-                            editHelper.addPOI(poiList);
-                        }
-                    }
+        JSONArray favouriteList = (JSONArray) userInstance.get("favourites");
+        for (Object obj : userPOIs) {
+            JSONObject userPoi = (JSONObject) obj;
+            for (Object buildingObj : buildingDataFile) {
+                JSONObject building = (JSONObject) buildingObj;
+                if (userPoi.get("building").equals(building.get("Building").toString())) {
+                    JSONArray floors = (JSONArray) building.get("floors");
+                    JSONObject floor = (JSONObject) floors.get(Integer.parseInt(userPoi.get("floorNum").toString()));
+                    JSONArray poiList = (JSONArray) floor.get("pointsOfInterest");
+                    editHelper.addPOI(poiList);
                 }
             }
         }
-        for (int q = 0; q < favList.size(); q++) {
-            usertemporaryObject = (JSONObject) favList.get(q);
-            for (int d = 0; d < buildingDataFile.size(); d++) {
-                builttemporaryObject = (JSONObject) buildingDataFile.get(0);
-                if (usertemporaryObject.get("building").equals(builttemporaryObject.get("Building").toString())) {
-                    temporaryArray = (JSONArray) builttemporaryObject.get("floors");
-                    for (int w = 0; w < temporaryArray.size(); w++) {
-                        builttemporaryObject = (JSONObject) temporaryArray.get(w);
-                        if (Integer.parseInt(usertemporaryObject.get("floorNum").toString()) == w) {
-                            poiList = (JSONArray) builttemporaryObject.get("pointsOfInterest");
-                            for (int p = 0; p < poiList.size(); p++) {
-                                JSONObject currentPOI = (JSONObject) poiList.get(p);
-                                if (currentPOI.get("name").equals(usertemporaryObject.get("name")) && currentPOI.get("roomNum").equals(usertemporaryObject.get("roomNum"))) {
-                                    editHelper.favouriteToggle(currentBuildingData.get("Building").toString(), currentFloorIndex, currentPOI, true);
-                                }
-                            }
+        for (Object obj : favouriteList) {
+            JSONObject fav = (JSONObject) obj;
+            for (Object buildingObj : buildingDataFile) {
+                JSONObject building = (JSONObject) buildingObj;
+                if (fav.get("building").equals(building.get("Building").toString())) {
+                    JSONArray floors = (JSONArray) building.get("floors");
+                    JSONObject floor = (JSONObject) floors.get(Integer.parseInt(fav.get("floorNum").toString()));
+                    JSONArray poiList = (JSONArray) floor.get("pointsOfInterest");
+                    for (Object poiObj : poiList) {
+                        JSONObject poi = (JSONObject) poiObj;
+                        if (poi.get("name").equals(fav.get("name")) && poi.get("roomNum").equals(fav.get("roomNum"))) {
+                            editHelper.favouriteToggle(building.get("Building").toString(), floors.indexOf(floor), poi, true);
                         }
                     }
                 }
@@ -430,7 +418,7 @@ public class mainMapsController {
         }
     }
 
-    @FXML
+        @FXML
     protected void insertBuilding() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBuildingGUI.fxml"));
@@ -442,8 +430,8 @@ public class mainMapsController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        editHelper.addBuilding(bname);
-        mapsDropdown.getItems().add(bname);
+        editHelper.addBuilding(buidingName);
+        mapsDropdown.getItems().add(buidingName);
     }
 
     @FXML
@@ -458,22 +446,7 @@ public class mainMapsController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        editHelper.editBuilding(currentBuildingData, bname);
-    }
-
-    @FXML
-    protected void deleteBuilding() {
-        editHelper.removeBuilding((String) currentBuildingData.get("Building"));
-        mapsDropdown.getItems().remove(currentBuildingData.get("Building"));
-        currentBuildingData = (JSONObject) buildingDataFile.get(0);
-        JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
-        currentFloor = (JSONObject) temporaryArray.get(0);
-        String imageName = currentFloor.get("imageFileName").toString();
-        try {
-            mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + imageName)));
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        }
+        editHelper.editBuilding(currentBuildingData, buidingName);
     }
 
     @FXML
@@ -496,14 +469,34 @@ public class mainMapsController {
     }
 
     @FXML
+    protected void insertFloor() {
+        editHelper.addFloor(currentBuildingData, "DefaultFile.png");
+        floorsDropdown.getItems().add(floorsDropdown.getItems().size() + 1);
+    }
+
+    @FXML
+    protected void deleteFloor() {
+        JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
+        editHelper.removeFloor(temporaryArray, currentFloorIndex);
+        floorsDropdown.getItems().remove(floorsDropdown.getItems().size() - 1);
+        temporaryArray = (JSONArray) currentBuildingData.get("floors");
+        currentFloor = (JSONObject) temporaryArray.get(0);
+        try {
+            mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + currentFloor.get("imageFileName").toString())));
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        }
+    }
+
+    @FXML
     protected void modifyPOI() throws IOException {
         if (clearPOI()) {
             return;
-        } else {
-            displayAlert();
-            placeableIcon = true;
         }
+        displayAlert();
+        placeableIcon = true;
     }
+
 
     private void displayAlert() {
         try {
@@ -536,15 +529,15 @@ public class mainMapsController {
             String layerTypeInput = currentPOI.get("layerType").toString();
             int xInput = Integer.parseInt(currentPOI.get("xCord").toString());
             int yInput = Integer.parseInt(currentPOI.get("yCord").toString());
-            int newX = (int) xCoordinate;
-            int newY = (int) yCoordinate;
-            System.out.println(newX);
-            System.out.println(newY);
+            int newXCoordinate = (int) xCoordinate;
+            int newYCoordinate = (int) yCoordinate;
+            System.out.println(newXCoordinate);
+            System.out.println(newYCoordinate);
             System.out.println(pname);
             System.out.println(pdesc);
             System.out.println(proom);
             System.out.println(player);
-            editHelper.editPOI(currentPOI, pname, pdesc, newX, newY, proom, player);
+            editHelper.editPOI(currentPOI, pname, pdesc, newXCoordinate, newYCoordinate, proom, player);
             resetComboBox(poiDropdown);
             JSONObject temporaryObject;
             for (int n = 0; n < currentPOIList.size(); n++) {
@@ -556,6 +549,21 @@ public class mainMapsController {
         }
         adminPanel.getChildren().remove(placedIcon);
         placeableIcon = false;
+    }
+
+    @FXML
+    protected void deleteBuilding() {
+        editHelper.removeBuilding((String) currentBuildingData.get("Building"));
+        mapsDropdown.getItems().remove(currentBuildingData.get("Building"));
+        currentBuildingData = (JSONObject) buildingDataFile.get(0);
+        JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
+        currentFloor = (JSONObject) temporaryArray.get(0);
+        String imageName = currentFloor.get("imageFileName").toString();
+        try {
+            mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + imageName)));
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        }
     }
 
     @FXML
@@ -582,25 +590,6 @@ public class mainMapsController {
 
     }
 
-    @FXML
-    protected void insertFloor() {
-        editHelper.addFloor(currentBuildingData, "DefaultFile.png");
-        floorsDropdown.getItems().add(floorsDropdown.getItems().size() + 1);
-    }
-
-    @FXML
-    protected void deleteFloor() {
-        JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
-        editHelper.removeFloor(temporaryArray, currentFloorIndex);
-        floorsDropdown.getItems().remove(floorsDropdown.getItems().size() - 1);
-        temporaryArray = (JSONArray) currentBuildingData.get("floors");
-        currentFloor = (JSONObject) temporaryArray.get(0);
-        try {
-            mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + currentFloor.get("imageFileName").toString())));
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        }
-    }
 
     private void clearAllIcons() {
         for (ImageView icon : imageIcons) {
@@ -609,18 +598,16 @@ public class mainMapsController {
     }
 
     private void resetComboBox(ComboBox cBox) {
-        int val = cBox.getItems().size();
-        for (int n = 0; n < val; n++) {
+        int valNum = cBox.getItems().size();
+        for (int initialVal = 0; initialVal < valNum; initialVal++) {
             cBox.getItems().remove(0);
         }
     }
 
     private boolean clearPOI() {
-        if (poiDropdown.getValue() == null) {
-            return true;
-        }
-        return false;
+        return poiDropdown.getValue() == null;
     }
+
 
     @FXML
     public void initialize() throws FileNotFoundException {
