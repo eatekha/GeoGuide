@@ -51,7 +51,7 @@ public class logController implements Initializable {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("admMapsGUI.fxml"));
                     String username = usernameField.getText();
                     mainMapsController.username = username;
-                    mainMapsController.adminPermissions = admin;
+                    mainMapsController.adminAccess = admin;
                     Scene scene = new Scene(fxmlLoader.load(), 805.0, 1398.0);
                     Stage stage = new Stage();
                     stage.setTitle("Adminstration Maps");
@@ -67,7 +67,7 @@ public class logController implements Initializable {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainMapsGUI.fxml"));
                     mainMapsController.username = usernameField.getText();
-                    mainMapsController.adminPermissions = admin;
+                    mainMapsController.adminAccess = admin;
                     Scene scene = new Scene(fxmlLoader.load(), 1398.0, 805.0);
                     Stage stage = new Stage();
                     stage.setTitle("Main User Maps");

@@ -44,7 +44,7 @@
             </Tab>
         </tabs>
     </TabPane>
-   <Button id="closePopup" fx:id="closePopup" layoutX="538.0" layoutY="5.0" mnemonicParsing="false" onAction="#ClosePopup" text="Close">
+   <Button id="closePopup" fx:id="closePopup" layoutX="538.0" layoutY="5.0" mnemonicParsing="false" onAction="#popupClose" text="Close">
       <font>
          <Font name="Heiti TC Medium" size="13.0" />
       </font>

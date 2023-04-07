@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="adminPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="805.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wesgeosys.mainMapsController">
+<AnchorPane fx:id="adminPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="805.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wesgeosys.mainMapsController">
     <children>
         <Text layoutX="20.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAPS">
             <font>
@@ -38,11 +38,11 @@
                 <Font name="Heiti TC Light" size="10.0" />
             </font>
         </Text>
-        <ComboBox fx:id="floorsDrop" layoutX="20.0" layoutY="170.0" minHeight="14.0" onAction="#onFloorsAction" prefHeight="5.0" prefWidth="145.0" />
-        <ComboBox fx:id="favDrop" layoutX="21.0" layoutY="134.0" minHeight="14.0" onAction="#onFavAction" prefHeight="5.0" prefWidth="145.0" />
-        <ComboBox id="poiDrop" fx:id="poiDrop" layoutX="20.0" layoutY="100.0" minHeight="14.0" onAction="#onpoiAction" prefHeight="5.0" prefWidth="145.0" />
-        <ComboBox id="layersDrop" fx:id="layersDrop" layoutX="20.0" layoutY="66.0" minHeight="14.0" onAction="#onLayersAction" prefHeight="5.0" prefWidth="145.0" />
-        <ComboBox id="mapsDrop" fx:id="mapsDrop" layoutX="20.0" layoutY="32.0" minHeight="14.0" onAction="#onMapsAction" prefHeight="5.0" prefWidth="145.0" />
+        <ComboBox fx:id="floorsDropdown" layoutX="20.0" layoutY="170.0" minHeight="14.0" onAction="#handleFloorsAction" prefHeight="5.0" prefWidth="145.0" />
+        <ComboBox fx:id="favDropdown" layoutX="21.0" layoutY="134.0" minHeight="14.0" onAction="#handleFavAction" prefHeight="5.0" prefWidth="145.0" />
+        <ComboBox id="poiDrop" fx:id="poiDropdown" layoutX="20.0" layoutY="100.0" minHeight="14.0" onAction="#handlePOIAction" prefHeight="5.0" prefWidth="145.0" />
+        <ComboBox id="layersDrop" fx:id="layersDropdown" layoutX="20.0" layoutY="66.0" minHeight="14.0" onAction="#handleLayersAction" prefHeight="5.0" prefWidth="145.0" />
+        <ComboBox id="mapsDrop" fx:id="mapsDropdown" layoutX="20.0" layoutY="32.0" minHeight="14.0" onAction="#handleMapsAction" prefHeight="5.0" prefWidth="145.0" />
         <Text layoutX="54.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="London Weather">
             <font>
                 <Font name="Heiti TC Medium" size="10.0" />
@@ -50,47 +50,47 @@
         </Text>
         <Line endX="55.42063903808594" layoutX="117.0" layoutY="197.0" startX="-100.0" />
         <Line endX="55.42063903808594" layoutX="118.0" layoutY="280.0" startX="-100.0" />
-        <Button fx:id="addBuilding" layoutX="16.0" layoutY="285.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addBuilding" prefHeight="13.0" prefWidth="79.0" text="ADD BUILDING">
+        <Button fx:id="insertBuilding" layoutX="16.0" layoutY="285.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#insertBuilding" prefHeight="13.0" prefWidth="79.0" text="ADD BUILDING">
             <font>
                 <Font name="Heiti TC Light" size="7.0" />
             </font>
         </Button>
-      <Button fx:id="addPOI" layoutX="97.0" layoutY="285.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addPOI" prefHeight="13.0" prefWidth="79.0" text="ADD POI">
+      <Button fx:id="insertPOI" layoutX="97.0" layoutY="285.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#insertPOI" prefHeight="13.0" prefWidth="79.0" text="ADD POI">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="editBuilding" layoutX="16.0" layoutY="300.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#editBuilding" prefHeight="13.0" prefWidth="79.0" text="EDIT BUILDING">
+      <Button fx:id="modifyBuilding" layoutX="16.0" layoutY="300.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#modifyBuilding" prefHeight="13.0" prefWidth="79.0" text="EDIT BUILDING">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="editPOI" layoutX="97.0" layoutY="300.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#editPOI" prefHeight="13.0" prefWidth="79.0" text="EDIT POI">
+      <Button fx:id="modifyPOI" layoutX="97.0" layoutY="300.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#modifyPOI" prefHeight="13.0" prefWidth="79.0" text="EDIT POI">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="removeBuilding1" layoutX="16.0" layoutY="315.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#removeBuilding" prefHeight="13.0" prefWidth="79.0" text="REMOVE BUILDING">
+      <Button fx:id="removeBuilding1" layoutX="16.0" layoutY="315.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#deleteBuilding" prefHeight="13.0" prefWidth="79.0" text="REMOVE BUILDING">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="removePOI" layoutX="97.0" layoutY="315.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#removePOI" prefHeight="13.0" prefWidth="79.0" text="REMOVE POI">
+      <Button fx:id="deletePOI" layoutX="97.0" layoutY="315.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#deletePOI" prefHeight="13.0" prefWidth="79.0" text="REMOVE POI">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="addFloor" layoutX="16.0" layoutY="330.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addFloor" prefHeight="13.0" prefWidth="79.0" text="ADD FLOOR">
+      <Button fx:id="insertFloor" layoutX="16.0" layoutY="330.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#insertFloor" prefHeight="13.0" prefWidth="79.0" text="ADD FLOOR">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button fx:id="removeFloor" layoutX="97.0" layoutY="330.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#removeFloor" prefHeight="13.0" prefWidth="79.0" text="REMOVE FLOOR">
+      <Button fx:id="deleteFloor" layoutX="97.0" layoutY="330.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#deleteFloor" prefHeight="13.0" prefWidth="79.0" text="REMOVE FLOOR">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Button>
-      <Button layoutX="65.0" layoutY="345.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#onOpenHelp" prefHeight="13.0" prefWidth="62.0" text="HELP">
+      <Button layoutX="65.0" layoutY="345.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#handleOpenHelp" prefHeight="13.0" prefWidth="62.0" text="HELP">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
@@ -100,7 +100,7 @@
             <Font name="Heiti TC Medium" size="7.0" />
          </font>
       </Label>
-      <Label id="curTempVal" fx:id="curTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="106.0" layoutY="228.0" text="NA" textAlignment="CENTER">
+      <Label id="curTempVal" fx:id="currentTemperature" alignment="CENTER" contentDisplay="CENTER" layoutX="106.0" layoutY="228.0" text="NA" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Medium" size="7.0" />
          </font>
@@ -110,7 +110,7 @@
             <Font name="Heiti TC Medium" size="7.0" />
          </font>
       </Label>
-      <Label id="lowTempVal" fx:id="lowTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="248.0" text="NA" textAlignment="CENTER">
+      <Label id="lowTempVal" fx:id="lowTemperature" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="248.0" text="NA" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Medium" size="7.0" />
          </font>
@@ -125,26 +125,26 @@
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Label>
-      <Label id="highTempVal" fx:id="highTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="238.0" text="NA" textAlignment="CENTER">
+      <Label id="highTempVal" fx:id="highTemperature" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="238.0" text="NA" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Label>
-      <Label id="feelsTempVal" fx:id="feelsTempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="258.0" text="NA" textAlignment="CENTER">
+      <Label id="feelsTempVal" fx:id="feelsLikeTemperature" alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="258.0" text="NA" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Light" size="7.0" />
          </font>
       </Label>
       <ScrollPane layoutX="180.0" layoutY="21.0" prefHeight="774.0" prefWidth="1200.0">
          <content>
-            <ImageView fx:id="mapView" fitHeight="774.0" fitWidth="1200.0">
+            <ImageView fx:id="mapDisplay" fitHeight="774.0" fitWidth="1200.0">
                 <image>
                     <Image url="@../../../../java/com/example/wesgeosys/mapImages/Middlesex College - Floor 1.png" />
                 </image>
             </ImageView>
          </content>
       </ScrollPane>
-      <Label id="descText" fx:id="descText" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="381.0" text="Description" textAlignment="CENTER">
+      <Label id="descText" fx:id="descriptionText" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="381.0" text="Description" textAlignment="CENTER">
          <font>
             <Font name="Heiti TC Medium" size="8.0" />
          </font>

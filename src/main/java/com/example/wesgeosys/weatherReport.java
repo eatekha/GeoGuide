@@ -5,163 +5,170 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-
+/**
+ * This class provides functionality to retrieve and parse weather data
+ * from an external API and store it in various fields.
+ */
 public class weatherReport {
 
+    /**
+     * Constant representing error message when weather data is unavailable
+     */
+    public static final String ERROR_MESSAGE = "NA";
+    static private String currentTemperature = ERROR_MESSAGE;
+    static private String minTemperature = ERROR_MESSAGE;
+    static private String maxTemperature = ERROR_MESSAGE;
+    static private String feelsLikeTemperature = ERROR_MESSAGE;
+    static private final String DEFAULT_LATITUDE = "42.9849";
+    static private final String DEFAULT_LONGITUDE = "-81.2453";
+    static private JSONObject weatherData = null;
 
-    static private final String error = "NA";
-    static private final String lat = "42.9849";
-    static private final String lon = "-81.2453";
-    static private String tempCurrent = error;
-    static private String tempMin = error;
-    static private String tempMax = error;
-    static private String tempFeelsLike = error;
-    static private String humidity = error;
-    static private String precipitationStatus = error;
-    static private String precipitationDescription = error;
-    static private JSONObject jsonData = null;
-    public static String GetTempCurrent() {
-        return tempCurrent;
-    }
-    public static String GetTempMin() {
-        return tempMin;
-    }
-    public static String GetTempMax() {
-        return tempMax;
-    }
-    public static String GetTempFeelsLike() {
-        return tempFeelsLike;
-    }
-    public static String GetHumidity() {
-        return humidity;
-    }
-    public static String GetPrecipitationStatus() {
-        return precipitationStatus;
-    }
-    public static String GetPrecipitationDescription() {
-        return precipitationDescription;
+    /**
+     * This method sets all weather data including current temperature,
+     * minimum temperature, maximum temperature and feels-like temperature.
+     */
+    public static void setAllWeatherData() {
+        setCurrentWeatherData();
+        setCurrentTemperature();
+        setMaxTemperature();
+        setMinTemperature();
+        setFeelsLikeTemperature();
     }
 
-
-
-    private static void SetCurrentWeatherData(){
-        try {
-            String apiKey = "6ae73b11767febcd9a4c5b850246e0f1";
-
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + ""))
-                    .method("GET", HttpRequest.BodyPublishers.noBody())
-                    .build();
-            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-            jsonData = new JSONObject(response.body());
-        }
-        catch (Exception e) {
-            PrintError(e);
-            jsonData = null;
-        }
-    }
-
-
-    private static void SetPrecipitation() {
-        try {
-            JSONArray weatherArray = jsonData.getJSONArray("weather");
-            JSONObject inner = weatherArray.getJSONObject(0);
-            var precipitationStatus = inner.getString("main");
-            var precipitationDescription = inner.getString("description");
-            weatherReport.precipitationStatus = precipitationStatus;
-            weatherReport.precipitationDescription = precipitationDescription;
-        }
-        catch (Exception e) {
-            PrintError(e);
-            weatherReport.precipitationStatus = error;
-            weatherReport.precipitationDescription = error;
-        }
-    }
-
-
-    private static void SetTemperature(){
-        try {
-            var main = jsonData.getJSONObject("main");
-            float temp = main.getFloat("temp") - 273.15f;
-            tempCurrent = String.valueOf(Math.round(temp));
-        }
-        catch (Exception e) {
-            PrintError(e);
-            tempCurrent = error;
-        }
-    }
-
-
-    private static void SetTemperatureMin(){
-        try {
-            var main = jsonData.getJSONObject("main");
-            float temp = main.getFloat("temp_min") - 273.15f;
-            tempMin = String.valueOf(Math.round(temp));
-        }
-        catch (Exception e) {
-            PrintError(e);
-            tempMin = error;
-        }
-    }
-
-
-    private static void SetTemperatureMax(){
-        try {
-            var main = jsonData.getJSONObject("main");
-            float temp = main.getFloat("temp_max") - 273.15f;
-            tempMax = String.valueOf(Math.round(temp));
-        }
-        catch (Exception e) {
-            PrintError(e);
-            tempMax = error;
-        }
-    }
-
-    private static void SetFeelsLikeTemperature(){
-        try {
-            var innerJSONData = jsonData.getJSONObject("main");
-            float temp = innerJSONData.getFloat("feels_like") - 273.15f;
-            tempFeelsLike = String.valueOf(Math.round(temp));
-        }
-        catch (Exception e) {
-            PrintError(e);
-            tempFeelsLike = error;
-        }
-    }
-
-
-    private static void SetHumidity() {
-        try {
-            var innerJSONData = jsonData.getJSONObject("main");
-            float humidity = innerJSONData.getFloat("humidity");
-            weatherReport.humidity = String.valueOf(humidity);
-        }
-        catch (Exception e) {
-            PrintError(e);
-            humidity = error;
-        }
-    }
-
-
-    private static void PrintError(Exception e) {
-        System.out.println("Did not succeed");
+    /**
+     * This method prints an error message to console in case of an exception.
+     *
+     * @param e An Exception object.
+     */
+    private static void printErrorMessage(Exception e) {
+        System.out.println("Test did not succeed");
         System.out.println("Error: " + e);
     }
 
-
-    public static void SetAllWeatherData() {
-        SetCurrentWeatherData();
-        SetTemperature();
-        SetTemperatureMax();
-        SetTemperatureMin();
-        SetFeelsLikeTemperature();
-        SetHumidity();
-        SetPrecipitation();
+    /**
+     * Sets the minimum temperature based on the weather data.
+     * If the data is not available, sets the value to ERROR_MESSAGE.
+     */
+    private static void setMinTemperature() {
+        try {
+            var main = weatherData.getJSONObject("main");
+            float temp = main.getFloat("temp_min") - 273.15f;
+            minTemperature = String.valueOf(Math.round(temp));
+        } catch (Exception e) {
+            printErrorMessage(e);
+            minTemperature = ERROR_MESSAGE;
+        }
     }
 
+    /**
+     * Sets the current temperature based on the weather data.
+     * If the data is not available, sets the value to ERROR_MESSAGE.
+     */
+    private static void setCurrentTemperature() {
+        try {
+            var main = weatherData.getJSONObject("main");
+            float temp = main.getFloat("temp") - 273.15f;
+            currentTemperature = String.valueOf(Math.round(temp));
+        } catch (Exception e) {
+            printErrorMessage(e);
+            currentTemperature = ERROR_MESSAGE;
+        }
+    }
+
+    /**
+     * Sets the feels-like temperature based on the weather data.
+     * If the data is not available, sets the value to ERROR_MESSAGE.
+     */
+    private static void setFeelsLikeTemperature() {
+        try {
+            var innerJSONData = weatherData.getJSONObject("main");
+            float temp = innerJSONData.getFloat("feels_like") - 273.15f;
+            feelsLikeTemperature = String.valueOf(Math.round(temp));
+        } catch (Exception e) {
+            printErrorMessage(e);
+            feelsLikeTemperature = ERROR_MESSAGE;
+        }
+    }
+
+    /**
+     * Sets the max temperature value.
+     * If an exception occurs, prints an error message and sets the max temperature to "NA".
+     */
+    private static void setMaxTemperature() {
+        try {
+            var main = weatherData.getJSONObject("main");
+            float temp = main.getFloat("temp_max") - 273.15f;
+            maxTemperature = String.valueOf(Math.round(temp));
+        } catch (Exception e) {
+            printErrorMessage(e);
+            maxTemperature = ERROR_MESSAGE;
+        }
+    }
+
+    /**
+     * Sets the current weather data by making a HTTP request to the OpenWeatherMap API.
+     * If an exception occurs, prints an error message and sets the weather data to null.
+     */
+    private static void setCurrentWeatherData() {
+        try {
+            String apiAccessKey = "6ae73b11767febcd9a4c5b850246e0f1";
+            String endpointUrl = String.format("https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&appid=%s", DEFAULT_LATITUDE, DEFAULT_LONGITUDE, apiAccessKey);
+
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(endpointUrl))
+                    .build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            weatherData = new JSONObject(response.body());
+        } catch (Exception e) {
+            printErrorMessage(e);
+            weatherData = null;
+        }
+    }
+
+    /**
+     * Returns the current temperature.
+     *
+     * @return The current temperature.
+     */
+    public static String getCurrentTemperature() {
+        return currentTemperature;
+    }
+
+    /**
+     * Returns the minimum temperature.
+     *
+     * @return The minimum temperature.
+     */
+    public static String getMinTemperature() {
+        return minTemperature;
+    }
+
+    /**
+     * Returns the maximum temperature.
+     *
+     * @return The maximum temperature.
+     */
+    public static String getMaxTemperature() {
+        return maxTemperature;
+    }
+
+    /**
+     * Returns the temperature that it feels like.
+     *
+     * @return The temperature that it feels like.
+     */
+    public static String getFeelsLikeTemperature() {
+        return feelsLikeTemperature;
+    }
+
+    /**
+     * Main method for testing purposes.
+     *
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
     }
 }

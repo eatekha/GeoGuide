@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -18,6 +17,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,351 +27,401 @@ import static com.example.wesgeosys.addPOIController.newpdesc;
 import static com.example.wesgeosys.addPOIController.newpname;
 import static com.example.wesgeosys.editPOIController.*;
 
+/**
+ * The controller for the main maps view.
+ */
 public class mainMapsController {
+    /**
+     * A list of all image icons used on the map.
+     */
     private static List<ImageView> imageIcons = new ArrayList<>();
 
     @FXML
-    private AnchorPane adminPane;
+    private AnchorPane adminPanel;
     @FXML
-    private ImageView mapView;
+    private ComboBox favDropdown;
     @FXML
-    private ComboBox mapsDrop;
+    private ComboBox floorsDropdown;
     @FXML
-    private ComboBox layersDrop;
+    private ImageView mapDisplay;
     @FXML
-    private ComboBox poiDrop;
+    private ComboBox layersDropdown;
     @FXML
-    private ComboBox favDrop;
+    private ComboBox mapsDropdown;
     @FXML
-    private ComboBox floorsDrop;
+    private ComboBox poiDropdown;
 
-    @FXML
-    private Label descText;
-    private Stage popup;
+    /**
+     * The file path to the map images.
+     */
+    private String mapFilePath = "src/main/java/com/example/wesgeosys/mapImages/";
+    /**
+     * The index of the current floor.
+     */
+    private int currentFloorIndex;
 
-    // Weather
-    @FXML
-    private Label curTempVal;
-    @FXML
-    private Label feelsTempVal;
-    @FXML
-    private Label lowTempVal;
-    @FXML
-    private Label highTempVal;
-
-    private String mapPath = "src/main/java/com/example/wesgeosys/mapImages/";
-    private int currentFloorNum;
     public accountClass user;
-
-    public JSONArray buildingFile;
-    public JSONObject currentBuild;
-    public JSONObject currFloor;
-    public JSONArray currPOIList;
-    public JSONObject currPOI;
-    public JSONArray userFile;
-    public JSONObject userObject;
-    public searchHelperTool searchHelp;
-    public editTool editTool;
+    public JSONArray buildingDataFile;
+    public JSONObject currentBuildingData;
+    public JSONObject currentFloor;
+    public JSONArray currentPOIList;
+    public JSONObject currentPOI;
+    public editTool editHelper;
+    public static Boolean adminAccess;
     public static String username;
-    public static Boolean adminPermissions;
-
-    EventHandler<ActionEvent> floorsDropHandler;
-    EventHandler<ActionEvent> poiDropHandler;
-    EventHandler<ActionEvent> favDropHandler;
-    EventHandler<ActionEvent> layerDropHandler;
-
-    double mapViewOffsetX = 140;
-    double mapViewOffsetY = 10;
-    double mapViewSizeX = 1398; // prefHeight="805.0" prefWidth="1398.0"
-    double mapViewSizeY = 805;
-    double coordY;
-    double coordX;
-
-    boolean canPlaceDownIcon = false;
-    boolean canAddPOIIcon = false;
-    ImageView placedDownIcon;
+    public JSONArray userFileData;
+    public JSONObject userInstance;
+    public searchHelperTool searchUtility;
 
     @FXML
-    protected void onMapsAction()
-    {
-        removeAllIcons();
+    private Label currentTemperature;
+    @FXML
+    private Label descriptionText;
+    @FXML
+    private Label feelsLikeTemperature;
+    @FXML
+    private Label highTemperature;
+    @FXML
+    private Label lowTemperature;
 
-        layersDrop.setOnAction(null);
-        poiDrop.setOnAction(null);
-        favDrop.setOnAction(null);
-        layersDrop.setValue("");
-        poiDrop.setValue("");
-        favDrop.setValue("");
-        layersDrop.setOnAction(floorsDropHandler);
-        poiDrop.setOnAction(poiDropHandler);
-        favDrop.setOnAction(favDropHandler);
+    EventHandler<ActionEvent> favDropdownHandler;
+    EventHandler<ActionEvent> floorsDropdownHandler;
+    EventHandler<ActionEvent> layerDropdownHandler;
+    EventHandler<ActionEvent> poiDropdownHandler;
 
-        String imageName = searchHelp.findImage(mapsDrop.getValue().toString(), 0);
-        this.currentBuild = searchHelp.getBuildObject(mapsDrop.getValue().toString());
-        JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
-        this.currFloor = (JSONObject) tmpArray.get(0);
+    private Stage popupPane;
+
+    /**
+     * Whether or not an add POI icon is active.
+     */
+    boolean addPOIIcon = false;
+    /**
+     * Whether or not a placeable icon is active.
+     */
+    boolean placeableIcon = false;
+    /**
+     * The currently placed icon.
+     */
+    ImageView placedIcon;
+
+    double mapOffsetX = 140;
+    double mapOffsetY = 10;
+    double mapSizeX = 1398;
+    double mapSizeY = 805;
+    double xCoordinate;
+    double yCoordinate;
+
+    /**
+     * Logs out the current user and displays the login page.
+     *
+     * @throws IOException If an I/O error occurs when opening the login page.
+     */
+    @FXML
+    protected void handleLogout() throws IOException {
         try {
-            mapView.setImage(new Image(new FileInputStream(mapPath + imageName)));
-            if (floorsDrop.getItems().size() < tmpArray.size()){
-                // Add missing floors from dropdown when switching maps
-                for (int n = floorsDrop.getItems().size() + 1; n <= tmpArray.size(); n++){
-                    floorsDrop.getItems().add(n);
-                }
-            } else if (floorsDrop.getItems().size() > tmpArray.size()){
-                // Remove excess floors from dropdown when switching maps
-                for (int n = floorsDrop.getItems().size(); n > tmpArray.size(); n--){
-                    floorsDrop.getItems().remove(n - 1);
-                }
-            }
-
-            int val = poiDrop.getItems().size();
-            for (int n = 0; n < val;n++){
-                poiDrop.getItems().remove(0);
-            }
-            JSONObject tmpObj = (JSONObject) tmpArray.get(0);
-            currPOIList = (JSONArray) tmpObj.get("pointsOfInterest");
-            for (int n = 0; n < currPOIList.size(); n++){
-                tmpObj = (JSONObject) currPOIList.get(n);
-                if((Boolean) tmpObj.get("builtInPOI")) {
-                    poiDrop.getItems().add(tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
-                } else {
-                    poiDrop.getItems().add("(User)" + tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
-
-                }
-            }
-
-            floorsDrop.setOnAction(null);
-            floorsDrop.setValue("1"); // Reset selected floor to 1 when switching maps
-            floorsDrop.setOnAction(floorsDropHandler);
-            onLayersAction();
-        } catch (FileNotFoundException e){
-            PrintOutError(e);
-        }
-    }
-    @FXML
-    protected void onLayersAction()
-    {
-        removeAllIcons();
-
-        poiDrop.setOnAction(null);
-        favDrop.setOnAction(null);
-        poiDrop.setValue("");
-        favDrop.setValue("");
-        poiDrop.setOnAction(poiDropHandler);
-        favDrop.setOnAction(favDropHandler);
-
-        String layerType = "Default";
-        if (layersDrop.getValue() != null){
-            layerType = layersDrop.getValue().toString();
-        }
-        JSONArray layerList = searchHelp.findAllLayerType(currFloor, layerType);
-        try {
-            for(int n = 0; n < layerList.size(); n++) {
-                String imageName = "Icon Image - " + layerType + ".png";
-                String imagePath = "src/main/java/com/example/wesgeosys/iconImages/" + imageName;
-                ImageView imgView = new ImageView(new Image(new FileInputStream(imagePath)));
-                imgView.setPreserveRatio(true);
-                imgView.setFitWidth(30);
-                imgView.setX(((searchHelp.getCord("X", (JSONObject) layerList.get(n))/3400.0) * mapViewSizeX) + mapViewOffsetX - 15.0);
-                imgView.setY(((searchHelp.getCord("Y", (JSONObject) layerList.get(n))/2200.0) * mapViewSizeY) + mapViewOffsetY - 15.0);
-                adminPane.getChildren().add(imgView);
-                imageIcons.add(imgView);
-            }
-        } catch (Exception e){
-            PrintOutError(e);
-        }
-        // TODO: After selecting layers dropdown option
-    }
-    @FXML
-    protected void onpoiAction() {
-        removeAllIcons();
-
-        layersDrop.setOnAction(null);
-        favDrop.setOnAction(null);
-        layersDrop.setValue("");
-        favDrop.setValue("");
-        layersDrop.setOnAction(layerDropHandler);
-        favDrop.setOnAction(favDropHandler);
-
-        if (poiDrop.getValue() != null) {
-            String string = poiDrop.getValue().toString();
-            String[] subString = string.split(":");
-            int indexVal = searchHelp.getPOIIndex(currPOIList, subString[0], subString[1]);
-            currPOI = (JSONObject) currPOIList.get(indexVal);
-            String layerType = currPOI.get("layerType").toString();
-            try {
-                String imageName = "Icon Image - " + layerType + ".png";
-                String imagePath = "src/main/java/com/example/wesgeosys/iconImages/" + imageName;
-                ImageView imgView = new ImageView(new Image(new FileInputStream(imagePath)));
-                imgView.setPreserveRatio(true);
-                imgView.setFitWidth(30);
-                imgView.setX(((searchHelp.getCord("X", (JSONObject) currPOI) / 3400.0) * mapViewSizeX) + mapViewOffsetX - 15.0);
-                imgView.setY(((searchHelp.getCord("Y", (JSONObject) currPOI) / 2200.0) * mapViewSizeY) + mapViewOffsetY - 15.0);
-                adminPane.getChildren().add(imgView);
-                imageIcons.add(imgView);
-                Object desc = currPOI.get("description");
-                if (desc != null) { descText.setText(desc.toString()); }
-            } catch (Exception e) {
-                PrintOutError(e);
-            }
-        }
-    }
-    @FXML
-    protected void onFavAction()
-    {
-        removeAllIcons();
-
-        layersDrop.setOnAction(null);
-        poiDrop.setOnAction(null);
-        layersDrop.setValue("");
-        poiDrop.setValue("");
-        layersDrop.setOnAction(layerDropHandler);
-        poiDrop.setOnAction(poiDropHandler);
-
-        // Displaying the poi icon
-        if (favDrop.getValue() != null) {
-            String string = favDrop.getValue().toString();
-            String[] subString = string.split(":");
-            int indexVal = searchHelp.getPOIIndex(currPOIList, subString[0], subString[1]);
-            currPOI = (JSONObject) currPOIList.get(indexVal);
-            String layerType = currPOI.get("layerType").toString();
-            try {
-                String imageName = "Icon Image - " + layerType + ".png";
-                String imagePath = "src/main/java/com/example/wesgeosys/iconImages/" + imageName;
-                ImageView imgView = new ImageView(new Image(new FileInputStream(imagePath)));
-                imgView.setPreserveRatio(true);
-                imgView.setFitWidth(30);
-                imgView.setX(((searchHelp.getCord("X", (JSONObject) currPOI) / 3400.0) * mapViewSizeX) + mapViewOffsetX - 15.0);
-                imgView.setY(((searchHelp.getCord("Y", (JSONObject) currPOI) / 2200.0) * mapViewSizeY) + mapViewOffsetY - 15.0);
-                adminPane.getChildren().add(imgView);
-                imageIcons.add(imgView);
-            } catch (Exception e) {
-                PrintOutError(e);
-            }
-        }
-    }
-    @FXML
-    protected void onFloorsAction() // This runs when switching floors AND when switching maps after switching floors for some reason
-    {
-        this.currentFloorNum = Integer.parseInt(floorsDrop.getValue().toString()) - 1;
-
-        JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
-        currFloor = (JSONObject) tmpArray.get(currentFloorNum);
-
-        String imageName = searchHelp.findImage(currentBuild.get("Building").toString(), Integer.parseInt(floorsDrop.getValue().toString()) - 1);
-        try {
-            mapView.setImage(new Image(new FileInputStream(mapPath + imageName)));
-            clearComboBox(poiDrop);
-            JSONObject tmpObj = (JSONObject) tmpArray.get(currentFloorNum);
-            currPOIList = (JSONArray) tmpObj.get("pointsOfInterest");
-            for (int n = 0; n < currPOIList.size(); n++){
-                tmpObj = (JSONObject) currPOIList.get(n);
-                poiDrop.getItems().add(tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
-            }
-            onLayersAction();
-        } catch (FileNotFoundException e){
-            System.out.println("File not found");
-        }
-    }
-
-    @FXML
-    protected void onToggleFavourites()
-    {
-        if (currPOI != null) {
-            if (currPOI.get("favourite").equals(true)){
-                editTool.favouriteToggle(currentBuild.get("Building").toString(), currentFloorNum, currPOI, false);
-                favDrop.getItems().remove(currPOI);
-            }else {
-                editTool.favouriteToggle(currentBuild.get("Building").toString(), currentFloorNum, currPOI, true);
-                if (currPOI.get("builtInPOI").equals((true))){
-                    favDrop.getItems().add(currPOI.get("name") + ":" + currPOI.get("roomNum"));
-                } else {
-                    favDrop.getItems().add("(User)" + currPOI.get("name") + ":" + currPOI.get("roomNum"));
-                }
-            }
-        } else {
-            System.out.println("No POI selected");
-        }
-    }
-
-    @FXML
-    protected void onLogout() throws IOException
-    {
-        try {
-            // close the stage
-            Stage stage = (Stage) adminPane.getScene().getWindow();
+            Stage stage = (Stage) adminPanel.getScene().getWindow();
             stage.close();
-
             FXMLLoader fxmlLoader = new FXMLLoader(logControllerGUI.class.getResource("logGUI.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 391.0, 322.0);
-
             Stage newLogin = new Stage();
             newLogin.setTitle("Login Page");
             newLogin.setScene(scene);
             newLogin.show();
-        }
-        catch (Exception e) {
-            PrintOutError(e);
+        } catch (Exception e) {
+            displayError(e);
         }
     }
 
+    /**
+     * Displays the help pop-up window with information on how to use the application.
+     */
     @FXML
-    protected void onOpenHelp()
-    {
+    protected void handleOpenHelp() {
         try {
-            popup = new Stage();
-//            Parent root = FXMLLoader.load(getClass().getResource("HelpMainPopup.fxml"));
+            popupPane = new Stage();
             Parent root = new FXMLLoader(mainMapsController.class.getResource("helpPopGUI.fxml")).load();
             Scene scene = new Scene(root, 625, 500);
-            popup.setTitle("Help");
-            popup.setScene(scene);
-            popup.show();
-        }
-        catch (Exception e){
-            PrintOutError(e);
+            popupPane.setTitle("Help");
+            popupPane.setScene(scene);
+            popupPane.show();
+        } catch (Exception e) {
+            displayError(e);
         }
     }
-    protected void combineJSON(){
-        JSONArray userPOIs = (JSONArray) userObject.get("userPOIs");
-        JSONArray favList = (JSONArray) userObject.get("favourites");
-        JSONObject userTmpObj;
-        JSONObject builtTmpObj;
-        JSONArray tmpArray;
-        JSONArray poiList;
-        for (int k = 0; k < userPOIs.size(); k++) {
-            userTmpObj = (JSONObject) userPOIs.get(k);
-            for (int n = 0; n < buildingFile.size(); n++) {
-                builtTmpObj = (JSONObject) buildingFile.get(n);
-                if (userTmpObj.get("building").equals(builtTmpObj.get("Building").toString())){
-                    tmpArray = (JSONArray) builtTmpObj.get("floors");
-                    for (int f = 0; f < tmpArray.size(); f++){
-                        builtTmpObj = (JSONObject) tmpArray.get(f);
-                        if (Integer.parseInt(userTmpObj.get("floorNum").toString()) == f){
-                            poiList = (JSONArray) builtTmpObj.get("pointsOfInterest");
-//                            System.out.println(k);
-//                            System.out.println(n);
-//                            System.out.println(f);
 
-                            editTool.addPOI(poiList);
+    /**
+     * Handles the action triggered when a point of interest (POI) is selected.
+     * Clears all icons, disables the layers and favorites dropdown, sets their values to empty, and re-enables them.
+     * Finds the selected POI's index in the current POI list and sets the current POI to the one at that index.
+     * Loads and displays the icon image corresponding to the selected POI's layer type, and adds it to the admin panel.
+     * If the selected POI has a description, sets the description text to it.     *
+     *
+     * @throws FileNotFoundException if the icon image file for the selected POI cannot be found
+     */
+    @FXML
+    protected void handlePOIAction() {
+        clearAllIcons();
+        layersDropdown.setOnAction(null);
+        favDropdown.setOnAction(null);
+        layersDropdown.setValue("");
+        favDropdown.setValue("");
+        layersDropdown.setOnAction(layerDropdownHandler);
+        favDropdown.setOnAction(favDropdownHandler);
+        if (poiDropdown.getValue() != null) {
+            String string = poiDropdown.getValue().toString();
+            String[] poiData = string.split(":");
+            int indexVal = searchUtility.getPointOfInterestIndex(currentPOIList, poiData[0], poiData[1]);
+            currentPOI = (JSONObject) currentPOIList.get(indexVal);
+            String layerType = currentPOI.get("layerType").toString();
+            try {
+                String imageName = "Icon Image - " + layerType + ".png";
+                String imagePath = "src/main/java/com/example/wesgeosys/iconImages/" + imageName;
+                ImageView displayImage = new ImageView(new Image(new FileInputStream(imagePath)));
+                displayImage.setPreserveRatio(true);
+                displayImage.setFitWidth(30);
+                displayImage.setX(((searchUtility.getCoordinates("X", (JSONObject) currentPOI) / 3400.0) * mapSizeX) + mapOffsetX - 15.0);
+                displayImage.setY(((searchUtility.getCoordinates("Y", (JSONObject) currentPOI) / 2200.0) * mapSizeY) + mapOffsetY - 15.0);
+                adminPanel.getChildren().add(displayImage);
+                imageIcons.add(displayImage);
+                Object desc = currentPOI.get("description");
+                if (desc != null) {
+                    descriptionText.setText(desc.toString());
+                }
+            } catch (FileNotFoundException e) {
+                displayError(e);
+            }
+        }
+    }
+
+    /**
+     * Handles the event when a favorite point of interest is selected.
+     * Clears all the existing icons and sets the event handlers for the layers and poi dropdowns.
+     * Gets the current point of interest based on the selected favorite and its index in the current point of interest list.
+     * Sets the icon image based on the layer type of the current point of interest and displays it on the admin panel.
+     *
+     * @throws FileNotFoundException if the icon image file is not found
+     */
+    @FXML
+    protected void handleFavAction() {
+        clearAllIcons();
+        layersDropdown.setOnAction(null);
+        poiDropdown.setOnAction(null);
+        layersDropdown.setValue("");
+        poiDropdown.setValue("");
+        layersDropdown.setOnAction(layerDropdownHandler);
+        poiDropdown.setOnAction(poiDropdownHandler);
+        if (favDropdown.getValue() != null) {
+            String string = favDropdown.getValue().toString();
+            String[] poiData = string.split(":");
+            int valueIndex = searchUtility.getPointOfInterestIndex(currentPOIList, poiData[0], poiData[1]);
+            currentPOI = (JSONObject) currentPOIList.get(valueIndex);
+            String layerType = currentPOI.get("layerType").toString();
+            try {
+                String imageName = "Icon Image - " + layerType + ".png";
+                String imagePath = "src/main/java/com/example/wesgeosys/iconImages/" + imageName;
+                ImageView displayImage = new ImageView(new Image(new FileInputStream(imagePath)));
+                displayImage.setPreserveRatio(true);
+                displayImage.setFitWidth(30);
+                displayImage.setX(((searchUtility.getCoordinates("X", (JSONObject) currentPOI) / 3400.0) * mapSizeX) + mapOffsetX - 15.0);
+                displayImage.setY(((searchUtility.getCoordinates("Y", (JSONObject) currentPOI) / 2200.0) * mapSizeY) + mapOffsetY - 15.0);
+                adminPanel.getChildren().add(displayImage);
+                imageIcons.add(displayImage);
+            } catch (FileNotFoundException e) {
+                displayError(e);
+            }
+        }
+    }
+
+    /**
+     * Handles the action when the user selects a layer from the layers dropdown menu.
+     * Clears all icons and resets dropdown menus for poi and fav.
+     * Sets the value of the poi and fav dropdown menus to empty strings.
+     * Resets the event handlers for poi and fav dropdown menus.
+     * Determines the layer type based on the selected value from the layers dropdown menu.
+     * Retrieves the list of layers for the current floor and the selected layer type.
+     * Adds the corresponding icon images to the admin panel based on the coordinates of each layer.
+     *
+     * @throws FileNotFoundException if the icon image file for the selected layer type cannot be found
+     */
+    @FXML
+    protected void handleLayersAction() {
+        clearAllIcons();
+        poiDropdown.setOnAction(null);
+        favDropdown.setOnAction(null);
+        poiDropdown.setValue("");
+        favDropdown.setValue("");
+        poiDropdown.setOnAction(poiDropdownHandler);
+        favDropdown.setOnAction(favDropdownHandler);
+        String layerType = layersDropdown.getValue() != null ? layersDropdown.getValue().toString() : "Default";
+        JSONArray layerList = searchUtility.findAllLayerKind(currentFloor, layerType);
+        try {
+            for (Object obj : layerList) {
+                JSONObject layer = (JSONObject) obj;
+                String imageName = "Icon Image - " + layerType + ".png";
+                String imagePath = "src/main/java/com/example/wesgeosys/iconImages/" + imageName;
+                ImageView displayView = new ImageView(new Image(new FileInputStream(imagePath)));
+                displayView.setPreserveRatio(true);
+                displayView.setFitWidth(30);
+                displayView.setX(((searchUtility.getCoordinates("X", layer) / 3400.0) * mapSizeX) + mapOffsetX - 15.0);
+                displayView.setY(((searchUtility.getCoordinates("Y", layer) / 2200.0) * mapSizeY) + mapOffsetY - 15.0);
+                adminPanel.getChildren().add(displayView);
+                imageIcons.add(displayView);
+            }
+        } catch (FileNotFoundException e) {
+            displayError(e);
+        }
+    }
+
+
+    /**
+     * Handles the action when the user selects a new floor from the dropdown list.
+     * Updates the current floor index, loads the corresponding floor map image, resets the POI dropdown list,
+     * updates the list with POIs on the selected floor, and triggers the layers dropdown action handler.
+     *
+     * @throws FileNotFoundException if the map image file for the selected layer type cannot be found
+     */
+    @FXML
+    protected void handleFloorsAction() {
+        this.currentFloorIndex = Integer.parseInt(floorsDropdown.getValue().toString()) - 1;
+        JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
+        currentFloor = (JSONObject) temporaryArray.get(currentFloorIndex);
+        String imageName = searchUtility.searchImage(currentBuildingData.get("Building").toString(), Integer.parseInt(floorsDropdown.getValue().toString()) - 1);
+        try {
+            mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + imageName)));
+            resetComboBox(poiDropdown);
+            JSONObject temporaryObject = (JSONObject) temporaryArray.get(currentFloorIndex);
+            currentPOIList = (JSONArray) temporaryObject.get("pointsOfInterest");
+            for (int n = 0; n < currentPOIList.size(); n++) {
+                temporaryObject = (JSONObject) currentPOIList.get(n);
+                poiDropdown.getItems().add(temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
+            }
+            handleLayersAction();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: File Not Found");
+        }
+    }
+
+    /**
+     * Handles the toggle favourites action. If a point of interest is currently selected and it is marked as a favourite,
+     * it will be unmarked as a favourite and removed from the favourites dropdown. If a point of interest is currently selected
+     * and it is not marked as a favourite, it will be marked as a favourite and added to the favourites dropdown. If no point of
+     * interest is currently selected, it will print a message indicating that a point of interest is not selected.
+     */
+    @FXML
+    protected void handleToggleFavourites() {
+        if (currentPOI == null) {
+            System.out.println("POI NOT SELECTED");
+            return;
+        }
+        boolean isFavourite = currentPOI.get("favourite").equals(true);
+        editHelper.favouriteToggle(currentBuildingData.get("Building").toString(), currentFloorIndex, currentPOI, !isFavourite);
+        if (isFavourite) {
+            favDropdown.getItems().remove(currentPOI);
+        } else {
+            String favDropdownItem = (currentPOI.get("builtInPOI").equals(true))
+                    ? currentPOI.get("name") + ":" + currentPOI.get("roomNum")
+                    : "(User)" + currentPOI.get("name") + ":" + currentPOI.get("roomNum");
+            favDropdown.getItems().add(favDropdownItem);
+        }
+    }
+
+
+    /**
+     * Handles the action when the user selects a map from the maps dropdown menu.
+     * Clears all icons and resets dropdown menus for layers, poi and fav.
+     * Sets the value of the layers, poi, and fav dropdown menus to empty strings.
+     * Resets the event handlers for layers, poi, and fav dropdown menus.
+     * Retrieves the image for the selected map and displays it on the map display.
+     * Retrieves the current building data and the current floor data for the selected map.
+     * Populates the floors dropdown menu with the number of floors available for the selected map.
+     * Populates the poi dropdown menu with the points of interest for the first floor of the selected map.
+     * Calls the handleLayersAction method to display the appropriate icons for the selected floor.
+     *
+     * @throws FileNotFoundException if the image for the selected map cannot be found
+     */
+    @FXML
+    protected void handleMapsAction() {
+        clearAllIcons();
+        layersDropdown.setOnAction(null);
+        poiDropdown.setOnAction(null);
+        favDropdown.setOnAction(null);
+        layersDropdown.setValue("");
+        poiDropdown.setValue("");
+        favDropdown.setValue("");
+        layersDropdown.setOnAction(floorsDropdownHandler);
+        poiDropdown.setOnAction(poiDropdownHandler);
+        favDropdown.setOnAction(favDropdownHandler);
+        String imageName = searchUtility.searchImage(mapsDropdown.getValue().toString(), 0);
+        this.currentBuildingData = searchUtility.getBuildingObject(mapsDropdown.getValue().toString());
+        JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
+        this.currentFloor = (JSONObject) temporaryArray.get(0);
+        try {
+            mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + imageName)));
+            int val = poiDropdown.getItems().size();
+            for (int initialVal = 0; initialVal < val; initialVal++) {
+                poiDropdown.getItems().remove(0);
+            }
+            floorsDropdown.getItems().clear();
+            for (int initialVal = 1; initialVal <= temporaryArray.size(); initialVal++) {
+                floorsDropdown.getItems().add(initialVal);
+            }
+            floorsDropdown.setValue("1");
+            JSONObject temporaryObject = (JSONObject) temporaryArray.get(0);
+            currentPOIList = (JSONArray) temporaryObject.get("pointsOfInterest");
+            poiDropdown.getItems().clear();
+            for (int initialVal2 = 0; initialVal2 < currentPOIList.size(); initialVal2++) {
+                temporaryObject = (JSONObject) currentPOIList.get(initialVal2);
+                if ((Boolean) temporaryObject.get("builtInPOI")) {
+                    poiDropdown.getItems().add(temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
+                } else {
+                    poiDropdown.getItems().add("(User)" + temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
+                }
+            }
+            handleLayersAction();
+        } catch (FileNotFoundException e) {
+            displayError(e);
+        } finally {
+            floorsDropdown.setOnAction(floorsDropdownHandler);
+        }
+    }
+
+    protected void mergeJSON() {
+        JSONArray userPOIs = (JSONArray) userInstance.get("userPOIs");
+        JSONArray favList = (JSONArray) userInstance.get("favourites");
+        JSONObject usertemporaryObject;
+        JSONObject builttemporaryObject;
+        JSONArray temporaryArray;
+        JSONArray poiList;
+        for (int initialVal = 0; initialVal < userPOIs.size(); initialVal++) {
+            usertemporaryObject = (JSONObject) userPOIs.get(initialVal);
+            for (int initialVal2 = 0; initialVal2 < buildingDataFile.size(); initialVal2++) {
+                builttemporaryObject = (JSONObject) buildingDataFile.get(initialVal2);
+                if (usertemporaryObject.get("building").equals(builttemporaryObject.get("Building").toString())) {
+                    temporaryArray = (JSONArray) builttemporaryObject.get("floors");
+                    for (int initialVal3 = 0; initialVal3 < temporaryArray.size(); initialVal3++) {
+                        builttemporaryObject = (JSONObject) temporaryArray.get(initialVal3);
+                        if (Integer.parseInt(usertemporaryObject.get("floorNum").toString()) == initialVal3) {
+                            poiList = (JSONArray) builttemporaryObject.get("pointsOfInterest");
+                            editHelper.addPOI(poiList);
                         }
                     }
                 }
             }
         }
         for (int k = 0; k < favList.size(); k++) {
-            userTmpObj = (JSONObject) favList.get(k);
-            for (int n = 0; n < buildingFile.size(); n++) {
-                builtTmpObj = (JSONObject) buildingFile.get(0);
-                if (userTmpObj.get("building").equals(builtTmpObj.get("Building").toString())){
-                    tmpArray = (JSONArray) builtTmpObj.get("floors");
-                    for (int f = 0; f < tmpArray.size(); f++){
-                        builtTmpObj = (JSONObject) tmpArray.get(f);
-                        if (Integer.parseInt(userTmpObj.get("floorNum").toString()) == f){
-                            poiList = (JSONArray) builtTmpObj.get("pointsOfInterest");
-                            for (int p = 0; p < poiList.size(); p++){
+            usertemporaryObject = (JSONObject) favList.get(k);
+            for (int n = 0; n < buildingDataFile.size(); n++) {
+                builttemporaryObject = (JSONObject) buildingDataFile.get(0);
+                if (usertemporaryObject.get("building").equals(builttemporaryObject.get("Building").toString())) {
+                    temporaryArray = (JSONArray) builttemporaryObject.get("floors");
+                    for (int f = 0; f < temporaryArray.size(); f++) {
+                        builttemporaryObject = (JSONObject) temporaryArray.get(f);
+                        if (Integer.parseInt(usertemporaryObject.get("floorNum").toString()) == f) {
+                            poiList = (JSONArray) builttemporaryObject.get("pointsOfInterest");
+                            for (int p = 0; p < poiList.size(); p++) {
                                 JSONObject curPoi = (JSONObject) poiList.get(p);
-                                if (curPoi.get("name").equals(userTmpObj.get("name")) && curPoi.get("roomNum").equals(userTmpObj.get("roomNum"))){
-                                    editTool.favouriteToggle(currentBuild.get("Building").toString(), currentFloorNum, curPoi, true);
+                                if (curPoi.get("name").equals(usertemporaryObject.get("name")) && curPoi.get("roomNum").equals(usertemporaryObject.get("roomNum"))) {
+                                    editHelper.favouriteToggle(currentBuildingData.get("Building").toString(), currentFloorIndex, curPoi, true);
                                 }
                             }
                         }
@@ -380,8 +430,9 @@ public class mainMapsController {
             }
         }
     }
+
     @FXML
-    protected void addBuilding(){
+    protected void insertBuilding() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBuildingGUI.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 322.0, 391.0);
@@ -392,17 +443,12 @@ public class mainMapsController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        editTool.addBuilding(bname);
-        mapsDrop.getItems().add(bname);
-
-
-        // TODO: Get the name the user wants,
-        String buildName = "TestTest";
-        // TODO: Complex. Need to take map name
+        editHelper.addBuilding(bname);
+        mapsDropdown.getItems().add(bname);
     }
 
     @FXML
-    protected void editBuilding(){
+    protected void modifyBuilding() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editBuildingGUI.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 322.0, 391.0);
@@ -413,64 +459,54 @@ public class mainMapsController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        editTool.editBuilding(currentBuild, bname);
-        // TODO: Complex. Rename building
+        editHelper.editBuilding(currentBuildingData, bname);
     }
 
     @FXML
-    protected void removeBuilding(){
-        // Remove the building from the builtInPOI.json file, for now removes it from the backUpBuiltInPOI.json file
-        editTool.removeBuilding((String) currentBuild.get("Building"));
-        // Remove the building from the Maps combo box
-
-        mapsDrop.getItems().remove(currentBuild.get("Building"));
-        currentBuild = (JSONObject) buildingFile.get(0);
-        // Change the map
-        JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
-        currFloor = (JSONObject) tmpArray.get(0);
-        String imageName = currFloor.get("imageFileName").toString();
+    protected void deleteBuilding() {
+        editHelper.removeBuilding((String) currentBuildingData.get("Building"));
+        mapsDropdown.getItems().remove(currentBuildingData.get("Building"));
+        currentBuildingData = (JSONObject) buildingDataFile.get(0);
+        JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
+        currentFloor = (JSONObject) temporaryArray.get(0);
+        String imageName = currentFloor.get("imageFileName").toString();
         try {
-            mapView.setImage(new Image(new FileInputStream(mapPath + imageName)));
-        } catch (FileNotFoundException e){
+            mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + imageName)));
+        } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
-        // TODO: Simple. Just remove current building open. Floor does not matter. Switch to another building view
     }
 
     @FXML
-    protected void addPOI(){
-        alertUser();
-        canAddPOIIcon = true;
-        JSONObject tmpObj;
-        if(adminPermissions){
-            editTool.addPOI(currPOIList);
-            tmpObj = (JSONObject) currPOIList.get(0);
-            poiDrop.getItems().add(tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
+    protected void insertPOI() {
+        displayAlert();
+        addPOIIcon = true;
+        JSONObject temporaryObject;
+        if (adminAccess) {
+            editHelper.addPOI(currentPOIList);
+            temporaryObject = (JSONObject) currentPOIList.get(0);
+            poiDropdown.getItems().add(temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
         } else {
-            editTool.addPOI(currPOIList);
-            editTool.addPOI((JSONArray) userObject.get("userPOIs"));
-            editTool.addToUserPOI(currentBuild.get("Building").toString(), currentFloorNum);
-            JSONArray tmpArray = (JSONArray) userObject.get("userPOIs");
-            tmpObj = (JSONObject) tmpArray.get(0);
-            poiDrop.getItems().add("(User)" + tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
+            editHelper.addPOI(currentPOIList);
+            editHelper.addPOI((JSONArray) userInstance.get("userPOIs"));
+            editHelper.addToUserPOI(currentBuildingData.get("Building").toString(), currentFloorIndex);
+            JSONArray temporaryArray = (JSONArray) userInstance.get("userPOIs");
+            temporaryObject = (JSONObject) temporaryArray.get(0);
+            poiDropdown.getItems().add("(User)" + temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
         }
-        // TODO: Complex. Must specify layer type and x and y location (maybe by clicking)
     }
 
     @FXML
-    protected void editPOI() throws IOException {
-        // Enables the user to place an icon for new POI location
-
-        if(emptyPOI()){
+    protected void modifyPOI() throws IOException {
+        if (clearPOI()) {
             return;
-        }else {
-            alertUser();
-            canPlaceDownIcon = true;
+        } else {
+            displayAlert();
+            placeableIcon = true;
         }
-
     }
 
-    private void alertUser(){
+    private void displayAlert() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("alertPageGUI.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 300);
@@ -483,7 +519,7 @@ public class mainMapsController {
         }
     }
 
-    private void editPOIPopout(){
+    private void modifyPOIPopout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editPOIGUI.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 322.0, 391.0);
@@ -494,55 +530,51 @@ public class mainMapsController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
-        if (currPOI != null) {
-            String nameInput = currPOI.get("name").toString();
-            String descriptionInput = currPOI.get("description").toString();
-            String roomNumInput = currPOI.get("roomNum").toString();
-            String layerTypeInput = currPOI.get("layerType").toString();
-            int xInput = Integer.parseInt(currPOI.get("xCord").toString());
-            int yInput = Integer.parseInt(currPOI.get("yCord").toString());
-            int newX = (int)coordX;
-            int newY = (int)coordY;
+        if (currentPOI != null) {
+            String nameInput = currentPOI.get("name").toString();
+            String descriptionInput = currentPOI.get("description").toString();
+            String roomNumInput = currentPOI.get("roomNum").toString();
+            String layerTypeInput = currentPOI.get("layerType").toString();
+            int xInput = Integer.parseInt(currentPOI.get("xCord").toString());
+            int yInput = Integer.parseInt(currentPOI.get("yCord").toString());
+            int newX = (int) xCoordinate;
+            int newY = (int) yCoordinate;
             System.out.println(newX);
             System.out.println(newY);
             System.out.println(pname);
             System.out.println(pdesc);
             System.out.println(proom);
             System.out.println(player);
-            editTool.editPOI(currPOI, pname, pdesc, newX, newY, proom, player);
-            clearComboBox(poiDrop);
-            JSONObject tmpObj;
-            for (int n = 0; n < currPOIList.size(); n++) {
-                tmpObj = (JSONObject) currPOIList.get(n);
-                poiDrop.getItems().add(tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
+            editHelper.editPOI(currentPOI, pname, pdesc, newX, newY, proom, player);
+            resetComboBox(poiDropdown);
+            JSONObject temporaryObject;
+            for (int n = 0; n < currentPOIList.size(); n++) {
+                temporaryObject = (JSONObject) currentPOIList.get(n);
+                poiDropdown.getItems().add(temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
             }
         } else {
             System.out.println("No Current POI Selected");
         }
-        adminPane.getChildren().remove(placedDownIcon);
-        canPlaceDownIcon = false;
+        adminPanel.getChildren().remove(placedIcon);
+        placeableIcon = false;
     }
 
     @FXML
-    protected void removePOI(){
-        if(emptyPOI()){
-            return;
-        }else{
-            if (currPOI != null){
-                // TODO: Check to see if you are admin before removing a built in poi icon
-                removeAllIcons();
-                if (adminPermissions) {
-                    editTool.removePOI(currPOIList, currPOI);
-                    poiDrop.getItems().remove(currPOI.get("name") + ":" + currPOI.get("roomNum"));
-                    currPOI = null;
+    protected void deletePOI() {
+        if (clearPOI()) {
+        } else {
+            if (currentPOI != null) {
+                clearAllIcons();
+                if (adminAccess) {
+                    editHelper.removePOI(currentPOIList, currentPOI);
+                    poiDropdown.getItems().remove(currentPOI.get("name") + ":" + currentPOI.get("roomNum"));
+                    currentPOI = null;
                 } else {
-                    editTool.removePOI(currPOIList, currPOI);
-                    editTool.removePOI((JSONArray) userObject.get("userPOIs"), currPOI);
-                    editTool.removeUserPOI(currPOI);
-                    poiDrop.getItems().remove("(User)" + currPOI.get("name") + ":" + currPOI.get("roomNum"));
-                    currPOI = null;
+                    editHelper.removePOI(currentPOIList, currentPOI);
+                    editHelper.removePOI((JSONArray) userInstance.get("userPOIs"), currentPOI);
+                    editHelper.removeUserPOI(currentPOI);
+                    poiDropdown.getItems().remove("(User)" + currentPOI.get("name") + ":" + currentPOI.get("roomNum"));
+                    currentPOI = null;
                 }
             } else {
                 System.out.println("No POI selected");
@@ -552,42 +584,40 @@ public class mainMapsController {
     }
 
     @FXML
-    protected void addFloor(){
-        // Add the new floor to the builtInPOI.json but for now all data goes to backUpBuiltInPOI.json
-        editTool.addFloor(currentBuild, "DefaultFile.png");
-        // Add the new floor to the combo box
-        floorsDrop.getItems().add(floorsDrop.getItems().size() + 1);
-        // TODO: Complex. Specify floor number.
+    protected void insertFloor() {
+        editHelper.addFloor(currentBuildingData, "DefaultFile.png");
+        floorsDropdown.getItems().add(floorsDropdown.getItems().size() + 1);
     }
+
     @FXML
-    protected void removeFloor(){
-        JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
-        editTool.removeFloor(tmpArray,currentFloorNum);
-        floorsDrop.getItems().remove(floorsDrop.getItems().size() - 1);
-        tmpArray = (JSONArray) currentBuild.get("floors");
-        currFloor = (JSONObject) tmpArray.get(0);
+    protected void deleteFloor() {
+        JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
+        editHelper.removeFloor(temporaryArray, currentFloorIndex);
+        floorsDropdown.getItems().remove(floorsDropdown.getItems().size() - 1);
+        temporaryArray = (JSONArray) currentBuildingData.get("floors");
+        currentFloor = (JSONObject) temporaryArray.get(0);
         try {
-            mapView.setImage(new Image(new FileInputStream(mapPath + currFloor.get("imageFileName").toString())));
-        } catch (FileNotFoundException e){
+            mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + currentFloor.get("imageFileName").toString())));
+        } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
-        // TODO: Simple. Remove current floor open.
     }
 
-    private void removeAllIcons(){
-        for (ImageView icon: imageIcons) {
-            adminPane.getChildren().remove(icon);
+    private void clearAllIcons() {
+        for (ImageView icon : imageIcons) {
+            adminPanel.getChildren().remove(icon);
         }
     }
 
-    private void clearComboBox(ComboBox cBox){
+    private void resetComboBox(ComboBox cBox) {
         int val = cBox.getItems().size();
-        for (int n = 0; n < val;n++){
+        for (int n = 0; n < val; n++) {
             cBox.getItems().remove(0);
         }
     }
-    private boolean emptyPOI(){
-        if(poiDrop.getValue() == null){
+
+    private boolean clearPOI() {
+        if (poiDropdown.getValue() == null) {
             return true;
         }
         return false;
@@ -595,112 +625,106 @@ public class mainMapsController {
 
     @FXML
     public void initialize() throws FileNotFoundException {
-        floorsDropHandler = floorsDrop.getOnAction();
-        poiDropHandler = poiDrop.getOnAction();
-        favDropHandler = favDrop.getOnAction();
-        layerDropHandler = layersDrop.getOnAction();
-        floorsDrop.setValue("1");
-        mapView.setOnMouseClicked(e -> {
+        floorsDropdownHandler = floorsDropdown.getOnAction();
+        poiDropdownHandler = poiDropdown.getOnAction();
+        favDropdownHandler = favDropdown.getOnAction();
+        layerDropdownHandler = layersDropdown.getOnAction();
+        floorsDropdown.setValue("1");
+        mapDisplay.setOnMouseClicked(e -> {
             try {
-                GetMouseDown(e);
+                handleMouseDown(e);
             } catch (FileNotFoundException ex) {
                 throw new RuntimeException(ex);
             }
         });
 
-        this.currentFloorNum = 0;
+        this.currentFloorIndex = 0;
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("src/main/java/com/example/wesgeosys/backUpBuiltInPOI.json")) {
             try (FileReader accountReader = new FileReader("src/main/java/com/example/wesgeosys/accountData.json")) {
                 JSONObject currentBuilding = (JSONObject) jsonParser.parse(reader);
-                searchHelp = new searchHelperTool((JSONArray) currentBuilding.get("buildings"), adminPermissions);
-                this.buildingFile = (JSONArray) currentBuilding.get("buildings");
-                this.currentBuild = (JSONObject) buildingFile.get(0);
-                JSONArray tmpArray = (JSONArray) currentBuild.get("floors");
-                this.currFloor = (JSONObject) tmpArray.get(currentFloorNum);
-                searchHelperTool search = new searchHelperTool(buildingFile, adminPermissions);
-                this.editTool = new editTool(buildingFile, username, adminPermissions);
-                this.userFile = (JSONArray) jsonParser.parse(accountReader);
-                for (int n = 0; n < userFile.size(); n++){
-                    JSONObject tmpObj = (JSONObject) userFile.get(n);
-                    if (tmpObj.get("username")==null){} else
-                    if (tmpObj.get("username").toString().equals(username)){
-                        this.userObject = tmpObj;
+                searchUtility = new searchHelperTool((JSONArray) currentBuilding.get("buildings"), adminAccess);
+                this.buildingDataFile = (JSONArray) currentBuilding.get("buildings");
+                this.currentBuildingData = (JSONObject) buildingDataFile.get(0);
+                JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
+                this.currentFloor = (JSONObject) temporaryArray.get(currentFloorIndex);
+                searchHelperTool search = new searchHelperTool(buildingDataFile, adminAccess);
+                this.editHelper = new editTool(buildingDataFile, username, adminAccess);
+                this.userFileData = (JSONArray) jsonParser.parse(accountReader);
+                for (int n = 0; n < userFileData.size(); n++) {
+                    JSONObject temporaryObject = (JSONObject) userFileData.get(n);
+                    if (temporaryObject.get("username") == null) {
+                    } else if (temporaryObject.get("username").toString().equals(username)) {
+                        this.userInstance = temporaryObject;
                     }
                 }
-                combineJSON();
-                this.currPOIList = (JSONArray) currFloor.get("pointsOfInterest");
-                for (int n = 0; n < buildingFile.size(); n++) {
-                    mapsDrop.getItems().add(search.getBuildIndex(n));
+                mergeJSON();
+                this.currentPOIList = (JSONArray) currentFloor.get("pointsOfInterest");
+                for (int n = 0; n < buildingDataFile.size(); n++) {
+                    mapsDropdown.getItems().add(search.getBuildingIndex(n));
                 }
-                for (int n = 0; n < currPOIList.size(); n++) {
-                    JSONObject tmp = (JSONObject) currPOIList.get(n);
+                for (int n = 0; n < currentPOIList.size(); n++) {
+                    JSONObject tmp = (JSONObject) currentPOIList.get(n);
                     if ((Boolean) tmp.get("builtInPOI")) {
-                        poiDrop.getItems().add(tmp.get("name") + ":" + tmp.get("roomNum"));
+                        poiDropdown.getItems().add(tmp.get("name") + ":" + tmp.get("roomNum"));
                     } else {
-                        poiDrop.getItems().add("(User)" + tmp.get("name")+ ":" + tmp.get("roomNum"));
+                        poiDropdown.getItems().add("(User)" + tmp.get("name") + ":" + tmp.get("roomNum"));
                     }
                 }
-                tmpArray = (JSONArray) userObject.get("favourites");
-                JSONObject tmpObj;
-                for (int n = 0; n < tmpArray.size(); n++){
-                    tmpObj = (JSONObject) tmpArray.get(n);
-                    if(tmpObj.get("builtInPOI").equals(true)){
-                        favDrop.getItems().add(tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
+                temporaryArray = (JSONArray) userInstance.get("favourites");
+                JSONObject temporaryObject;
+                for (int n = 0; n < temporaryArray.size(); n++) {
+                    temporaryObject = (JSONObject) temporaryArray.get(n);
+                    if (temporaryObject.get("builtInPOI").equals(true)) {
+                        favDropdown.getItems().add(temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
                     } else {
-                        favDrop.getItems().add("(User)" + tmpObj.get("name") + ":" + tmpObj.get("roomNum"));
+                        favDropdown.getItems().add("(User)" + temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
                     }
                 }
-                layersDrop.getItems().addAll("Classroom", "CollaborationSpace", "Elevator", "Lab", "Navigation", "Washroom");
-                floorsDrop.getItems().addAll("1", "2", "3", "4", "5");
-                mapsDrop.setValue(search.getBuildIndex(0));
+                layersDropdown.getItems().addAll("Classroom", "CollaborationSpace", "Elevator", "Lab", "Navigation", "Washroom");
+                floorsDropdown.getItems().addAll("1", "2", "3", "4", "5");
+                mapsDropdown.setValue(search.getBuildingIndex(0));
             } catch (ParseException e) {
                 System.out.println("Parse Exception");
             }
-        } catch (IOException e){
+        } catch (IOException e) {
 
         }
-
-        weatherReport.SetAllWeatherData();
-        curTempVal.setText(weatherReport.GetTempCurrent() + " °C");
-        feelsTempVal.setText(weatherReport.GetTempFeelsLike() + " °C");
-        lowTempVal.setText(weatherReport.GetTempMin() + " °C");
-        highTempVal.setText(weatherReport.GetTempMax() + " °C");
-
-
+        weatherReport.setAllWeatherData();
+        currentTemperature.setText(weatherReport.getCurrentTemperature() + " °C");
+        feelsLikeTemperature.setText(weatherReport.getFeelsLikeTemperature() + " °C");
+        lowTemperature.setText(weatherReport.getMinTemperature() + " °C");
+        highTemperature.setText(weatherReport.getMaxTemperature() + " °C");
     }
-    @FXML
-    private void GetMouseDown(MouseEvent e) throws FileNotFoundException {
-        // TODO: To be used when moving poi through editing
-        coordX = e.getX() / mapViewSizeX * 3400;
-        coordY = e.getY() / mapViewSizeY * 2200;
 
-        if (!canPlaceDownIcon && !canAddPOIIcon) {
+    @FXML
+    private void handleMouseDown(MouseEvent e) throws FileNotFoundException {
+        xCoordinate = e.getX() / mapSizeX * 3400;
+        yCoordinate = e.getY() / mapSizeY * 2200;
+        if (!placeableIcon && !addPOIIcon) {
             return;
         }
-
         try {
             ImageView imgView = new ImageView(new Image(new FileInputStream("src/main/java/com/example/wesgeosys/iconImages/Icon Image - Placeholder.png")));
             imgView.setPreserveRatio(true);
-            imgView.setX(e.getX() + mapViewOffsetX - 15);
-            imgView.setY(e.getY() + mapViewOffsetY - 15);
+            imgView.setX(e.getX() + mapOffsetX - 15);
+            imgView.setY(e.getY() + mapOffsetY - 15);
             imgView.setFitWidth(30);
-            placedDownIcon = imgView;
-            adminPane.getChildren().add(imgView);
+            placedIcon = imgView;
+            adminPanel.getChildren().add(imgView);
             imageIcons.add(imgView);
-            if(canPlaceDownIcon){
-                editPOIPopout();
+            if (placeableIcon) {
+                modifyPOIPopout();
             }
-            if(canAddPOIIcon){
-                addPOIPopout();
+            if (addPOIIcon) {
+                insertPOIPopout();
             }
-        }
-        catch (Exception error){
-            PrintOutError(error);
+        } catch (Exception error) {
+            displayError(error);
         }
     }
 
-    private void addPOIPopout() {
+    private void insertPOIPopout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addPOIGUI.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 322.0, 391.0);
@@ -711,17 +735,15 @@ public class mainMapsController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        int newX = (int)coordX;
-        int newY = (int)coordY;
-//        System.out.println(newX);
-//        System.out.println(newY);
+        int newX = (int) xCoordinate;
+        int newY = (int) yCoordinate;
         System.out.println(newpname);
         System.out.println(newpdesc);
-        adminPane.getChildren().remove(placedDownIcon);
-        canAddPOIIcon = false;
+        adminPanel.getChildren().remove(placedIcon);
+        addPOIIcon = false;
     }
 
-    private void PrintOutError(Exception e){
+    private void displayError(Exception e) {
         System.out.println("Error occurred: " + e);
     }
 }

@@ -19,7 +19,7 @@
                 <Font name="Heiti TC Light" size="30.0" />
             </font>
         </Text>
-        <Button fx:id="button_log_in" contentDisplay="TOP" layoutX="22.0" layoutY="254.0" mnemonicParsing="false" text="LOG IN">
+        <Button fx:id="buttonLogin" contentDisplay="TOP" layoutX="22.0" layoutY="254.0" mnemonicParsing="false" text="LOG IN">
             <font>
                 <Font name="Heiti TC Medium" size="13.0" />
             </font>
@@ -30,7 +30,7 @@
             </font>
         </Text>
         <TextField fx:id="usernameField" layoutX="113.0" layoutY="161.0" prefHeight="14.0" prefWidth="184.0" />
-      <Button fx:id="button_signup" layoutX="230.0" layoutY="254.0" mnemonicParsing="false" text="SIGN UP">
+      <Button fx:id="buttonRegister" layoutX="230.0" layoutY="254.0" mnemonicParsing="false" text="SIGN UP">
          <font>
             <Font name="Heiti TC Medium" size="13.0" />
          </font>
