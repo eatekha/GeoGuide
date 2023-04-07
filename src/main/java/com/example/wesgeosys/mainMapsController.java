@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.wesgeosys.addBuildingController.bname;
-import static com.example.wesgeosys.addPOIController.newpdesc;
 import static com.example.wesgeosys.addPOIController.newpname;
 import static com.example.wesgeosys.editPOIController.*;
 

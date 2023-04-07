@@ -17,10 +17,7 @@ import java.util.ResourceBundle;
 public class addPOIController implements Initializable {
 
     @FXML
-    public TextField name;
-
-    @FXML
-    public TextField desc;
+    public TextField poi;
 
     @FXML
     public Button submitButton;
@@ -30,7 +27,6 @@ public class addPOIController implements Initializable {
 
     public static String newpname;
 
-    public static String newpdesc;
 
 
     /**
@@ -39,8 +35,7 @@ public class addPOIController implements Initializable {
      * @param event The user's action event
      */
     private void submit(ActionEvent event) {
-        newpname = name.getText();
-        newpdesc = desc.getText();
+        newpname = poi.getText();
         Stage stage = (Stage) submitButton.getScene().getWindow();
         stage.close();
     }
