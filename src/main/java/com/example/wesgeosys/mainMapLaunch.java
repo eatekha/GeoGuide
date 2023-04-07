@@ -1,25 +1,25 @@
 package com.example.wesgeosys;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
-import javafx.scene.control.Button;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
-import java.io.FileInputStream;
+
 import java.io.IOException;
 
+/**
+ * The main class for launching the application.
+ * This class extends the Application class and launches the user map view.
+ */
 public class mainMapLaunch extends Application {
+
+    /**
+     * This method sets up the main map GUI by loading the FXML file and creating a new scene.
+     * It then sets the stage title, maximizes the window, and shows the scene.
+     *
+     * @param stage the primary stage for the application
+     * @throws IOException if an error occurs while loading the FXML file
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader root = new FXMLLoader(mainMapLaunch.class.getResource("admMapsGUI.fxml"));
@@ -30,6 +30,12 @@ public class mainMapLaunch extends Application {
         stage.show();
     }
 
+    /**
+     * The main method for launching the application.
+     * This method launches the JavaFX application.
+     *
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch();
     }

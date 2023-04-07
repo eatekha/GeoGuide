@@ -737,7 +737,6 @@ public class mainMapsController {
         int newX = (int) xCoordinate;
         int newY = (int) yCoordinate;
         System.out.println(newpname);
-        System.out.println(newpdesc);
         adminPanel.getChildren().remove(placedIcon);
         addPOIIcon = false;
     }
