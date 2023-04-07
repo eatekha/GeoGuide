@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.wesgeosys.addBuildingController.bname;
-import static com.example.wesgeosys.addPOIController.newpdesc;
 import static com.example.wesgeosys.addPOIController.newpname;
 import static com.example.wesgeosys.editPOIController.*;
 
@@ -371,7 +370,7 @@ public class mainMapsController {
                             for (int p = 0; p < poiList.size(); p++){
                                 JSONObject curPoi = (JSONObject) poiList.get(p);
                                 if (curPoi.get("name").equals(userTmpObj.get("name")) && curPoi.get("roomNum").equals(userTmpObj.get("roomNum"))){
-                                    editTool.favouriteToggle(currentBuild.get("Building").toString(), currentFloorNum, curPoi, true);
+                                 editTool.favouriteToggle(currentBuild.get("Building").toString(), currentFloorNum, curPoi, true);
                                 }
                             }
                         }
@@ -712,15 +711,11 @@ public class mainMapsController {
             throw new RuntimeException(e);
         }
         int newX = (int)coordX;
-        int newY = (int)coordY;
-//        System.out.println(newX);
-//        System.out.println(newY);
         System.out.println(newpname);
-        System.out.println(newpdesc);
+
         adminPane.getChildren().remove(placedDownIcon);
         canAddPOIIcon = false;
     }
-
     private void PrintOutError(Exception e){
         System.out.println("Error occurred: " + e);
     }

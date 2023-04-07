@@ -188,6 +188,8 @@ public class editTool {
         JSONObject userObj;
         for (int n = 0; n < accounts.size(); n++) {
             userObj = (JSONObject) accounts.get(n);
+            if (userObj.get("username")==null){}
+            else{
             String string = userObj.get("username").toString();
             if (string.equals(username)) {
                 JSONArray poiList = (JSONArray) userObj.get("userPOIs");
@@ -206,7 +208,7 @@ public class editTool {
                 poiList.add(0, defaultPOI);
                 saveData();
             }
-        }
+        }}
     }
 
 
@@ -214,6 +216,8 @@ public class editTool {
         JSONObject userObj;
         for (int n = 0; n < accounts.size(); n++) {
             userObj = (JSONObject) accounts.get(n);
+            if (userObj.get("username")==null){}
+            else{
             String string = userObj.get("username").toString();
             if (string.equals(username)) {
                 JSONArray poiList = (JSONArray) userObj.get("favourites");
@@ -224,7 +228,7 @@ public class editTool {
                 poiList.add(currPOI);
                 saveData();
             }
-        }
+        }}
     }
 
 
