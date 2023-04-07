@@ -407,20 +407,20 @@ public class mainMapsController {
                 }
             }
         }
-        for (int k = 0; k < favList.size(); k++) {
-            usertemporaryObject = (JSONObject) favList.get(k);
-            for (int n = 0; n < buildingDataFile.size(); n++) {
+        for (int q = 0; q < favList.size(); q++) {
+            usertemporaryObject = (JSONObject) favList.get(q);
+            for (int d = 0; d < buildingDataFile.size(); d++) {
                 builttemporaryObject = (JSONObject) buildingDataFile.get(0);
                 if (usertemporaryObject.get("building").equals(builttemporaryObject.get("Building").toString())) {
                     temporaryArray = (JSONArray) builttemporaryObject.get("floors");
-                    for (int f = 0; f < temporaryArray.size(); f++) {
-                        builttemporaryObject = (JSONObject) temporaryArray.get(f);
-                        if (Integer.parseInt(usertemporaryObject.get("floorNum").toString()) == f) {
+                    for (int w = 0; w < temporaryArray.size(); w++) {
+                        builttemporaryObject = (JSONObject) temporaryArray.get(w);
+                        if (Integer.parseInt(usertemporaryObject.get("floorNum").toString()) == w) {
                             poiList = (JSONArray) builttemporaryObject.get("pointsOfInterest");
                             for (int p = 0; p < poiList.size(); p++) {
-                                JSONObject curPoi = (JSONObject) poiList.get(p);
-                                if (curPoi.get("name").equals(usertemporaryObject.get("name")) && curPoi.get("roomNum").equals(usertemporaryObject.get("roomNum"))) {
-                                    editHelper.favouriteToggle(currentBuildingData.get("Building").toString(), currentFloorIndex, curPoi, true);
+                                JSONObject currentPOI = (JSONObject) poiList.get(p);
+                                if (currentPOI.get("name").equals(usertemporaryObject.get("name")) && currentPOI.get("roomNum").equals(usertemporaryObject.get("roomNum"))) {
+                                    editHelper.favouriteToggle(currentBuildingData.get("Building").toString(), currentFloorIndex, currentPOI, true);
                                 }
                             }
                         }
