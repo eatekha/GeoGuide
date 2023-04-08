@@ -3,8 +3,8 @@ import com.example.wesgeosys.logController;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+//import javafx.scene.control.Button;
+//import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.BeforeEach;
