@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.wesgeosys.addBuildingController.buidingName;
-import static com.example.wesgeosys.addPOIController.newpname;
+import static com.example.wesgeosys.addPOIController.newName;
 import static com.example.wesgeosys.editPOIController.*;
 
 /**
@@ -602,11 +602,11 @@ public class mainMapsController {
             int yInput = Integer.parseInt(currentPOI.get("yCord").toString());
             System.out.println(newXCoordinate);
             System.out.println(newYCoordinate);
-            System.out.println(pdesc);
-            System.out.println(proom);
-            System.out.println(pname);
+            System.out.println(updatePOIDesc);
+            System.out.println(updateRoomNum);
+            System.out.println(updateName);
             System.out.println(player);
-            editHelper.editPOI(currentPOI, pname, pdesc, newXCoordinate, newYCoordinate, proom, player);
+            editHelper.editPOI(currentPOI, updateName, updatePOIDesc, newXCoordinate, newYCoordinate, updateRoomNum, player);
             resetComboBox(poiDropdown);
             JSONObject temporaryObject;
             for (int n = 0; n < currentPOIList.size(); n++) {
@@ -831,7 +831,7 @@ public class mainMapsController {
         }
         int newX = (int) xCoordinate;
         int newY = (int) yCoordinate;
-        System.out.println(newpname);
+        System.out.println(newName);
         adminPanel.getChildren().remove(placedIcon);
         addPOIIcon = false;
     }

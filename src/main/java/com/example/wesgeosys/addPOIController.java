@@ -25,7 +25,7 @@ public class addPOIController implements Initializable {
     @FXML
     public Button cancelButton;
 
-    public static String newpname;
+    public static String newName;
 
 
 
@@ -35,7 +35,7 @@ public class addPOIController implements Initializable {
      * @param event The user's action event
      */
     private void submit(ActionEvent event) {
-        newpname = poi.getText();
+        newName = poi.getText();
         Stage stage = (Stage) submitButton.getScene().getWindow();
         stage.close();
     }

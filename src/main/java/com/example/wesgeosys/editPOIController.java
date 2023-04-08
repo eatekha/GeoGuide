@@ -34,9 +34,9 @@ public class editPOIController implements Initializable {
     public Button cancelButton;    // button to cancel changes
 
     // static fields to hold the updated POI data
-    public static String pname;    // updated name of the POI
-    public static String pdesc;    // updated description of the POI
-    public static String proom;    // updated room number of the POI
+    public static String updateName;    // updated name of the POI
+    public static String updatePOIDesc;    // updated description of the POI
+    public static String updateRoomNum;    // updated room number of the POI
     public static String player;   // updated layer type of the POI
 
     /**
@@ -45,9 +45,9 @@ public class editPOIController implements Initializable {
      * @param event The event triggered by clicking the submit button
      */
     private void submit(ActionEvent event) {
-        pname = name.getText();
-        pdesc = desc.getText();
-        proom = roomNum.getText();
+        updateName = name.getText();
+        updatePOIDesc = desc.getText();
+        updateRoomNum = roomNum.getText();
         player = layerType.getText();
         Stage stage = (Stage) submitButton.getScene().getWindow();
         stage.close();

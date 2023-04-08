@@ -24,14 +24,14 @@ public class editBuildingController implements Initializable {
     @FXML
     public Button cancelButton; // A Button to cancel the editing.
 
-    public static String editbname; // A static variable to store the new building name.
+    public static String editName; // A static variable to store the new building name.
 
     /**
      * Called when the submit button is clicked.
      * Stores the new building name in the static variable and closes the window.
      */
     private void submit(ActionEvent event) {
-        editbname = name.getText();
+        editName = name.getText();
         Stage stage = (Stage) submitButton.getScene().getWindow();
         stage.close();
     }
