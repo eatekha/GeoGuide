@@ -9,10 +9,18 @@ import org.junit.jupiter.api.Test;
 import java.io.FileReader;
 import java.io.IOException;
 
+
+/**
+ * A class to test the functionality of the {@link editTool} class.
+ */
 public class editToolTest {
 
     editTool tool;
 
+
+    /**
+     * Sets up the test environment by loading the initial data from a JSON file.
+     */
     @BeforeEach
     void setUp() {
         // Load initial data for testing
@@ -27,6 +35,9 @@ public class editToolTest {
         }
     }
 
+    /**
+     * Tests the functionality of the {@link editTool#createBuilding(String)} method.
+     */
     @Test
     void testCreateBuilding() {
         String buildName = "Test Building";
@@ -38,6 +49,9 @@ public class editToolTest {
         Assertions.assertEquals(buildName, createdBuilding.get("Building"));
     }
 
+    /**
+     * Tests the functionality of the {@link editTool#modifyBuilding(JSONObject, String)} method.
+     */
     @Test
     void testModifyBuilding() {
         String oldName = "Test Building";
@@ -49,6 +63,9 @@ public class editToolTest {
         Assertions.assertEquals(newName, modifiedBuilding.get("Building"));
     }
 
+    /**
+     * Tests the functionality of the {@link editTool#deleteBuilding(String)} method.
+     */
     @Test
     void testDeleteBuilding() {
         String buildName = "Test Building";
@@ -59,6 +76,9 @@ public class editToolTest {
         Assertions.assertEquals(initialSize - 1, finalSize);
     }
 
+    /**
+     * Tests the functionality of the {@link editTool#createFloor(JSONObject, String)} method.
+     */
     @Test
     void testCreateFloor() {
         String imageName = "Test Image.jpg";
@@ -73,6 +93,9 @@ public class editToolTest {
         Assertions.assertEquals(imageName, createdFloor.get("imageFileName"));
     }
 
+    /**
+     * Tests the functionality of the {@link editTool#deleteFloor(JSONArray, int)} Floor(JSONObject, String)} method.
+     */
     @Test
     void testDeleteFloor() {
         String imageName = "Test Image.jpg";

@@ -5,10 +5,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * A JUnit test class to test the methods of the searchHelperTool class.
+ */
 public class searchHelperToolTest {
 
     private searchHelperTool helperTool;
 
+    /**
+     * Sets up the test fixture. This method is called before each test method is executed.
+     * It creates an example JSON structure to use for testing and creates a new instance of the
+     * searchHelperTool class for each test.
+     */
     @BeforeEach
     void setUp() {
         // Create an example JSON structure to use for testing
@@ -56,6 +64,11 @@ public class searchHelperToolTest {
         helperTool = new searchHelperTool(allBuildings, true);
     }
 
+    /**
+     * Tests the getCoordinates() method of the searchHelperTool class.
+     * Creates a JSONObject representing a point of interest and verifies that the x and y coordinates
+     * can be retrieved correctly using the getCoordinates() method.
+     */
     @Test
     void testGetCoordinates() {
         JSONObject poi = new JSONObject();
@@ -67,6 +80,11 @@ public class searchHelperToolTest {
         Assertions.assertEquals(20, y);
     }
 
+    /**
+     * Tests the getBuildingObject() method of the searchHelperTool class.
+     * Verifies that the JSONObject for a building can be retrieved correctly using the getBuildingObject()
+     * method.
+     */
     @Test
     void testGetBuildingObject() {
         JSONObject building1 = helperTool.getBuildingObject("Building 1");
@@ -77,6 +95,11 @@ public class searchHelperToolTest {
         Assertions.assertEquals("Building 2", building2.get("Building"));
     }
 
+    /**
+     * Tests the testGetBuildingIndex() method of the searchHelperTool class.
+     * Verifies that the JSONObject for a building can be retrieved correctly using the getBuildingObject()
+     * method.
+     */
     @Test
     void testGetBuildingIndex() {
         String building1 = helperTool.getBuildingIndex(0);

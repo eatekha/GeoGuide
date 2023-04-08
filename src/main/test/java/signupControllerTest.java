@@ -13,8 +13,16 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ * This class contains JUnit tests for the SignupController class.
+ */
 public class signupControllerTest {
 
+    /**
+     * Tests the submit method of SignupController.
+     *
+     * @throws IOException if an I/O error occurs
+     */
     @Test
     void testSubmit() throws IOException {
         signupController controller = new signupController();
@@ -48,6 +56,11 @@ public class signupControllerTest {
 
     }
 
+    /**
+     * Tests the login method of SignupController.
+     *
+     * @throws IOException if an I/O error occurs
+     */
     @Test
     void testLogin() throws IOException {
         signupController controller = new signupController();
