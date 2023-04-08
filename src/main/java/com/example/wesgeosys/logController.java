@@ -32,7 +32,7 @@ public class logController implements Initializable {
     boolean isValidUser = false;
     boolean isValidPassword = false;
     boolean isAdmin = false;
-    accountClass accountNum = new accountClass("src/main/java/com/example/wesgeosys/accountData.json");
+    public accountClass accountNum = new accountClass("src/main/java/com/example/wesgeosys/accountData.json");
 
 
     /**
