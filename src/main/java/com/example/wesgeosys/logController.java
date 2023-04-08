@@ -63,7 +63,6 @@ public class logController implements Initializable {
                     throw new RuntimeException(e);
                 }
             }else if(validUser && validPw){
-                // Switches to Admin View
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainMapsGUI.fxml"));
                     mainMapsController.username = usernameField.getText();

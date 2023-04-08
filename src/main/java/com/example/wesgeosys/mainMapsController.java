@@ -271,7 +271,6 @@ public class mainMapsController {
         }
     }
 
-
     /**
      * Handles the action when the user selects a new floor from the dropdown list.
      * Updates the current floor index, loads the corresponding floor map image, resets the POI dropdown list,
@@ -296,7 +295,7 @@ public class mainMapsController {
             }
             handleLayersAction();
         } catch (FileNotFoundException e) {
-            System.out.println("Error: File Not Found");
+            System.out.println("ERROR: FILE NOT FOUND");
         }
     }
 
@@ -323,7 +322,6 @@ public class mainMapsController {
             favDropdown.getItems().add(favDropdownItem);
         }
     }
-
 
     /**
      * Handles the action when the user selects a map from the maps dropdown menu.
@@ -384,6 +382,17 @@ public class mainMapsController {
         }
     }
 
+    /**
+     * Merges the user's points of interest and favourite list with the building data file.
+     * It loops through each user point of interest and favourite, and checks if the building name and
+     * floor number match the building data file. If a match is found, it adds the point of interest
+     * to the corresponding floor's points of interest list. If a match is found in the favourite list,
+     * it calls the favouriteToggle method in the editHelper object with the building name, floor number,
+     * and point of interest to mark it as a favourite.
+     *
+     * @throws ClassCastException    if userPOIs or favourites cannot be cast to JSONArray
+     * @throws NumberFormatException if floorNum cannot be parsed to an integer
+     */
     protected void mergeJSON() {
         JSONArray userPOIs = (JSONArray) userInstance.get("userPOIs");
         JSONArray favouriteList = (JSONArray) userInstance.get("favourites");
@@ -418,22 +427,16 @@ public class mainMapsController {
         }
     }
 
-        @FXML
-    protected void insertBuilding() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBuildingGUI.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 322.0, 391.0);
-            Stage stage = new Stage();
-            stage.setTitle("Add Building");
-            stage.setScene(scene);
-            stage.showAndWait();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        editHelper.addBuilding(buidingName);
-        mapsDropdown.getItems().add(buidingName);
-    }
-
+    /**
+     * Launches the "edit building" GUI, allowing the user to modify the details of a building.
+     * This method loads the "editBuildingGUI.fxml" file using an FXMLLoader object and sets the
+     * loaded scene on a new Stage object. The new stage is then displayed in a modal fashion using
+     * the showAndWait() method. Once the user has finished editing the building details, the
+     * editBuilding() method of the editHelper object is called with the currentBuildingData and
+     * buildingName parameters to update the building data.
+     *
+     * @throws RuntimeException if an IOException occurs when loading the "editBuildingGUI.fxml"
+     */
     @FXML
     protected void modifyBuilding() {
         try {
@@ -449,6 +452,17 @@ public class mainMapsController {
         editHelper.editBuilding(currentBuildingData, buidingName);
     }
 
+    /**
+     * Inserts a new point of interest (POI) into the application's data model. This method first
+     * displays an alert message to the user using the displayAlert() method. It then sets the addPOIIcon
+     * flag to true to indicate that a new POI icon should be added to the map. The method then adds the
+     * new POI to the appropriate data structures depending on the user's access level. If the user has
+     * admin access, the POI is added only to the currentPOIList, and its name and room number are added
+     * to the poiDropdown menu for selection. If the user does not have admin access, the POI is added
+     * to both the currentPOIList and the user's personal list of POIs (userPOIs), and the user's
+     * personal list is updated to include the new POI. The POI is also added to the poiDropdown menu
+     * with "(User)" prefix added to indicate that it is a personal POI.
+     */
     @FXML
     protected void insertPOI() {
         displayAlert();
@@ -468,12 +482,25 @@ public class mainMapsController {
         }
     }
 
+    /**
+     * Adds a new floor to the current building data by calling the addFloor() method from the
+     * editHelper object. The new floor is assigned a default file name of "DefaultFile.png". The method
+     * then adds a new item to the floorsDropdown menu with the number of items in the menu plus one as
+     * the label, to represent the new floor that was added.
+     */
     @FXML
     protected void insertFloor() {
         editHelper.addFloor(currentBuildingData, "DefaultFile.png");
         floorsDropdown.getItems().add(floorsDropdown.getItems().size() + 1);
     }
 
+    /**
+     * Deletes the current floor from the current building data by calling the removeFloor() method
+     * from the editHelper object. The method then removes the last item from the floorsDropdown menu,
+     * as this item represents the deleted floor. The current floor is then updated to the first floor
+     * in the building, and the image for this floor is loaded and displayed in the mapDisplay ImageView.
+     * If the image file for the floor cannot be found, the method prints an error message to the console.
+     */
     @FXML
     protected void deleteFloor() {
         JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
@@ -484,10 +511,19 @@ public class mainMapsController {
         try {
             mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + currentFloor.get("imageFileName").toString())));
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            System.out.println("FILE NOT FOUND");
         }
     }
 
+    /**
+     * Prompts the user to modify the current point of interest (POI) by calling the clearPOI() method.
+     * If this method returns true, the method exits without modifying the POI. Otherwise, the method
+     * displays an alert to the user and sets the placeableIcon variable to true to indicate that a new
+     * icon can be placed on the map. This allows the user to modify the current POI by clicking on the
+     * map at a new location.
+     *
+     * @throws IOException if there is an error reading the editPOIGUI.fxml file
+     */
     @FXML
     protected void modifyPOI() throws IOException {
         if (clearPOI()) {
@@ -497,7 +533,12 @@ public class mainMapsController {
         placeableIcon = true;
     }
 
-
+    /**
+     * Displays an alert page to the user by loading the alertPageGUI.fxml file using the FXMLLoader
+     * class. The method creates a new stage with the title "Alert Page" and sets the scene to the loaded
+     * FXML scene. The alert page is displayed to the user using the showAndWait() method of the Stage class.
+     * If there is an error loading the FXML file, the method throws a RuntimeException with the error message.
+     */
     private void displayAlert() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("alertPageGUI.fxml"));
@@ -511,6 +552,34 @@ public class mainMapsController {
         }
     }
 
+    /**
+     * Displays the add building GUI and adds the building name to the list of buildings.
+     *
+     * @throws RuntimeException if an IOException occurs while loading the addBuildingGUI.fxml file
+     */
+    @FXML
+    protected void insertBuilding() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBuildingGUI.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 322.0, 391.0);
+            Stage stage = new Stage();
+            stage.setTitle("Add Building");
+            stage.setScene(scene);
+            stage.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        editHelper.addBuilding(buidingName);
+        mapsDropdown.getItems().add(buidingName);
+    }
+
+    /**
+     * Displays a pop-up window for editing a Point of Interest (POI).
+     * Retrieves user input and updates the POI accordingly.
+     * Resets the POI dropdown menu with updated information.
+     * Removes the placed POI icon from the map.
+     * If there is no current POI selected, it prints an error message to the console.
+     */
     private void modifyPOIPopout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editPOIGUI.fxml"));
@@ -527,15 +596,15 @@ public class mainMapsController {
             String descriptionInput = currentPOI.get("description").toString();
             String roomNumInput = currentPOI.get("roomNum").toString();
             String layerTypeInput = currentPOI.get("layerType").toString();
-            int xInput = Integer.parseInt(currentPOI.get("xCord").toString());
-            int yInput = Integer.parseInt(currentPOI.get("yCord").toString());
             int newXCoordinate = (int) xCoordinate;
             int newYCoordinate = (int) yCoordinate;
+            int xInput = Integer.parseInt(currentPOI.get("xCord").toString());
+            int yInput = Integer.parseInt(currentPOI.get("yCord").toString());
             System.out.println(newXCoordinate);
             System.out.println(newYCoordinate);
-            System.out.println(pname);
             System.out.println(pdesc);
             System.out.println(proom);
+            System.out.println(pname);
             System.out.println(player);
             editHelper.editPOI(currentPOI, pname, pdesc, newXCoordinate, newYCoordinate, proom, player);
             resetComboBox(poiDropdown);
@@ -545,12 +614,18 @@ public class mainMapsController {
                 poiDropdown.getItems().add(temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
             }
         } else {
-            System.out.println("No Current POI Selected");
+            System.out.println("NO POI SELECTED");
         }
         adminPanel.getChildren().remove(placedIcon);
         placeableIcon = false;
     }
 
+    /**
+     * Removes the currently selected building from the application.
+     * Removes building from editHelper and removes the building from the map dropdown.
+     * Sets the currentBuildingData to the first building in the list and updates the currentFloor.
+     * Sets the map display to the image of the first floor in the building.
+     */
     @FXML
     protected void deleteBuilding() {
         editHelper.removeBuilding((String) currentBuildingData.get("Building"));
@@ -562,10 +637,16 @@ public class mainMapsController {
         try {
             mapDisplay.setImage(new Image(new FileInputStream(mapFilePath + imageName)));
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            System.out.println("FILE NOT FOUND");
         }
     }
 
+    /**
+     * Removes the currently selected point of interest from the application.
+     * If the point of interest is a user-created POI, also removes it from the user's list of POIs.
+     * Removes the POI from editHelper and from the poiDropdown.
+     * If no POI is selected, prints a message to the console.
+     */
     @FXML
     protected void deletePOI() {
         if (clearPOI()) {
@@ -584,19 +665,26 @@ public class mainMapsController {
                     currentPOI = null;
                 }
             } else {
-                System.out.println("No POI selected");
+                System.out.println("NO POI SELECTED");
             }
         }
 
     }
 
-
+    /**
+     * Clears all the icons on the admin panel.
+     */
     private void clearAllIcons() {
         for (ImageView icon : imageIcons) {
             adminPanel.getChildren().remove(icon);
         }
     }
 
+    /**
+     * Resets the given ComboBox by removing all items from it.
+     *
+     * @param cBox the ComboBox to be reset
+     */
     private void resetComboBox(ComboBox cBox) {
         int valNum = cBox.getItems().size();
         for (int initialVal = 0; initialVal < valNum; initialVal++) {
@@ -604,11 +692,21 @@ public class mainMapsController {
         }
     }
 
+    /**
+     * Checks if the POI dropdown menu has a selected value.
+     *
+     * @return true if the POI dropdown menu has no selected value, false otherwise
+     */
     private boolean clearPOI() {
         return poiDropdown.getValue() == null;
     }
 
 
+    /**
+     * Initializes the JavaFX GUI elements and sets up event handlers. Also loads data from JSON files.
+     *
+     * @throws FileNotFoundException if any of the JSON files cannot be found
+     */
     @FXML
     public void initialize() throws FileNotFoundException {
         floorsDropdownHandler = floorsDropdown.getOnAction();
@@ -671,7 +769,7 @@ public class mainMapsController {
                 floorsDropdown.getItems().addAll("1", "2", "3", "4", "5");
                 mapsDropdown.setValue(search.getBuildingIndex(0));
             } catch (ParseException e) {
-                System.out.println("Parse Exception");
+                System.out.println("PARSE EXCEPTION");
             }
         } catch (IOException e) {
 
@@ -683,6 +781,13 @@ public class mainMapsController {
         highTemperature.setText(weatherReport.getMaxTemperature() + " °C");
     }
 
+    /**
+     * Event handler for mouse clicks on the map. Places an icon at the clicked location if either the placeable icon or
+     * add POI icon is currently selected.
+     *
+     * @param e the MouseEvent representing the mouse click
+     * @throws FileNotFoundException if the image for the icon cannot be found
+     */
     @FXML
     private void handleMouseDown(MouseEvent e) throws FileNotFoundException {
         xCoordinate = e.getX() / mapSizeX * 3400;
@@ -710,6 +815,9 @@ public class mainMapsController {
         }
     }
 
+    /**
+     * Creates a pop-up window for adding a new POI and adds it to the admin panel.
+     */
     private void insertPOIPopout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addPOIGUI.fxml"));
@@ -728,7 +836,12 @@ public class mainMapsController {
         addPOIIcon = false;
     }
 
+    /**
+     * Displays an error message with the given exception.
+     *
+     * @param e the exception to be displayed
+     */
     private void displayError(Exception e) {
-        System.out.println("Error occurred: " + e);
+        System.out.println("ERROR OCCURRED: " + e);
     }
 }
