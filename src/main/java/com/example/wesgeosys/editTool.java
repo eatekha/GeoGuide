@@ -117,9 +117,9 @@ public class editTool {
     }
 
 
-    public void deleteFloor(JSONArray currentBuild, int floorNum) {
+    public void deleteFloor(JSONArray buildingCurrent, int numberFloor) {
         if (adminPerms) {
-            currentBuild.remove(floorNum);
+            buildingCurrent.remove(numberFloor);
             persistData();
         } else {
             System.out.println("INVALID PERMISSIONS TO DELETE FLOOR");
@@ -208,27 +208,28 @@ public class editTool {
         JSONObject userObj;
         for (int n = 0; n < accountData.size(); n++) {
             userObj = (JSONObject) accountData.get(n);
-            if (userObj.get("username")==null){}
-            else{
-            String string = userObj.get("username").toString();
-            if (string.equals(username)) {
-                JSONArray poiList = (JSONArray) userObj.get("userPOIs");
-                JSONObject defaultPOI = new JSONObject();
-                defaultPOI.put("building", buildName);
-                defaultPOI.put("floorNum", floorNum);
-                defaultPOI.put("name", "Default POI Name");
-                defaultPOI.put("description", "DefaultDescrip");
-                defaultPOI.put("roomNum", "DefaultRoomNum");
-                defaultPOI.put("layerType", "Default");
-                defaultPOI.put("visibility", true);
-                defaultPOI.put("favourite", false);
-                defaultPOI.put("builtInPOI", false);
-                defaultPOI.put("xCord", 0);
-                defaultPOI.put("yCord", 0);
-                poiList.add(0, defaultPOI);
-                persistData();
+            if (userObj.get("username") == null) {
+            } else {
+                String string = userObj.get("username").toString();
+                if (string.equals(username)) {
+                    JSONArray poiList = (JSONArray) userObj.get("userPOIs");
+                    JSONObject defaultPOI = new JSONObject();
+                    defaultPOI.put("building", buildName);
+                    defaultPOI.put("floorNum", floorNum);
+                    defaultPOI.put("name", "Default POI Name");
+                    defaultPOI.put("description", "DefaultDescrip");
+                    defaultPOI.put("roomNum", "DefaultRoomNum");
+                    defaultPOI.put("layerType", "Default");
+                    defaultPOI.put("visibility", true);
+                    defaultPOI.put("favourite", false);
+                    defaultPOI.put("builtInPOI", false);
+                    defaultPOI.put("xCord", 0);
+                    defaultPOI.put("yCord", 0);
+                    poiList.add(0, defaultPOI);
+                    persistData();
+                }
             }
-        }}
+        }
     }
 
     public JSONArray createFloor() {
@@ -261,12 +262,12 @@ public class editTool {
         return poiList;
     }
 
-    public int findIndex(String buildName) {
-        for (int i = 0; i < buildingData.size(); i++) {
-            JSONObject buildings = (JSONObject) buildingData.get(i);
+    public int findIndex(String nameBuilding) {
+        for (int g = 0; g < buildingData.size(); g++) {
+            JSONObject buildings = (JSONObject) buildingData.get(g);
             String buildingname = (String) buildings.get("Building");
-            if (buildName.equals(buildingname)) {
-                return i;
+            if (nameBuilding.equals(buildingname)) {
+                return g;
             }
         }
         System.out.println("BUILDING DOES NOT EXIST.");
@@ -274,78 +275,91 @@ public class editTool {
     }
 
     public void createBuilding(String buildName) {
-        if (adminPerms) {
-            JSONObject newBuild = new JSONObject();
-            JSONArray newFloor = createFloor();
-            newBuild.put("Building", buildName);
-            newBuild.put("floors", newFloor);
-            buildingData.add(newBuild);
-            persistData();
-        } else {
+        if (!adminPerms) {
             System.out.println("INVALID PERMISSIONS TO CREATE BUILDING");
+            return;
         }
+
+        JSONObject newBuild = new JSONObject();
+        JSONArray newFloor = createFloor();
+        newBuild.put("Building", buildName);
+        newBuild.put("floors", newFloor);
+        buildingData.add(newBuild);
+        persistData();
     }
+
 
     public void modifyBuilding(JSONObject currentBuilding, String newBuildName) {
-        if (adminPerms) {
-            int num = findIndex(currentBuilding.get("Building").toString());
-            buildingData.remove(num);
-            currentBuilding.replace("Building", newBuildName);
-            buildingData.add(currentBuilding);
-            persistData();
-        } else {
+        if (!adminPerms) {
             System.out.println("INVALID PERMISSIONS TO EDIT BUILDING");
+            return;
         }
+        int num = findIndex(currentBuilding.get("Building").toString());
+        currentBuilding.replace("Building", newBuildName);
+        buildingData.set(num, currentBuilding);
+        persistData();
     }
 
 
-    public void deleteBuilding(String buildName) {
-        if (adminPerms) {
-            buildingData.remove(buildingData.get(findIndex(buildName)));
-            persistData();
-        } else {
+    public void deleteBuilding(String buildingName) {
+        if (!adminPerms) {
             System.out.println("INVALID PERMISSIONS TO DELETE BUILDING");
+            return;
         }
+        int index = findIndex(buildingName);
+        if (index == -1) {
+            System.out.println("BUILDING NOT FOUND");
+            return;
+        }
+        buildingData.remove(index);
+        persistData();
     }
 
 
-    public void toggleFavourite(String currentBuild, int floorNum, JSONObject currPOI, Boolean favTF) {
-        JSONObject userObj;
-        for (int n = 0; n < accountData.size(); n++) {
-            userObj = (JSONObject) accountData.get(n);
-            if (userObj.get("username")==null){}
-            else{
-            String string = userObj.get("username").toString();
-            if (string.equals(username)) {
-                JSONArray poiList = (JSONArray) userObj.get("favourites");
-                poiList.remove(currPOI);
-                currPOI.put("building", currentBuild);
-                currPOI.put("floorNum", floorNum);
-                currPOI.replace("favourite", favTF);
-                poiList.add(currPOI);
-                persistData();
-            }
-        }}
-    }
-
-
-    public void deleteUserPOI(JSONObject poi) {
-        JSONObject userObj;
-        for (int n = 0; n < accountData.size(); n++) {
-            userObj = (JSONObject) accountData.get(n);
-            String string = userObj.get("username").toString();
-            if (string.equals(username)) {
-                JSONArray poiList = (JSONArray) userObj.get("userPOIs");
-                JSONObject tmpObj;
-                for (int k = 0; k < poiList.size(); k++) {
-                    tmpObj = (JSONObject) poiList.get(k);
-                    if (tmpObj.get("name").toString().equals(poi.get("name").toString())) {
-                        poiList.remove(k);
+    public void toggleFavourite(String buildCurrent, int floorNum, JSONObject currentPOI, Boolean favouritesBool) {
+        for (Object account : accountData) {
+            JSONObject userObj = (JSONObject) account;
+            String username = (String) userObj.get("username");
+            if (username != null && username.equals(this.username)) {
+                JSONArray favourites = (JSONArray) userObj.get("favourites");
+                int indexToRemove = -1;
+                for (int i = 0; i < favourites.size(); i++) {
+                    JSONObject poi = (JSONObject) favourites.get(i);
+                    if (poi.get("name").equals(currentPOI.get("name"))) {
+                        indexToRemove = i;
+                        break;
                     }
                 }
+                if (indexToRemove != -1) {
+                    favourites.remove(indexToRemove);
+                }
+                currentPOI.put("building", buildCurrent);
+                currentPOI.put("floorNum", floorNum);
+                currentPOI.replace("favourite", favouritesBool);
+                favourites.add(currentPOI);
                 persistData();
+                break;
             }
         }
     }
+
+
+    public void deleteUserPOI(JSONObject pointofInterest) {
+        for (int f = 0; f < accountData.size(); f++) {
+            JSONObject userObj = (JSONObject) accountData.get(f);
+            if (userObj.get("username").toString().equals(username)) {
+                JSONArray poiList = (JSONArray) userObj.get("userPOIs");
+                for (int q = 0; q < poiList.size(); q++) {
+                    JSONObject tmpObj = (JSONObject) poiList.get(q);
+                    if (tmpObj.get("name").toString().equals(pointofInterest.get("name").toString())) {
+                        poiList.remove(q);
+                        persistData();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
 
 }
