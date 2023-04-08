@@ -312,7 +312,7 @@ public class mainMapsController {
             return;
         }
         boolean isFavourite = currentPOI.get("favourite").equals(true);
-        editHelper.favouriteToggle(currentBuildingData.get("Building").toString(), currentFloorIndex, currentPOI, !isFavourite);
+        editHelper.toggleFavourite(currentBuildingData.get("Building").toString(), currentFloorIndex, currentPOI, !isFavourite);
         if (isFavourite) {
             favDropdown.getItems().remove(currentPOI);
         } else {
@@ -404,7 +404,7 @@ public class mainMapsController {
                     JSONArray floors = (JSONArray) building.get("floors");
                     JSONObject floor = (JSONObject) floors.get(Integer.parseInt(userPoi.get("floorNum").toString()));
                     JSONArray poiList = (JSONArray) floor.get("pointsOfInterest");
-                    editHelper.addPOI(poiList);
+                    editHelper.createPOI(poiList);
                 }
             }
         }
@@ -419,7 +419,7 @@ public class mainMapsController {
                     for (Object poiObj : poiList) {
                         JSONObject poi = (JSONObject) poiObj;
                         if (poi.get("name").equals(fav.get("name")) && poi.get("roomNum").equals(fav.get("roomNum"))) {
-                            editHelper.favouriteToggle(building.get("Building").toString(), floors.indexOf(floor), poi, true);
+                            editHelper.toggleFavourite(building.get("Building").toString(), floors.indexOf(floor), poi, true);
                         }
                     }
                 }
@@ -449,7 +449,7 @@ public class mainMapsController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        editHelper.editBuilding(currentBuildingData, buidingName);
+        editHelper.modifyBuilding(currentBuildingData, buidingName);
     }
 
     /**
@@ -469,13 +469,13 @@ public class mainMapsController {
         addPOIIcon = true;
         JSONObject temporaryObject;
         if (adminAccess) {
-            editHelper.addPOI(currentPOIList);
+            editHelper.createPOI(currentPOIList);
             temporaryObject = (JSONObject) currentPOIList.get(0);
             poiDropdown.getItems().add(temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
         } else {
-            editHelper.addPOI(currentPOIList);
-            editHelper.addPOI((JSONArray) userInstance.get("userPOIs"));
-            editHelper.addToUserPOI(currentBuildingData.get("Building").toString(), currentFloorIndex);
+            editHelper.createPOI(currentPOIList);
+            editHelper.createPOI((JSONArray) userInstance.get("userPOIs"));
+            editHelper.addUserPOI(currentBuildingData.get("Building").toString(), currentFloorIndex);
             JSONArray temporaryArray = (JSONArray) userInstance.get("userPOIs");
             temporaryObject = (JSONObject) temporaryArray.get(0);
             poiDropdown.getItems().add("(User)" + temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
@@ -490,7 +490,7 @@ public class mainMapsController {
      */
     @FXML
     protected void insertFloor() {
-        editHelper.addFloor(currentBuildingData, "DefaultFile.png");
+        editHelper.createFloor(currentBuildingData, "DefaultFile.png");
         floorsDropdown.getItems().add(floorsDropdown.getItems().size() + 1);
     }
 
@@ -504,7 +504,7 @@ public class mainMapsController {
     @FXML
     protected void deleteFloor() {
         JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
-        editHelper.removeFloor(temporaryArray, currentFloorIndex);
+        editHelper.deleteFloor(temporaryArray, currentFloorIndex);
         floorsDropdown.getItems().remove(floorsDropdown.getItems().size() - 1);
         temporaryArray = (JSONArray) currentBuildingData.get("floors");
         currentFloor = (JSONObject) temporaryArray.get(0);
@@ -569,7 +569,7 @@ public class mainMapsController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        editHelper.addBuilding(buidingName);
+        editHelper.createBuilding(buidingName);
         mapsDropdown.getItems().add(buidingName);
     }
 
@@ -606,7 +606,7 @@ public class mainMapsController {
             System.out.println(updateRoomNum);
             System.out.println(updateName);
             System.out.println(player);
-            editHelper.editPOI(currentPOI, updateName, updatePOIDesc, newXCoordinate, newYCoordinate, updateRoomNum, player);
+            editHelper.modifyPOI(currentPOI, updateName, updatePOIDesc, newXCoordinate, newYCoordinate, updateRoomNum, player);
             resetComboBox(poiDropdown);
             JSONObject temporaryObject;
             for (int n = 0; n < currentPOIList.size(); n++) {
@@ -628,7 +628,7 @@ public class mainMapsController {
      */
     @FXML
     protected void deleteBuilding() {
-        editHelper.removeBuilding((String) currentBuildingData.get("Building"));
+        editHelper.deleteBuilding((String) currentBuildingData.get("Building"));
         mapsDropdown.getItems().remove(currentBuildingData.get("Building"));
         currentBuildingData = (JSONObject) buildingDataFile.get(0);
         JSONArray temporaryArray = (JSONArray) currentBuildingData.get("floors");
@@ -654,13 +654,13 @@ public class mainMapsController {
             if (currentPOI != null) {
                 clearAllIcons();
                 if (adminAccess) {
-                    editHelper.removePOI(currentPOIList, currentPOI);
+                    editHelper.deletePOI(currentPOIList, currentPOI);
                     poiDropdown.getItems().remove(currentPOI.get("name") + ":" + currentPOI.get("roomNum"));
                     currentPOI = null;
                 } else {
-                    editHelper.removePOI(currentPOIList, currentPOI);
-                    editHelper.removePOI((JSONArray) userInstance.get("userPOIs"), currentPOI);
-                    editHelper.removeUserPOI(currentPOI);
+                    editHelper.deletePOI(currentPOIList, currentPOI);
+                    editHelper.deletePOI((JSONArray) userInstance.get("userPOIs"), currentPOI);
+                    editHelper.deleteUserPOI(currentPOI);
                     poiDropdown.getItems().remove("(User)" + currentPOI.get("name") + ":" + currentPOI.get("roomNum"));
                     currentPOI = null;
                 }
@@ -721,10 +721,9 @@ public class mainMapsController {
                 throw new RuntimeException(ex);
             }
         });
-
         this.currentFloorIndex = 0;
         JSONParser jsonParser = new JSONParser();
-        try (FileReader reader = new FileReader("src/main/java/com/example/wesgeosys/backUpBuiltInPOI.json")) {
+        try (FileReader reader = new FileReader("src/main/java/com/example/wesgeosys/defaultPOIArchive.json")) {
             try (FileReader accountReader = new FileReader("src/main/java/com/example/wesgeosys/accountData.json")) {
                 JSONObject currentBuilding = (JSONObject) jsonParser.parse(reader);
                 searchUtility = new searchHelperTool((JSONArray) currentBuilding.get("buildings"), adminAccess);
@@ -735,8 +734,8 @@ public class mainMapsController {
                 searchHelperTool search = new searchHelperTool(buildingDataFile, adminAccess);
                 this.editHelper = new editTool(buildingDataFile, username, adminAccess);
                 this.userFileData = (JSONArray) jsonParser.parse(accountReader);
-                for (int n = 0; n < userFileData.size(); n++) {
-                    JSONObject temporaryObject = (JSONObject) userFileData.get(n);
+                for (int q = 0; q < userFileData.size(); q++) {
+                    JSONObject temporaryObject = (JSONObject) userFileData.get(q);
                     if (temporaryObject.get("username") == null) {
                     } else if (temporaryObject.get("username").toString().equals(username)) {
                         this.userInstance = temporaryObject;
@@ -781,6 +780,8 @@ public class mainMapsController {
         highTemperature.setText(weatherReport.getMaxTemperature() + " °C");
     }
 
+//    backUpBuiltInPOI.json
+//    builtInPOI.json
     /**
      * Event handler for mouse clicks on the map. Places an icon at the clicked location if either the placeable icon or
      * add POI icon is currently selected.
