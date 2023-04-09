@@ -14,7 +14,7 @@
               "xCord": 1326,
               "yCord": 1098,
               "roomNum": "6",
-              "description": "LMAOOOOOOO",
+              "description": "The classroom is a large, spacious room with high ceilings and large windows that let in plenty of natural light.",
               "layerType": "Classroom"
             },
             {
@@ -25,7 +25,7 @@
               "xCord": 957,
               "yCord": 1002,
               "roomNum": "17",
-              "description": "",
+              "description": "The classroom is filled with rows of desks and chairs, arranged in neat, orderly rows.",
               "layerType": "Classroom"
             },
             {
@@ -36,7 +36,7 @@
               "xCord": 1976,
               "yCord": 971,
               "roomNum": "3B",
-              "description": "",
+              "description": "An Elevator",
               "layerType": "Elevator"
             },
             {
@@ -47,7 +47,7 @@
               "xCord": 2779,
               "yCord": 1353,
               "roomNum": "TA.9",
-              "description": "",
+              "description": "An Elevator",
               "layerType": "Elevator"
             },
             {
@@ -58,7 +58,7 @@
               "xCord": 968,
               "yCord": 769,
               "roomNum": "TA.11",
-              "description": "",
+              "description": "An Elevator",
               "layerType": "Elevator"
             },
             {
@@ -157,7 +157,7 @@
               "xCord": 1068,
               "yCord": 770,
               "roomNum": "ST.6",
-              "description": "",
+              "description": "Goes down twice",
               "layerType": "Navigation"
             },
             {
@@ -168,7 +168,7 @@
               "xCord": 1464,
               "yCord": 1070,
               "roomNum": "5",
-              "description": "",
+              "description": "The mans washroom, two sub rooms 5A and 5B",
               "layerType": "Washroom"
             },
             {
@@ -179,7 +179,7 @@
               "xCord": 2842,
               "yCord": 1417,
               "roomNum": "28E",
-              "description": "",
+              "description": "The mans washroom, two sub rooms 5A and 5B",
               "layerType": "Washroom"
             },
             {
@@ -190,7 +190,7 @@
               "xCord": 1487,
               "yCord": 928,
               "roomNum": "4C",
-              "description": "",
+              "description": "Male Washroom",
               "layerType": "Washroom"
             },
             {
@@ -201,7 +201,7 @@
               "xCord": 1546,
               "yCord": 1023,
               "roomNum": "4B",
-              "description": "",
+              "description": "Women Washroom",
               "layerType": "Washroom"
             }
           ]
@@ -217,7 +217,7 @@
               "xCord": 440,
               "yCord": 1298,
               "roomNum": "105B",
-              "description": "",
+              "description": "The walls of the classroom are painted in a calming shade of blue, with posters and student work displayed throughout.",
               "layerType": "Classroom"
             },
             {
@@ -228,7 +228,7 @@
               "xCord": 601,
               "yCord": 1457,
               "roomNum": "105",
-              "description": "",
+              "description": "The classroom has a smart board at the front of the room, which the teacher uses to display lesson plans and interactive learning materials.",
               "layerType": "Classroom"
             },
             {
@@ -239,7 +239,7 @@
               "xCord": 1812,
               "yCord": 684,
               "roomNum": "110",
-              "description": "",
+              "description": "The classroom has a large chalkboard at the front of the room, which the teacher uses to write out notes and diagrams.",
               "layerType": "Classroom"
             },
             {
@@ -393,7 +393,7 @@
               "xCord": 1484,
               "yCord": 980,
               "roomNum": "100",
-              "description": "",
+              "description": "The Women Washroom",
               "layerType": "Washroom"
             },
             {
@@ -404,7 +404,7 @@
               "xCord": 2886,
               "yCord": 1416,
               "roomNum": "139",
-              "description": "",
+              "description": "The Women Washroom",
               "layerType": "Washroom"
             }
           ]
@@ -420,7 +420,7 @@
               "xCord": 1807,
               "yCord": 861,
               "roomNum": "204",
-              "description": "",
+              "description": "The classroom is filled with the hum of students quietly working on individual assignments.",
               "layerType": "Classroom"
             },
             {
@@ -431,7 +431,7 @@
               "xCord": 327,
               "yCord": 1277,
               "roomNum": "230",
-              "description": "",
+              "description": "24 Capacity, The workstations include Intel Core i5 processor; 16 GB RAM; SSD. The software included is Windows 10, Microsoft office 2016, Adobe CS 6, Audacity and Kompozer",
               "layerType": "Lab"
             },
             {
@@ -442,7 +442,7 @@
               "xCord": 493,
               "yCord": 1199,
               "roomNum": "235",
-              "description": "",
+              "description": "24 Capacity, The workstations include Intel Core i5 processor; 16 GB RAM; SSD. The software included is Windows 10, Microsoft office 2016, Adobe CS 6, Audacity and Kompozer",
               "layerType": "Lab"
             },
             {
@@ -453,7 +453,7 @@
               "xCord": 952,
               "yCord": 992,
               "roomNum": "240",
-              "description": "",
+              "description": "27 Capacity, The workstations include Intel Core i5 processor; 8 GB RAM; HDD. The software included is Windows 10, Microsoft office 2016, Adobe CS 6, Audacity and Kompozer",
               "layerType": "Lab"
             },
             {
@@ -464,7 +464,7 @@
               "xCord": 1226,
               "yCord": 904,
               "roomNum": "245",
-              "description": "",
+              "description": "30 Capacity, 28 general-purpose workstations with Intel Core i5; 16 GB RAM; SSD and 2 GPU workstations with Intel Core i7; 16 GB RAM; SSD, NVIDIA GeForce GTX 1060",
               "layerType": "Lab"
             },
             {
@@ -475,7 +475,7 @@
               "xCord": 673,
               "yCord": 1412,
               "roomNum": "220",
-              "description": "",
+              "description": "Capacity: 8, has conference table with 8 seats and a whiteboard",
               "layerType": "CollaborationSpace"
             },
             {
@@ -486,7 +486,7 @@
               "xCord": 697,
               "yCord": 1225,
               "roomNum": "239",
-              "description": "",
+              "description": "Capacity: 4, has conference table with 4 seats and a whiteboard",
               "layerType": "CollaborationSpace"
             },
             {
@@ -497,7 +497,7 @@
               "xCord": 1976,
               "yCord": 965,
               "roomNum": "Ta.208",
-              "description": "",
+              "description": "An Elevator",
               "layerType": "Elevator"
             },
             {
@@ -508,7 +508,7 @@
               "xCord": 2777,
               "yCord": 1350,
               "roomNum": "Ta.210",
-              "description": "",
+              "description": "An Elevator",
               "layerType": "Elevator"
             },
             {
@@ -563,7 +563,7 @@
               "xCord": 1493,
               "yCord": 1079,
               "roomNum": "205",
-              "description": "",
+              "description": "The Women Washroom",
               "layerType": "Washroom"
             },
             {
@@ -574,7 +574,7 @@
               "xCord": 2849,
               "yCord": 1429,
               "roomNum": "278",
-              "description": "",
+              "description": "A Washroom",
               "layerType": "Washroom"
             }
           ]
@@ -590,7 +590,7 @@
               "xCord": 1796,
               "yCord": 1155,
               "roomNum": "300",
-              "description": "",
+              "description": "Capacity 16, Seminar Room, Reconfigurable Tables, Motorized projection screen, Mobile whiteboard, A projector may be borrowed from the CS main office if required",
               "layerType": "Classroom"
             },
             {
@@ -601,7 +601,7 @@
               "xCord": 1122,
               "yCord": 1209,
               "roomNum": "316",
-              "description": "",
+              "description": "Capacity 30, Has PC(Windows), Projector, VGA/HDMI connectivity, AUdio speakers, motorized projection screen and whiteboards",
               "layerType": "Classroom"
             },
             {
@@ -612,7 +612,7 @@
               "xCord": 945,
               "yCord": 1323,
               "roomNum": "320",
-              "description": "",
+              "description": "Capacity 40, Has PC(windows, Projector, VGA / HDMI connectivity, Audio Speakers, Motorized projection screen, and whiteboards",
               "layerType": "Classroom"
             },
             {
@@ -623,7 +623,7 @@
               "xCord": 1344,
               "yCord": 792,
               "roomNum": 342,
-              "description": "",
+              "description": "20 Capacity, 16 Windows 10 PCs (Intel Core i5, 16 GB RAM; SSD), 2 Mac Minis (macOS Monterey 12.6, Intel Core i7; 16 GB RAM; SSD) 1 loT Station (HDMI connectivity to monitor, USB keyboard/mouse, USB and power outlets to power devices, Network switch), 7 eGPU units with NVIDEO GTX3090 Graphics cards",
               "layerType": "Lab"
             },
             {
@@ -634,7 +634,7 @@
               "xCord": 623,
               "yCord": 1490,
               "roomNum": "325",
-              "description": "",
+              "description": "Capacity 30, Has 3 x collaboratiion pods with 6 seats each, 3 x 50 NEC TVs, Multi-HDMI connectivity, Power connectivity, RFID room access",
               "layerType": "CollaborationSpace"
             },
             {
@@ -645,7 +645,7 @@
               "xCord": 1979,
               "yCord": 966,
               "roomNum": "Ta.306",
-              "description": "",
+              "description": "An Elevator",
               "layerType": "Elevator"
             },
             {
@@ -656,7 +656,7 @@
               "xCord": 2784,
               "yCord": 1348,
               "roomNum": "Ta.309",
-              "description": "",
+              "description": "An Elevator",
               "layerType": "Elevator"
             },
             {
@@ -711,7 +711,7 @@
               "xCord": 2234,
               "yCord": 1053,
               "roomNum": "388",
-              "description": "",
+              "description": "The Womens Washroom",
               "layerType": "Washroom"
             },
             {
@@ -722,7 +722,7 @@
               "xCord": 1494,
               "yCord": 1026,
               "roomNum": "311",
-              "description": "",
+              "description": "A Washroom, require further ",
               "layerType": "Washroom"
             }
           ]
@@ -737,9 +737,9 @@
               "builtInPOI": true,
               "xCord": 2779,
               "yCord": 1348,
-              "roomNum": "TA.401",
-              "description": "",
-              "layerType": "Elevator"
+              "roomNum": "Ta.401",
+              "description": "An Elevator",
+              "layerType": "ELevator"
             },
             {
               "name": "Stairway #3",
@@ -781,7 +781,7 @@
               "xCord": 776,
               "yCord": 702,
               "roomNum": "24",
-              "description": "",
+              "description": "The classroom has a collection of plants and greenery scattered throughout, which help to create a calming, natural atmosphere.",
               "layerType": "Classroom"
             },
             {
@@ -792,7 +792,7 @@
               "xCord": 780,
               "yCord": 865,
               "roomNum": "23",
-              "description": "",
+              "description": "The classroom has a reading corner, complete with comfortable chairs and a selection of books for students to peruse.",
               "layerType": "Classroom"
             },
             {
@@ -803,7 +803,7 @@
               "xCord": 777,
               "yCord": 1018,
               "roomNum": "22",
-              "description": "",
+              "description": "The classroom is brightly lit with fluorescent lights, which make it easy for students to read and work.",
               "layerType": "Classroom"
             },
             {
@@ -814,7 +814,7 @@
               "xCord": 777,
               "yCord": 1172,
               "roomNum": "21",
-              "description": "",
+              "description": "The classroom has a cozy, inviting feel, with soft lighting and warm colors on the walls.",
               "layerType": "Classroom"
             },
             {
@@ -825,7 +825,7 @@
               "xCord": 777,
               "yCord": 1330,
               "roomNum": "20",
-              "description": "",
+              "description": "The classroom is equipped with a range of modern technology, including computers, tablets, and projectors.",
               "layerType": "Classroom"
             },
             {
@@ -836,7 +836,7 @@
               "xCord": 777,
               "yCord": 1485,
               "roomNum": "19",
-              "description": "",
+              "description": "The classroom has a selection of musical instruments available for students to use during breaks or free time.",
               "layerType": "Classroom"
             },
             {
@@ -847,7 +847,7 @@
               "xCord": 1052,
               "yCord": 860,
               "roomNum": "18",
-              "description": "",
+              "description": "The classroom has a variety of educational posters and charts, covering topics such as grammar, mathematics, and science.",
               "layerType": "Classroom"
             },
             {
@@ -858,7 +858,7 @@
               "xCord": 1680,
               "yCord": 694,
               "roomNum": "17",
-              "description": "",
+              "description": "The classroom has a whiteboard at the front of the room, which the teacher uses to write out notes and draw diagrams.",
               "layerType": "Classroom"
             },
             {
@@ -869,7 +869,7 @@
               "xCord": 1758,
               "yCord": 1150,
               "roomNum": "16",
-              "description": "",
+              "description": "The classroom has a range of seating options available, including traditional desks and chairs, bean bags, and standing desks.",
               "layerType": "Classroom"
             },
             {
@@ -880,7 +880,7 @@
               "xCord": 1452,
               "yCord": 1441,
               "roomNum": "15A",
-              "description": "",
+              "description": "The classroom has a collection of art supplies, including paints, markers, and colored pencils, for students to use during art class.",
               "layerType": "Classroom"
             },
             {
@@ -891,7 +891,7 @@
               "xCord": 1846,
               "yCord": 1398,
               "roomNum": "14",
-              "description": "",
+              "description": "The classroom has a small kitchen area, where students can prepare snacks or meals during breaks.",
               "layerType": "Classroom"
             },
             {
@@ -902,7 +902,7 @@
               "xCord": 1584,
               "yCord": 1554,
               "roomNum": "11",
-              "description": "",
+              "description": "The classroom has a selection of board games and puzzles available for students to use during free time",
               "layerType": "Classroom"
             },
             {
@@ -995,7 +995,7 @@
               "xCord": 1838,
               "yCord": 1452,
               "roomNum": "100",
-              "description": "",
+              "description": "The classroom has a variety of plants and flowers on display, adding color and life to the space.",
               "layerType": "Classroom"
             },
             {
@@ -1006,7 +1006,7 @@
               "xCord": 1760,
               "yCord": 1676,
               "roomNum": "101",
-              "description": "",
+              "description": "The classroom is decorated with a variety of cultural and historical artifacts, celebrating diversity and promoting understanding.",
               "layerType": "Classroom"
             },
             {
@@ -1017,7 +1017,7 @@
               "xCord": 1766,
               "yCord": 621,
               "roomNum": "110",
-              "description": "",
+              "description": "The classroom is set up in a circular or semicircular arrangement, encouraging discussion and collaboration among students.",
               "layerType": "Classroom"
             },
             {
@@ -1028,7 +1028,7 @@
               "xCord": 1833,
               "yCord": 854,
               "roomNum": "111",
-              "description": "",
+              "description": "The classroom has a range of sensory tools available, including fidget toys and noise-cancelling headphones, to support students with sensory needs.",
               "layerType": "Classroom"
             },
             {
@@ -1039,7 +1039,7 @@
               "xCord": 1905,
               "yCord": 842,
               "roomNum": "112",
-              "description": "",
+              "description": "The classroom has a range of motivational posters and quotes on the walls, encouraging students to stay focused and work hard.",
               "layerType": "Classroom"
             },
             {
@@ -1050,7 +1050,7 @@
               "xCord": 1636,
               "yCord": 914,
               "roomNum": "106",
-              "description": "",
+              "description": "The classroom has a collection of maps and globes on display, promoting geographic literacy.",
               "layerType": "Classroom"
             },
             {
@@ -1061,7 +1061,7 @@
               "xCord": 1649,
               "yCord": 1095,
               "roomNum": "105",
-              "description": "",
+              "description": "The classroom has a range of comfortable seating options, such as rocking chairs and floor cushions, to support students who struggle with traditional seating.",
               "layerType": "Classroom"
             },
             {
@@ -1072,7 +1072,7 @@
               "xCord": 1637,
               "yCord": 1285,
               "roomNum": "104",
-              "description": "",
+              "description": "The classroom is equipped with a variety of science equipment, such as microscopes and lab coats, for conducting experiments.",
               "layerType": "Classroom"
             },
             {
@@ -1083,7 +1083,7 @@
               "xCord": 1209,
               "yCord": 1596,
               "roomNum": "113",
-              "description": "",
+              "description": "The classroom has a dedicated area for group work, with tables and chairs arranged in clusters to promote collaboration.",
               "layerType": "Classroom"
             },
             {
@@ -1094,7 +1094,7 @@
               "xCord": 1017,
               "yCord": 1612,
               "roomNum": "114",
-              "description": "",
+              "description": "The classroom has a variety of writing prompts and creative writing resources available, encouraging students to express themselves through writing.",
               "layerType": "Classroom"
             },
             {
@@ -1105,7 +1105,7 @@
               "xCord": 1035,
               "yCord": 1402,
               "roomNum": "115",
-              "description": "",
+              "description": "A spacious classroom with rows of wooden desks and a large blackboard at the front.",
               "layerType": "Classroom"
             },
             {
@@ -1116,7 +1116,7 @@
               "xCord": 1002,
               "yCord": 586,
               "roomNum": "117",
-              "description": "",
+              "description": "A modern lecture hall with tiered seating and state-of-the-art audiovisual equipment.",
               "layerType": "Classroom"
             },
             {
@@ -1127,7 +1127,7 @@
               "xCord": 1838,
               "yCord": 1452,
               "roomNum": "119",
-              "description": "",
+              "description": "An old-fashioned lecture room with high ceilings, ornate molding, and stained glass windows.",
               "layerType": "Classroom"
             },
             {
@@ -1285,7 +1285,7 @@
               "xCord": 1498,
               "yCord": 1638,
               "roomNum": "202",
-              "description": " ",
+              "description": " A lecture hall with a stage and a podium for the professor to lecture from.",
               "layerType": "Classroom"
             },
             {
@@ -1482,7 +1482,7 @@
               "xCord": 877,
               "yCord": 977,
               "roomNum": "1124",
-              "description": "",
+              "description": "A brightly lit classroom with colorful posters and whiteboards on the walls.",
               "layerType": "Classroom"
             },
             {
@@ -1493,7 +1493,7 @@
               "xCord": 801,
               "yCord": 1161,
               "roomNum": "1123",
-              "description": "",
+              "description": "A cozy lecture room with comfortable chairs",
               "layerType": "Classroom"
             },
             {
@@ -1504,7 +1504,7 @@
               "xCord": 847,
               "yCord": 1347,
               "roomNum": "1122",
-              "description": "",
+              "description": "A classroom with fluorescent lights and beige walls.",
               "layerType": "Classroom"
             },
             {
@@ -1515,7 +1515,7 @@
               "xCord": 860,
               "yCord": 1527,
               "roomNum": "1121",
-              "description": "",
+              "description": "A classroom with desks arranged in a circle for group discussions.",
               "layerType": "Classroom"
             },
             {
@@ -1526,7 +1526,7 @@
               "xCord": 824,
               "yCord": 1724,
               "roomNum": "1120",
-              "description": "",
+              "description": "A lecture room with multiple projectors and screens for multimedia presentations.",
               "layerType": "Classroom"
             },
             {
@@ -1537,7 +1537,7 @@
               "xCord": 867,
               "yCord": 1985,
               "roomNum": "1119",
-              "description": "",
+              "description": "A classroom with movable chairs and tables that can be reconfigured for different teaching styles.",
               "layerType": "Classroom"
             },
             {
@@ -1548,7 +1548,7 @@
               "xCord": 824,
               "yCord": 2192,
               "roomNum": "1118",
-              "description": "",
+              "description": "A lecture hall with individual computer stations for each student.",
               "layerType": "Classroom"
             },
             {
@@ -1559,7 +1559,7 @@
               "xCord": 855,
               "yCord": 2643,
               "roomNum": "1116",
-              "description": "",
+              "description": "A lecture room with a skylight that floods the room with natural light.",
               "layerType": "Classroom"
             },
             {
@@ -1570,7 +1570,7 @@
               "xCord": 1272,
               "yCord": 1033,
               "roomNum": "1126A",
-              "description": "",
+              "description": "A classroom with floor-to-ceiling windows overlooking a scenic campus view.",
               "layerType": "Classroom"
             },
             {
@@ -1581,7 +1581,7 @@
               "xCord": 1296,
               "yCord": 1250,
               "roomNum": "1126",
-              "description": "",
+              "description": "A lecture hall with a balcony overlooking the stage and seating area.",
               "layerType": "Classroom"
             },
             {
@@ -1592,7 +1592,7 @@
               "xCord": 1301,
               "yCord": 1422,
               "roomNum": "1127",
-              "description": "",
+              "description": "A lecture room with large paintings and sculptures on display.",
               "layerType": "Classroom"
             },
             {
@@ -1603,7 +1603,7 @@
               "xCord": 1267,
               "yCord": 1557,
               "roomNum": "1128",
-              "description": "",
+              "description": "A classroom with built-in bookshelves filled with textbooks and academic journals.",
               "layerType": "Classroom"
             },
             {
@@ -1614,7 +1614,7 @@
               "xCord": 1184,
               "yCord": 1669,
               "roomNum": "1129",
-              "description": "",
+              "description": "A lecture hall with a soundproof recording booth for recording lectures.",
               "layerType": "Classroom"
             },
             {
@@ -1625,7 +1625,7 @@
               "xCord": 1176,
               "yCord": 1794,
               "roomNum": "1130X",
-              "description": "",
+              "description": "A classroom with a chalkboard and chalk for traditional teaching methods.",
               "layerType": "Classroom"
             },
             {
@@ -1636,7 +1636,7 @@
               "xCord": 1296,
               "yCord": 1665,
               "roomNum": "1228A",
-              "description": "",
+              "description": "A lecture room with a projector that displays the professor's notes in real-time.",
               "layerType": "Classroom"
             },
             {
@@ -1647,7 +1647,7 @@
               "xCord": 1443,
               "yCord": 1665,
               "roomNum": "1131A",
-              "description": "",
+              "description": "A classroom with a collection of maps and globes for geography classes.",
               "layerType": "Classroom"
             },
             {
@@ -1658,7 +1658,7 @@
               "xCord": 1610,
               "yCord": 1724,
               "roomNum": "1132",
-              "description": "",
+              "description": "A lecture hall with a theater-style seating arrangement.",
               "layerType": "Classroom"
             },
             {
@@ -1669,7 +1669,7 @@
               "xCord": 1753,
               "yCord": 1662,
               "roomNum": "1135A",
-              "description": "",
+              "description": "A classroom with a piano for music classes.",
               "layerType": "Classroom"
             },
             {
@@ -1680,7 +1680,7 @@
               "xCord": 1752,
               "yCord": 1787,
               "roomNum": "1135B",
-              "description": "",
+              "description": "A lecture room with a video conferencing system for remote guest speakers.",
               "layerType": "Classroom"
             },
             {
@@ -1691,7 +1691,7 @@
               "xCord": 2039,
               "yCord": 1729,
               "roomNum": "1135X",
-              "description": "",
+              "description": "A classroom with an attached laboratory for science classes.",
               "layerType": "Classroom"
             },
             {
@@ -1702,7 +1702,7 @@
               "xCord": 1408,
               "yCord": 2140,
               "roomNum": "1113",
-              "description": "",
+              "description": "A lecture hall with a dimmer switch for customizable lighting.",
               "layerType": "Classroom"
             },
             {
@@ -1713,7 +1713,7 @@
               "xCord": 1406,
               "yCord": 2503,
               "roomNum": "1110",
-              "description": "",
+              "description": "A classroom with a separate breakout area for group work and collaboration.",
               "layerType": "Classroom"
             },
             {
@@ -1724,7 +1724,7 @@
               "xCord": 1554,
               "yCord": 2148,
               "roomNum": "1112",
-              "description": "",
+              "description": "A classroom with a separate breakout area for group work and collaboration.",
               "layerType": "Classroom"
             },
             {
@@ -1735,7 +1735,7 @@
               "xCord": 2085,
               "yCord": 2147,
               "roomNum": "1109",
-              "description": "",
+              "description": "A lecture room with a document camera for displaying written notes or diagrams.",
               "layerType": "Classroom"
             },
             {
@@ -1746,7 +1746,7 @@
               "xCord": 2021,
               "yCord": 2510,
               "roomNum": "1105",
-              "description": "",
+              "description": "A classroom with adjustable heating and cooling for optimal comfort.",
               "layerType": "Classroom"
             },
             {
@@ -1757,7 +1757,7 @@
               "xCord": 2281,
               "yCord": 2218,
               "roomNum": "1109A",
-              "description": "",
+              "description": "A lecture hall with a built-in microphone system for large lectures",
               "layerType": "Classroom"
             },
             {
@@ -1768,7 +1768,7 @@
               "xCord": 2280,
               "yCord": 2448,
               "roomNum": "1100B",
-              "description": "",
+              "description": "A classroom with a bulletin board for announcements and class schedules.",
               "layerType": "Classroom"
             },
             {
@@ -1779,7 +1779,7 @@
               "xCord": 2421,
               "yCord": 2166,
               "roomNum": "1100X",
-              "description": "",
+              "description": "A lecture room with a green screen for digital visual effects.",
               "layerType": "Classroom"
             },
             {
@@ -1790,7 +1790,7 @@
               "xCord": 2426,
               "yCord": 2392,
               "roomNum": "1100A",
-              "description": "",
+              "description": "A classroom with a chalkboard painted on one wall for creative brainstorming.",
               "layerType": "Classroom"
             },
             {
@@ -1801,7 +1801,7 @@
               "xCord": 2430,
               "yCord": 2683,
               "roomNum": "1100C",
-              "description": "",
+              "description": "A lecture hall with a built-in translation system for international students.",
               "layerType": "Classroom"
             },
             {
@@ -1812,7 +1812,7 @@
               "xCord": 3272,
               "yCord": 1748,
               "roomNum": "1203",
-              "description": "",
+              "description": "A classroom with a refreshment area for coffee breaks and snacks.",
               "layerType": "Classroom"
             },
             {
@@ -1823,7 +1823,7 @@
               "xCord": 3545,
               "yCord": 1549,
               "roomNum": "1301",
-              "description": "",
+              "description": "A lecture room with a partition wall for dividing the room into smaller sections.",
               "layerType": "Classroom"
             },
             {
@@ -1834,7 +1834,7 @@
               "xCord": 3544,
               "yCord": 1188,
               "roomNum": "1304",
-              "description": "",
+              "description": "A classroom with an interactive smart board for engaging multimedia lessons.",
               "layerType": "Classroom"
             },
             {
@@ -1845,7 +1845,7 @@
               "xCord": 3541,
               "yCord": 1008,
               "roomNum": "1305",
-              "description": "",
+              "description": "A lecture hall with a movable stage for theatrical performances or presentations.",
               "layerType": "Classroom"
             },
             {
@@ -1856,7 +1856,7 @@
               "xCord": 3511,
               "yCord": 630,
               "roomNum": "1306",
-              "description": "",
+              "description": "A classroom with a dedicated art station for sketching and drawing.",
               "layerType": "Classroom"
             },
             {
@@ -1867,7 +1867,7 @@
               "xCord": 3641,
               "yCord": 431,
               "roomNum": "1307",
-              "description": "",
+              "description": "A lecture room with a built-in stage for musical performances or speeches.",
               "layerType": "Classroom"
             },
             {
@@ -1878,7 +1878,7 @@
               "xCord": 3900,
               "yCord": 444,
               "roomNum": "1308",
-              "description": "",
+              "description": "A classroom with a collection of historical artifacts and cultural objects for anthropology classes.",
               "layerType": "Classroom"
             },
             {
@@ -1889,7 +1889,7 @@
               "xCord": 4059,
               "yCord": 449,
               "roomNum": "1309",
-              "description": "",
+              "description": "A lecture hall with a built-in sound system for music classes or performances.",
               "layerType": "Classroom"
             },
             {
@@ -1900,7 +1900,7 @@
               "xCord": 4177,
               "yCord": 446,
               "roomNum": "1310",
-              "description": "",
+              "description": "A classroom with a garden area for botany or environmental science classes.",
               "layerType": "Classroom"
             },
             {
@@ -1911,7 +1911,7 @@
               "xCord": 4469,
               "yCord": 512,
               "roomNum": "1311",
-              "description": "",
+              "description": "A lecture room with a built-in camera for recording lectures or online classes.",
               "layerType": "Classroom"
             },
             {
@@ -1922,7 +1922,7 @@
               "xCord": 4346,
               "yCord": 741,
               "roomNum": "1314",
-              "description": "",
+              "description": "A classroom with a wall-mounted map of the world for geography or history classes.",
               "layerType": "Classroom"
             },
             {
@@ -1933,7 +1933,7 @@
               "xCord": 3971,
               "yCord": 819,
               "roomNum": "1314A",
-              "description": "",
+              "description": "A lecture hall with a movable partition wall for customizing seating arrangements.",
               "layerType": "Classroom"
             },
             {
@@ -1944,7 +1944,7 @@
               "xCord": 3818,
               "yCord": 697,
               "roomNum": "1316Y",
-              "description": "",
+              "description": "A classroom with an attached kitchen for cooking or culinary classes.",
               "layerType": "Classroom"
             },
             {
@@ -1955,7 +1955,7 @@
               "xCord": 3955,
               "yCord": 988,
               "roomNum": "1316X",
-              "description": "",
+              "description": "A lecture room with a large clock on the wall for keeping track of time.",
               "layerType": "Classroom"
             },
             {
@@ -1966,7 +1966,7 @@
               "xCord": 3818,
               "yCord": 1008,
               "roomNum": "1317",
-              "description": "",
+              "description": "A classroom with a dedicated area for yoga or meditation.",
               "layerType": "Classroom"
             },
             {
@@ -1977,7 +1977,7 @@
               "xCord": 3969,
               "yCord": 1289,
               "roomNum": "1318",
-              "description": "",
+              "description": "A lecture hall with a projector that can display 3D models or animations.",
               "layerType": "Classroom"
             },
             {
@@ -1988,7 +1988,7 @@
               "xCord": 3951,
               "yCord": 1560,
               "roomNum": "1319",
-              "description": "",
+              "description": "A spacious classroom with rows of wooden desks and a large blackboard at the front.",
               "layerType": "Classroom"
             },
             {
@@ -1999,7 +1999,7 @@
               "xCord": 3961,
               "yCord": 1771,
               "roomNum": "1320",
-              "description": "",
+              "description": "A modern lecture hall with tiered seating and state-of-the-art audiovisual equipment.",
               "layerType": "Classroom"
             },
             {
@@ -2010,7 +2010,7 @@
               "xCord": 4346,
               "yCord": 1803,
               "roomNum": "1214",
-              "description": "",
+              "description": "An old-fashioned lecture room with high ceilings, ornate molding, and stained glass windows.",
               "layerType": "Classroom"
             },
             {
@@ -2021,7 +2021,7 @@
               "xCord": 4704,
               "yCord": 1764,
               "roomNum": "1401A",
-              "description": "",
+              "description": "A brightly lit classroom with colorful posters and whiteboards on the walls.",
               "layerType": "Classroom"
             },
             {
@@ -2032,7 +2032,7 @@
               "xCord": 5134,
               "yCord": 1856,
               "roomNum": "1401",
-              "description": "",
+              "description": "A cozy lecture room with comfortable chairs and a fireplace.",
               "layerType": "Classroom"
             },
             {
@@ -2043,7 +2043,7 @@
               "xCord": 5771,
               "yCord": 1982,
               "roomNum": "1405",
-              "description": "",
+              "description": "A windowless classroom with fluorescent lights and beige walls.",
               "layerType": "Classroom"
             },
             {
@@ -2054,7 +2054,7 @@
               "xCord": 5918,
               "yCord": 1497,
               "roomNum": "1412",
-              "description": "",
+              "description": "A lecture hall with a stage and a podium for the professor to lecture from.",
               "layerType": "Classroom"
             },
             {
@@ -2065,7 +2065,7 @@
               "xCord": 6085,
               "yCord": 1678,
               "roomNum": "1411",
-              "description": "",
+              "description": "A circular classroom with desks arranged in a circle for group discussions.",
               "layerType": "Classroom"
             },
             {
@@ -2076,7 +2076,7 @@
               "xCord": 6094,
               "yCord": 1994,
               "roomNum": "1410",
-              "description": "",
+              "description": "A circular classroom with desks arranged in a circle for group discussions.",
               "layerType": "Classroom"
             },
             {
@@ -2087,7 +2087,7 @@
               "xCord": 6089,
               "yCord": 2218,
               "roomNum": "1419",
-              "description": "",
+              "description": "A lecture room with multiple projectors and screens for multimedia presentations.",
               "layerType": "Classroom"
             },
             {
@@ -2098,7 +2098,7 @@
               "xCord": 6090,
               "yCord": 2359,
               "roomNum": "1420",
-              "description": "",
+              "description": "A classroom with movable chairs and tables that can be reconfigured for different teaching styles.",
               "layerType": "Classroom"
             },
             {
@@ -2109,7 +2109,7 @@
               "xCord": 6077,
               "yCord": 2479,
               "roomNum": "1421",
-              "description": "",
+              "description": "A lecture hall with individual computer stations for each student.",
               "layerType": "Classroom"
             },
             {
@@ -2120,7 +2120,7 @@
               "xCord": 6069,
               "yCord": 2614,
               "roomNum": "1422",
-              "description": "",
+              "description": "A lecture room with a skylight that floods the room with natural light.",
               "layerType": "Classroom"
             },
             {
@@ -2131,7 +2131,7 @@
               "xCord": 6096,
               "yCord": 2777,
               "roomNum": "1423",
-              "description": "",
+              "description": "A classroom with floor-to-ceiling windows overlooking a scenic campus view.",
               "layerType": "Classroom"
             },
             {
@@ -2142,7 +2142,7 @@
               "xCord": 5890,
               "yCord": 2821,
               "roomNum": "1424",
-              "description": "",
+              "description": "A lecture hall with a balcony overlooking the stage and seating area.",
               "layerType": "Classroom"
             },
             {
@@ -2153,7 +2153,7 @@
               "xCord": 5701,
               "yCord": 2774,
               "roomNum": "1425",
-              "description": "",
+              "description": "A lecture room with large paintings and sculptures on display.",
               "layerType": "Classroom"
             },
             {
@@ -2164,7 +2164,7 @@
               "xCord": 5734,
               "yCord": 2606,
               "roomNum": "1426",
-              "description": "",
+              "description": "A classroom with built-in bookshelves filled with textbooks and academic journals.",
               "layerType": "Classroom"
             },
             {
@@ -2175,7 +2175,7 @@
               "xCord": 5729,
               "yCord": 2374,
               "roomNum": "1430",
-              "description": "",
+              "description": "A lecture hall with a soundproof recording booth for recording lectures.",
               "layerType": "Classroom"
             },
             {
@@ -2186,7 +2186,7 @@
               "xCord": 5811,
               "yCord": 2253,
               "roomNum": "1429X",
-              "description": "",
+              "description": "A lecture room with a projector that displays the professor's notes in real-time",
               "layerType": "Classroom"
             },
             {
@@ -2197,7 +2197,7 @@
               "xCord": 5412,
               "yCord": 2305,
               "roomNum": "1431",
-              "description": "",
+              "description": "A classroom with a chalkboard and chalk for traditional teaching methods.",
               "layerType": "Classroom"
             },
             {
@@ -2208,7 +2208,7 @@
               "xCord": 4944,
               "yCord": 2294,
               "roomNum": "1433",
-              "description": "",
+              "description": "A classroom with a collection of maps and globes for geography classes.",
               "layerType": "Classroom"
             },
             {
@@ -2219,7 +2219,7 @@
               "xCord": 4446,
               "yCord": 2072,
               "roomNum": "1437",
-              "description": "",
+              "description": "A lecture hall with a theater-style seating arrangement.",
               "layerType": "Classroom"
             },
             {
@@ -2230,7 +2230,7 @@
               "xCord": 4255,
               "yCord": 2152,
               "roomNum": "1217",
-              "description": "",
+              "description": "A classroom with a piano for music classes.",
               "layerType": "Classroom"
             },
             {
@@ -2241,7 +2241,7 @@
               "xCord": 3874,
               "yCord": 2326,
               "roomNum": "1220",
-              "description": "",
+              "description": "A lecture room with a video conferencing system for remote guest speakers.",
               "layerType": "Classroom"
             },
             {
@@ -2252,7 +2252,7 @@
               "xCord": 3997,
               "yCord": 2764,
               "roomNum": "1220A",
-              "description": "",
+              "description": "A classroom with an attached laboratory for science classes.",
               "layerType": "Classroom"
             },
             {
@@ -2263,7 +2263,7 @@
               "xCord": 3845,
               "yCord": 2766,
               "roomNum": "1220B",
-              "description": "",
+              "description": "A lecture hall with a dimmer switch for customizable lighting.",
               "layerType": "Classroom"
             },
             {
@@ -2274,7 +2274,7 @@
               "xCord": 3543,
               "yCord": 2043,
               "roomNum": "1225X",
-              "description": "",
+              "description": "A classroom with a separate breakout area for group work and collaboration.",
               "layerType": "Classroom"
             },
             {
@@ -2285,7 +2285,7 @@
               "xCord": 3107,
               "yCord": 2325,
               "roomNum": "1225",
-              "description": "",
+              "description": "A lecture room with a document camera for displaying written notes or diagrams.",
               "layerType": "Classroom"
             },
             {
@@ -2296,7 +2296,7 @@
               "xCord": 2787,
               "yCord": 2223,
               "roomNum": "1230",
-              "description": "",
+              "description": "A classroom with adjustable heating and cooling for optimal comfort.",
               "layerType": "Classroom"
             },
             {
@@ -2307,7 +2307,7 @@
               "xCord": 2575,
               "yCord": 2346,
               "roomNum": "1230A",
-              "description": "",
+              "description": "A lecture hall with a built-in microphone system for large lectures.",
               "layerType": "Classroom"
             },
             {

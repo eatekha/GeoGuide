@@ -426,6 +426,56 @@ public class mainMapsController {
             }
         }
     }
+//        JSONArray userPOIs = (JSONArray) userInstance.get("userPOIs");
+//        JSONArray favList = (JSONArray) userInstance.get("favourites");
+//        JSONObject userTmpObj;
+//        JSONObject builtTmpObj;
+//        JSONArray tmpArray;
+//        JSONArray poiList;
+//        for (int k = 0; k < userPOIs.size(); k++) {
+//            userTmpObj = (JSONObject) userPOIs.get(k);
+//            for (int n = 0; n < buildingDataFile.size(); n++) {
+//                builtTmpObj = (JSONObject) buildingDataFile.get(n);
+//                if (userTmpObj.get("building").equals(builtTmpObj.get("Building").toString())){
+//                    tmpArray = (JSONArray) builtTmpObj.get("floors");
+//                    for (int f = 0; f < tmpArray.size(); f++){
+//                        builtTmpObj = (JSONObject) tmpArray.get(f);
+//                        if (Integer.parseInt(userTmpObj.get("floorNum").toString()) == f){
+//                            poiList = (JSONArray) builtTmpObj.get("pointsOfInterest");
+////                            System.out.println(k);
+////                            System.out.println(n);
+////                            System.out.println(f);
+//
+//                            editHelper.createPOI(poiList);
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        for (int k = 0; k < favList.size(); k++) {
+//            userTmpObj = (JSONObject) favList.get(k);
+//            for (int n = 0; n < buildingDataFile.size(); n++) {
+//                builtTmpObj = (JSONObject) buildingDataFile.get(0);
+//                if (userTmpObj.get("building").equals(builtTmpObj.get("Building").toString())){
+//                    tmpArray = (JSONArray) builtTmpObj.get("floors");
+//                    for (int f = 0; f < tmpArray.size(); f++){
+//                        builtTmpObj = (JSONObject) tmpArray.get(f);
+//                        if (Integer.parseInt(userTmpObj.get("floorNum").toString()) == f){
+//                            poiList = (JSONArray) builtTmpObj.get("pointsOfInterest");
+//                            for (int p = 0; p < poiList.size(); p++){
+//                                JSONObject curPoi = (JSONObject) poiList.get(p);
+//                                if (curPoi.get("name").equals(userTmpObj.get("name")) && curPoi.get("roomNum").equals(userTmpObj.get("roomNum"))){
+//                                    editHelper.toggleFavourite(currentBuildingData.get("Building").toString(), currentFloorIndex, curPoi, true);
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+
+
 
     /**
      * Launches the "edit building" GUI, allowing the user to modify the details of a building.
