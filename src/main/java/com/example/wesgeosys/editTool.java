@@ -126,13 +126,35 @@ public class editTool {
         }
     }
 
+    public void createPOI(JSONArray poiList,double x, double y, String name) {
+       x= Math.floor(x);
+       y= Math.floor(y);
+       x= (int)x;
+       y= (int)y;
+        JSONObject defaultPOI = new JSONObject();
+        defaultPOI.put("layerType", "Default");
+        defaultPOI.put("visibility", true);
+        defaultPOI.put("favourite", false);
+        defaultPOI.put("description", "DefaultDescription");
+        defaultPOI.put("name", name);
+        defaultPOI.put("xCord", x);
+        defaultPOI.put("yCord", y);
+        defaultPOI.put("roomNum", "DefaultRoomNum");
+        if (adminPerms) {
+            defaultPOI.put("builtInPOI", true);
+        } else {
+            defaultPOI.put("builtInPOI", false);
+        }
+        poiList.add(0, defaultPOI);
+        persistData();
+    }
     public void createPOI(JSONArray poiList) {
         JSONObject defaultPOI = new JSONObject();
         defaultPOI.put("layerType", "Default");
         defaultPOI.put("visibility", true);
         defaultPOI.put("favourite", false);
         defaultPOI.put("description", "DefaultDescription");
-        defaultPOI.put("name", "Default POI Name");
+        defaultPOI.put("name", "name");
         defaultPOI.put("xCord", 0);
         defaultPOI.put("yCord", 0);
         defaultPOI.put("roomNum", "DefaultRoomNum");
@@ -144,7 +166,6 @@ public class editTool {
         poiList.add(0, defaultPOI);
         persistData();
     }
-
 
     public void modifyPOI(JSONObject poi, String newName, String newDescription, int newX, int newY, String newRoomNum, String newLayerType) {
         if (poi.get("builtInPOI").equals(true)) {
@@ -204,7 +225,7 @@ public class editTool {
     }
 
 
-    public void addUserPOI(String buildName, int floorNum) {
+    public void addUserPOI(String buildName, int floorNum,double x, double y, String name) {
         JSONObject userObj;
         for (int n = 0; n < accountData.size(); n++) {
             userObj = (JSONObject) accountData.get(n);
@@ -216,16 +237,18 @@ public class editTool {
                     JSONObject defaultPOI = new JSONObject();
                     defaultPOI.put("building", buildName);
                     defaultPOI.put("floorNum", floorNum);
-                    defaultPOI.put("name", "Default POI Name");
+                    defaultPOI.put("name", (name+": newPOI"));
                     defaultPOI.put("description", "DefaultDescrip");
                     defaultPOI.put("roomNum", "DefaultRoomNum");
                     defaultPOI.put("layerType", "Default");
                     defaultPOI.put("visibility", true);
                     defaultPOI.put("favourite", false);
                     defaultPOI.put("builtInPOI", false);
-                    defaultPOI.put("xCord", 0);
-                    defaultPOI.put("yCord", 0);
-                    poiList.add(0, defaultPOI);
+                    defaultPOI.put("xCord", x);
+                    defaultPOI.put("yCord", y);
+                    System.out.println(defaultPOI.toString());
+                    poiList.add(0,defaultPOI);
+
                     persistData();
                 }
             }

@@ -166,11 +166,17 @@ public class mainMapsController {
         favDropdown.setValue("");
         layersDropdown.setOnAction(layerDropdownHandler);
         favDropdown.setOnAction(favDropdownHandler);
+        int  indexVal;
         if (poiDropdown.getValue() != null) {
             String string = poiDropdown.getValue().toString();
+            if (string.contains(":")){
             String[] poiData = string.split(":");
-            int indexVal = searchUtility.getPointOfInterestIndex(currentPOIList, poiData[0], poiData[1]);
+             indexVal = searchUtility.getPointOfInterestIndex(currentPOIList, poiData[0], poiData[1]);}
+            else
+                indexVal = searchUtility.getPointOfInterestIndex(currentPOIList,newName,null);
+            System.out.println(indexVal);
             currentPOI = (JSONObject) currentPOIList.get(indexVal);
+            System.out.println(currentPOI.toString());
             String layerType = currentPOI.get("layerType").toString();
             try {
                 String imageName = "Icon Image - " + layerType + ".png";
@@ -426,54 +432,7 @@ public class mainMapsController {
             }
         }
     }
-//        JSONArray userPOIs = (JSONArray) userInstance.get("userPOIs");
-//        JSONArray favList = (JSONArray) userInstance.get("favourites");
-//        JSONObject userTmpObj;
-//        JSONObject builtTmpObj;
-//        JSONArray tmpArray;
-//        JSONArray poiList;
-//        for (int k = 0; k < userPOIs.size(); k++) {
-//            userTmpObj = (JSONObject) userPOIs.get(k);
-//            for (int n = 0; n < buildingDataFile.size(); n++) {
-//                builtTmpObj = (JSONObject) buildingDataFile.get(n);
-//                if (userTmpObj.get("building").equals(builtTmpObj.get("Building").toString())){
-//                    tmpArray = (JSONArray) builtTmpObj.get("floors");
-//                    for (int f = 0; f < tmpArray.size(); f++){
-//                        builtTmpObj = (JSONObject) tmpArray.get(f);
-//                        if (Integer.parseInt(userTmpObj.get("floorNum").toString()) == f){
-//                            poiList = (JSONArray) builtTmpObj.get("pointsOfInterest");
-////                            System.out.println(k);
-////                            System.out.println(n);
-////                            System.out.println(f);
-//
-//                            editHelper.createPOI(poiList);
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        for (int k = 0; k < favList.size(); k++) {
-//            userTmpObj = (JSONObject) favList.get(k);
-//            for (int n = 0; n < buildingDataFile.size(); n++) {
-//                builtTmpObj = (JSONObject) buildingDataFile.get(0);
-//                if (userTmpObj.get("building").equals(builtTmpObj.get("Building").toString())){
-//                    tmpArray = (JSONArray) builtTmpObj.get("floors");
-//                    for (int f = 0; f < tmpArray.size(); f++){
-//                        builtTmpObj = (JSONObject) tmpArray.get(f);
-//                        if (Integer.parseInt(userTmpObj.get("floorNum").toString()) == f){
-//                            poiList = (JSONArray) builtTmpObj.get("pointsOfInterest");
-//                            for (int p = 0; p < poiList.size(); p++){
-//                                JSONObject curPoi = (JSONObject) poiList.get(p);
-//                                if (curPoi.get("name").equals(userTmpObj.get("name")) && curPoi.get("roomNum").equals(userTmpObj.get("roomNum"))){
-//                                    editHelper.toggleFavourite(currentBuildingData.get("Building").toString(), currentFloorIndex, curPoi, true);
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
+
 
 
 
@@ -517,19 +476,6 @@ public class mainMapsController {
     protected void insertPOI() {
         displayAlert();
         addPOIIcon = true;
-        JSONObject temporaryObject;
-        if (adminAccess) {
-            editHelper.createPOI(currentPOIList);
-            temporaryObject = (JSONObject) currentPOIList.get(0);
-            poiDropdown.getItems().add(temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
-        } else {
-            editHelper.createPOI(currentPOIList);
-            editHelper.createPOI((JSONArray) userInstance.get("userPOIs"));
-            editHelper.addUserPOI(currentBuildingData.get("Building").toString(), currentFloorIndex);
-            JSONArray temporaryArray = (JSONArray) userInstance.get("userPOIs");
-            temporaryObject = (JSONObject) temporaryArray.get(0);
-            poiDropdown.getItems().add("(User)" + temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
-        }
     }
 
     /**
@@ -877,12 +823,24 @@ public class mainMapsController {
             stage.setTitle("Add POI");
             stage.setScene(scene);
             stage.showAndWait();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        int newX = (int) xCoordinate;
-        int newY = (int) yCoordinate;
-        System.out.println(newName);
+        if (adminAccess) {
+            editHelper.createPOI(currentPOIList);
+            JSONObject temporaryObject;
+            temporaryObject = (JSONObject) currentPOIList.get(0);
+            poiDropdown.getItems().add(temporaryObject.get("name") + ":" + temporaryObject.get("roomNum"));
+        } else {
+            JSONObject temporaryObject;
+            editHelper.createPOI(currentPOIList,xCoordinate,yCoordinate,newName);
+            editHelper.createPOI((JSONArray) userInstance.get("userPOIs"));
+            editHelper.addUserPOI(currentBuildingData.get("Building").toString(), currentFloorIndex,xCoordinate,yCoordinate,newName);
+            JSONArray temporaryArray = (JSONArray) userInstance.get("userPOIs");
+            temporaryObject = (JSONObject) temporaryArray.get(0);
+            poiDropdown.getItems().add(newName);
+        }
         adminPanel.getChildren().remove(placedIcon);
         addPOIIcon = false;
     }

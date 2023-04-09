@@ -3,6 +3,8 @@ package com.example.wesgeosys;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.Objects;
+
 /**
  * The searchHelperTool class provides helper methods for searching through JSON data structures containing information about buildings, floors, and points of interest (POI).
  * This class is designed to be used in conjunction with other classes and methods that work with JSON data in a similar format.
@@ -22,7 +24,9 @@ public class searchHelperTool {
     public int getCoordinates(String XY, JSONObject poi) {
         String key = XY.equals("X") ? "xCord" : "yCord";
         String string = poi.get(key).toString();
-        int i = Integer.parseInt(string);
+        System.out.println(XY);
+        double a = Integer.parseInt(string);
+        int i= (int)Math.floor(a);
         return i;
     }
 
@@ -76,6 +80,11 @@ public class searchHelperTool {
             temporaryObject = (JSONObject) poiList.get(n);
             String poiName = temporaryObject.get("name").toString();
             String poiRoomNum = temporaryObject.get("roomNum").toString();
+            System.out.println(poiName);
+            System.out.println(name);
+            if (roomNum==null&& poiName.equals(name))
+                return n;
+                else
             if ((poiName.equals(name) || ("(User)" + poiName).equals(name)) && poiRoomNum.equals(roomNum)) {
                 return n;
             }
