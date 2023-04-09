@@ -20,7 +20,6 @@
 - Eseosa Atekha
 
 # LOGIN DETAILS
-
 - Usernames (Editing Account):
 - "NigerianPrince" 
 - "YemeniArtifact"
@@ -34,5 +33,9 @@
 - Password (for all usernames):
 - "password"
 
+# HOW TO OPERATE
+- Please select the logControllerGUI.java file and input the valid login details above.
 
-
+# NOTE
+- The codebase features JavaDocs for all files; however, generating documentation posed consistent challenges. 
+- Despite attempts to force a JavaDocs file for the entire project, this was not achievable due to the integration of packages such as JSON.simple, resulting in a decision to forego generating the documentation to avoid introducing further errors.
