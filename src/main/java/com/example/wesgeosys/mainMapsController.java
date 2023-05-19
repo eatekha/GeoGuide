@@ -110,26 +110,6 @@ public class mainMapsController {
     double xCoordinate;
     double yCoordinate;
 
-    /**
-     * Logs out the current user and displays the login page.
-     *
-     * @throws IOException If an I/O error occurs when opening the login page.
-     */
-    @FXML
-    protected void handleLogout() throws IOException {
-        try {
-            Stage stage = (Stage) adminPanel.getScene().getWindow();
-            stage.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(logControllerGUI.class.getResource("logGUI.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 391.0, 322.0);
-            Stage newLogin = new Stage();
-            newLogin.setTitle("Login Page");
-            newLogin.setScene(scene);
-            newLogin.show();
-        } catch (Exception e) {
-            displayError(e);
-        }
-    }
 
     /**
      * Displays the help pop-up window with information on how to use the application.

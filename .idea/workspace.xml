@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6244fc1a-fbec-4307-8bb9-987c7d01fc16" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/wgis_group23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wesgeosys/accountData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wesgeosys/accountData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wesgeosys/editTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wesgeosys/editTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wesgeosys/mainMapsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wesgeosys/mainMapsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wesgeosys/searchHelperTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wesgeosys/searchHelperTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/accountClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/accountClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addBuildingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addBuildingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addBuildingControllerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addBuildingControllerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addBuildingGUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addFloorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addFloorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addFloorControllerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addFloorControllerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addPOIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addPOIController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addPOIControllerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/addPOIControllerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/admMapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/admMapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/admMapsControllerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/admMapsControllerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editBuildingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editBuildingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editBuildingControllerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editBuildingControllerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editPOIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editPOIController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editPOIControllerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editPOIControllerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editTool$layerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/editTool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/logController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/logController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/logControllerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/logControllerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/mainMapLaunch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/mainMapLaunch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/mainMapsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/mainMapsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/popupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/popupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/searchHelperTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/searchHelperTool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/signupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/signupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/signupControllerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/signupControllerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/weatherReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/wesgeosys/weatherReport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/editToolTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/searchHelperToolTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/signupControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/weatherReportTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wesgeoSys.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2PzLH2vPhDmWTHZqWfH3yaxoAYi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager">
+    <configuration name="logControllerGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.wesgeosys.logControllerGUI" />
+      <module name="wesgeoSys" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.wesgeosys.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.logControllerGUI" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6244fc1a-fbec-4307-8bb9-987c7d01fc16" name="Changes" comment="" />
+      <created>1684454872432</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684454872432</updated>
+      <workItem from="1684454874430" duration="2562000" />
+      <workItem from="1684524823691" duration="1565000" />
+      <workItem from="1684526781374" duration="227000" />
+      <workItem from="1684527025114" duration="108000" />
+      <workItem from="1684527151207" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="047163ac-bd97-4f83-97fd-9a763fefb588">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="047163ac-bd97-4f83-97fd-9a763fefb588" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

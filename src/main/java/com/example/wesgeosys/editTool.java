@@ -19,18 +19,6 @@ public class editTool {
 
     protected JSONArray accountData;
 
-    final String finalAdminName = "Admin";
-
-    enum layerType {
-        Class,
-        Lab,
-        CollaborationSpace,
-        Washroom,
-        Elevator,
-        Navigation,
-        Default,
-    }
-
     public editTool(JSONArray buildings, String username, Boolean admin) {
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("src/main/java/com/example/wesgeosys/accountData.json")) {
@@ -246,7 +234,6 @@ public class editTool {
                     defaultPOI.put("builtInPOI", false);
                     defaultPOI.put("xCord", x);
                     defaultPOI.put("yCord", y);
-                    System.out.println(defaultPOI.toString());
                     poiList.add(0,defaultPOI);
 
                     persistData();

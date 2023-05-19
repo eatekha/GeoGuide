@@ -24,7 +24,6 @@ public class searchHelperTool {
     public int getCoordinates(String XY, JSONObject poi) {
         String key = XY.equals("X") ? "xCord" : "yCord";
         String string = poi.get(key).toString();
-        System.out.println(XY);
         double a = Integer.parseInt(string);
         int i= (int)Math.floor(a);
         return i;
@@ -80,8 +79,7 @@ public class searchHelperTool {
             temporaryObject = (JSONObject) poiList.get(n);
             String poiName = temporaryObject.get("name").toString();
             String poiRoomNum = temporaryObject.get("roomNum").toString();
-            System.out.println(poiName);
-            System.out.println(name);
+
             if (roomNum==null&& poiName.equals(name))
                 return n;
                 else

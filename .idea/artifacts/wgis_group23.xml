@@ -1,6 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="wgis_group23">
-    <output-path>$PROJECT_DIR$/out/artifacts/wgis_group23</output-path>
-    <root id="archive" name="wgis_group23.jar" />
-  </artifact>
-</component>
