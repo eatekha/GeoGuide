@@ -13,22 +13,18 @@
 - NOTE: Users will require internet access to receive current weather data
 
 # COLLABORATORS
+- Eseosa Atekha
 - Zeshan Ahmed
 - Nasri Hussain
 - Izum Adnan
 - Hansel Ifechukwude Awogu 
-- Eseosa Atekha
 
 # LOGIN DETAILS
-- Usernames (Editing Account):
-- "NigerianPrince" 
-- "YemeniArtifact"
-- "Chumaki"
-
 - Usernames (Main Account):
 - "Hansel" 
 - "Zeshan"
 - "Izum"
+- "Eseosa"
 
 - Password (for all usernames):
 - "password"
