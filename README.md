@@ -1,3 +1,7 @@
+![image](https://github.com/eatekha/GeoGuide/assets/77559961/f7eb16df-cad0-4a6b-992c-f6ec432fc874)
+
+
+
 # INTRODUCTION
 - Western University has created floor plans for all its buildings to help people navigate inside them. 
 - Although the main purpose of these maps is to help people with disabilities find accessible features on campus, they can also be useful for anyone who wants to find a specific room.
