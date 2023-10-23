@@ -1,4 +1,4 @@
-![image](https://github.com/eatekha/GeoGuide/assets/77559961/1bdd20f9-e8cd-4e93-9a54-218ffa89acf2)
+![Uploading image.png…]()
 
 
 
